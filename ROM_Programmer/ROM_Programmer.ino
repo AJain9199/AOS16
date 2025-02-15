@@ -21,6 +21,12 @@ const uint16_t CHIP_ID_ENTRY[][2] {
   {0x5555, 0x90}
 };
 
+const uint16_t CHIP_ID_EXIT[][2] {
+  {0x5555, 0xAA},
+  {0x2AAA, 0x55},
+  {0x5555, 0xF0}
+};
+
 void setAddr(uint16_t addr) {
   digitalWrite(LATCH, LOW);
   shiftOut(DATA, CLK, MSBFIRST, (uint8_t)(addr >> 8));
@@ -42,6 +48,8 @@ byte dataIn() {
   // DDRD &= 0b00000011;
   // DDRB &= 0b11111001;
 
+  read_mode();
+
   byte ans;
   for (int i = 0; i < 8; i++) {
     pinMode(D[i], INPUT);
@@ -50,18 +58,28 @@ byte dataIn() {
   return ans;
 }
 
-void chipId() {
+void read_mode() {
+  SET_OE(LOW); SET_WE(HIGH);
+}
+
+void write_cycle(uint16_t **cmd, int steps) {
   SET_OE(HIGH);
 
-  for (int i = 0; i < 3; i++) {
-    setAddr(CHIP_ID_ENTRY[i][0]); dataOut((uint8_t)CHIP_ID_ENTRY[i][1]); SET_WE(HIGH); SET_WE(LOW); SET_WE(LOW); SET_WE(HIGH);
+  for (int i = 0; i < steps; i++) {
+    setAddr(cmd[i][0]); dataOut((uint8_t)cmd[i][1]); SET_WE(HIGH); SET_WE(LOW); SET_WE(LOW); SET_WE(HIGH);
   }
-  dataIn();
-
   delay(10);
+}
 
-  SET_OE(LOW); SET_WE(HIGH);
+void chipId() {
+  write_cycle((uint16_t **)CHIP_ID_ENTRY, 3);
   setAddr(0x0);
+  Serial.write(dataIn());
+
+  setAddr(0x1);
+  Serial.write(dataIn());
+
+  write_cycle((uint16_t **) CHIP_ID_EXIT, 3);
 }
 
 void setup() {
@@ -75,10 +93,6 @@ void setup() {
   Serial.begin(9600);
 
   chipId();
-  Serial.println(dataIn(), HEX);
-
-  setAddr(0x1);
-  Serial.println(dataIn(), HEX);
 }
 
 void loop() {
