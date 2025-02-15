@@ -75,6 +75,10 @@ void setup() {
   Serial.begin(9600);
 
   chipId();
+  Serial.println(dataIn(), HEX);
+
+  setAddr(0x1);
+  Serial.println(dataIn(), HEX);
 }
 
 void loop() {
