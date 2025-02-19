@@ -1,55 +1,84 @@
 import serial
 import time
 
-srl = serial.Serial('COM9')
-srl.baudrate = 9600  # set Baud rate to 9600
-srl.bytesize = 8   # Number of data bits = 8
-srl.parity  ='N'   # No parity
-srl.stopbits = 1   # Number of Stop bits = 1
+def read8(srl):
+    return int.from_bytes(srl.read(1))
 
-def writeData(addr, data): 
-    srl.write(bytearray([addr >> 8, addr & 0xff, data]))
-    time.sleep(0.001)
-    return int.from_bytes(srl.read(1)) == data
-    
-def writeBlock(data):
+def read32(srl):
+    return (read8(srl) << 24) | (read8(srl) << 16) | (read8(srl) << 8) | read8(srl) 
+
+def manufacturer_id_handshake(srl):
+    srl.write('c'.encode())
+    time.sleep(0.5)
+    manufacturer_id = read8(srl)
+    chip_id = read8(srl)
+
+    if manufacturer_id == 0xBF and chip_id == 0xB5:
+        print("Manufacturer handshake successful")
+    else:
+        return
+
+def chip_erase(srl):
+    srl.write('e'.encode())
+    time.sleep(0.5)
+    if read8(srl) == 0xff:
+        print("Chip erased.")
+    else:
+        print("Chip erase failed.")
+
+def write32(srl, n):
+    srl.write(bytearray([(n >> 24) & 0xff, (n >> 16) & 0xff, (n >> 8) & 0xff, n & 0xff]))
+
+def write8(srl, n):
+    srl.write(n)
+
+def write_addr(srl, data):
     srl.write('w'.encode())
-    srl.write(bytearray([(data >> 8), data & 0xff]))
-    time.sleep(0.1)
-    for (addr, d) in data:
-        writeData(addr, d)
+    srl.write(len(data).to_bytes(4, 'big'))
+    srl.write('a'.encode())
 
-time.sleep(3)
+    for (addr, byte) in data:
+        print(byte)
+        srl.write(addr.to_bytes(4, 'big'))
+        srl.write(byte.to_bytes(1))
+        time.sleep(0.5)
 
-SerialObj.write('c'.encode());
+        print(srl.readline())
+        print(srl.readline())
+    
+    if (read32(srl) == len(data)):
+        print("Write successful")
 
-time.sleep(0.1);
-manufacturer_id = int.from_bytes(SerialObj.read(1));
-chip = int.from_bytes(SerialObj.read(1));
+def read_addr(srl, addrs):
+    srl.write('r'.encode())
+    write32(srl, len(addrs))
+    print(srl.readline())
+    srl.write('a'.encode())
+    
+    data = []
 
-if manufacturer_id == 0xBF and chip == 0xB5:
-    print("Manufacturer handshake successful.")
+    for i in addrs:
+        write32(srl, i);
+    
+    for i in addrs:
+        data.append(read8(srl))
+    return data
 
-print("Initiating Chip Erase.")
-SerialObj.write('e'.encode())
-time.sleep(10);
-response = int.from_bytes(SerialObj.read(1));
-if response == 0xFF:
-    print("Chip Erase Successful.")
+def main():
+    srl = serial.Serial('COM10')
+    srl.baudrate = 115200  # set Baud rate to 9600
+    srl.bytesize = 8   # Number of data bits = 8
+    srl.parity  ='N'   # No parity
+    srl.stopbits = 1   # Number of Stop bits = 1
 
-SerialObj.write('w'.encode());
-SerialObj.write(bytearray([0, 2]));
-print(SerialObj.readline());
+    time.sleep(1)
+    manufacturer_id_handshake(srl)
 
-SerialObj.write([0, 0, 1]);
-SerialObj.write([0, 1, 2]);
+    chip_erase(srl);
 
-time.sleep(1)
+    write_addr(srl, [(2, 12)])
+    print(read_addr(srl, [2]))
+    
 
-print(int.from_bytes(SerialObj.read(1)));
-
-time.sleep(1);
-
-SerialObj.write('r'.encode())
-time.sleep(0.1);
-print(int.from_bytes(SerialObj.read(1)));
+if __name__ == "__main__":
+    main()
