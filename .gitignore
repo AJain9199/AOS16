@@ -420,7 +420,7 @@ cython_debug/
 *.kicad_prl
 *.sch-bak
 *~
-_autosave-*
+*_autosave-*
 *.tmp
 *-save.pro
 *-save.kicad_pcb
@@ -437,3 +437,4 @@ fp-info-cache
 *.xml
 *.csv
 
+build/
