@@ -1377,10 +1377,6 @@
 		)
 		(instances
 			(project "AOS16 Double Buffer - Copy"
-				(path "/131fc824-3141-4c3d-90f1-eeaffe39dfa6/c51d0a6c-96a0-4291-88a2-ae8e0c45d90b"
-					(reference "J4")
-					(unit 1)
-				)
 				(path "/131fc824-3141-4c3d-90f1-eeaffe39dfa6/cbefcf49-9053-42f5-84a9-e3a13ed7a525"
 					(reference "J3")
 					(unit 1)

@@ -37,15 +37,15 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 0.762,
-          "height": 1.524,
-          "width": 1.524
+          "drill": 0.0,
+          "height": 0.55,
+          "width": 1.525
         },
-        "silk_line_width": 0.1,
+        "silk_line_width": 0.2,
         "silk_text_italic": false,
         "silk_text_size_h": 1.0,
         "silk_text_size_v": 1.0,
-        "silk_text_thickness": 0.1,
+        "silk_text_thickness": 0.2,
         "silk_text_upright": false,
         "zones": {
           "min_clearance": 0.5
@@ -125,12 +125,12 @@
         "min_microvia_drill": 0.1,
         "min_resolved_spokes": 2,
         "min_silk_clearance": 0.0,
-        "min_text_height": 0.8,
-        "min_text_thickness": 0.08,
+        "min_text_height": 0.5842,
+        "min_text_thickness": 0.1524,
         "min_through_hole_diameter": 0.1,
         "min_track_width": 0.15,
         "min_via_annular_width": 0.1,
-        "min_via_diameter": 0.5,
+        "min_via_diameter": 0.0,
         "solder_mask_to_copper_clearance": 0.0,
         "use_height_for_length_calcs": true
       },
@@ -181,7 +181,10 @@
         0.0,
         0.1524,
         0.1651,
-        0.1778
+        0.1778,
+        0.2,
+        0.3,
+        0.5
       ],
       "tuning_pattern_settings": {
         "diff_pair_defaults": {
@@ -215,8 +218,16 @@
           "drill": 0.0
         },
         {
-          "diameter": 0.4,
+          "diameter": 0.3,
+          "drill": 0.1
+        },
+        {
+          "diameter": 0.508,
           "drill": 0.2
+        },
+        {
+          "diameter": 0.7,
+          "drill": 0.35
         }
       ],
       "zones_allow_external_fillets": false
@@ -458,7 +469,7 @@
     "classes": [
       {
         "bus_width": 12,
-        "clearance": 0.2,
+        "clearance": 0.1524,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
@@ -486,8 +497,8 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "",
-      "pos_files": "",
+      "plot": "C:/Users/Aryam/OneDrive/Documents/AOS16/build/Double Buffer/",
+      "pos_files": "C:/Users/Aryam/OneDrive/Documents/AOS16/build/Double Buffer/",
       "specctra_dsn": "",
       "step": "",
       "svg": "",
@@ -497,7 +508,7 @@
   },
   "schematic": {
     "annotate_start_num": 0,
-    "bom_export_filename": "",
+    "bom_export_filename": "C:\\Users\\Aryam\\OneDrive\\Documents\\AOS16\\build\\Double Buffer\\AOS16 Double Buffer.csv",
     "bom_fmt_presets": [],
     "bom_fmt_settings": {
       "field_delimiter": ",",
@@ -514,6 +525,12 @@
       "fields_ordered": [
         {
           "group_by": false,
+          "label": "Manufacturer_Part_Number",
+          "name": "Manufacturer_Part_Number",
+          "show": true
+        },
+        {
+          "group_by": false,
           "label": "Reference",
           "name": "Reference",
           "show": true
@@ -528,7 +545,7 @@
           "group_by": false,
           "label": "Datasheet",
           "name": "Datasheet",
-          "show": true
+          "show": false
         },
         {
           "group_by": false,
@@ -546,14 +563,50 @@
           "group_by": true,
           "label": "DNP",
           "name": "${DNP}",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "#",
+          "name": "${ITEM_NUMBER}",
           "show": true
+        },
+        {
+          "group_by": false,
+          "label": "Height",
+          "name": "Height",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Manufacturer_Name",
+          "name": "Manufacturer_Name",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Mouser Part Number",
+          "name": "Mouser Part Number",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Mouser Price/Stock",
+          "name": "Mouser Price/Stock",
+          "show": false
+        },
+        {
+          "group_by": false,
+          "label": "Description",
+          "name": "Description",
+          "show": false
         }
       ],
       "filter_string": "",
       "group_symbols": true,
-      "name": "Grouped By Value",
+      "name": "",
       "sort_asc": true,
-      "sort_field": "Reference"
+      "sort_field": "Value"
     },
     "connection_grid_size": 50.0,
     "drawing": {
@@ -612,56 +665,36 @@
       "word_conn"
     ],
     [
-      "9c44d498-9dcd-40b0-a3b1-93f07ceabb8f",
-      "word_buffer"
+      "dfc1deb1-e8b6-41ef-a1e4-d335d4f8780d",
+      "word_conn1"
     ],
     [
       "3f18fc96-0a11-4002-9ee9-db5d8ab4d742",
       "ram"
     ],
     [
-      "cbefcf49-9053-42f5-84a9-e3a13ed7a525",
-      "word_conn_flip1"
-    ],
-    [
-      "e3b0bfb7-51a7-44a7-ad84-b3e31bfdc986",
+      "8200b7d0-0df7-4161-b0b4-32c009c43883",
       "word_buffer1"
     ],
     [
-      "7034bdf2-5e4a-4f4f-9b63-d755821ab3b3",
+      "020dd443-9feb-4c22-824c-019aaa16643c",
       "word_buffer2"
     ],
     [
-      "84b6bc6f-3822-4ed9-83b3-1685144042ad",
+      "50a429df-af06-4e1e-9540-d4d664b33967",
       "word_buffer3"
     ],
     [
-      "956296c5-4143-4735-b635-07c5c10603e5",
-      "ram1"
-    ],
-    [
       "d9a6115e-3904-4e81-b48d-1645cc7984ea",
-      "word_buffer4"
+      "word_buffer"
     ],
     [
-      "73b4e5b2-81d8-4ee6-a698-e76e751b94bf",
-      "word_buffer5"
+      "196d0e4a-1bc5-46ff-9e6e-eb4153430b9c",
+      "word_conn2"
     ],
     [
-      "c51d0a6c-96a0-4291-88a2-ae8e0c45d90b",
-      "word_conn_flip2"
-    ],
-    [
-      "00ab95dd-940a-4ab2-9b64-3c3dfe5f0baf",
-      "word_buffer6"
-    ],
-    [
-      "27af7cc5-2add-417b-af1c-99a7d507c650",
-      "word_buffer7"
-    ],
-    [
-      "f1f1cde8-10ed-47fe-8d04-4677c3166eff",
-      "word_conn1"
+      "94133022-9053-4d08-a618-987fa30e1834",
+      "word_conn3"
     ]
   ],
   "text_variables": {}
