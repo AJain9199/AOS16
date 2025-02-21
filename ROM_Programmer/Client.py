@@ -64,11 +64,9 @@ def write_data(srl, data):
 def write_seq_chunk(srl, b, nb=0):
     srl.write('w'.encode())
     srl.write(len(b).to_bytes(4, 'big'))
-    srl.write('s'.encode())
-
     srl.write(nb.to_bytes(4, 'big'))
 
-    time.sleep(1)
+    time.sleep(0.5)
 
     srl.write(b)
 
@@ -101,26 +99,9 @@ def write_seq(srl, f):
     return nbytes
 
 
-def read_addr(srl, addrs):
-    srl.write('r'.encode())
-    write32(srl, len(addrs))
-    srl.write('a'.encode())
-
-    bytedata = []
-
-    for i in addrs:
-        bytedata.extend(i.to_bytes(4, 'big'))
-
-    srl.write(bytedata)
-
-    return list(srl.read(len(addrs)))
-
-
 def read_seq(srl, n, start=0):
     srl.write('r'.encode())
     srl.write(n.to_bytes(4, 'big'))
-    srl.write('s'.encode())
-
     srl.write(start.to_bytes(4, 'big'))
 
     srl.reset_input_buffer()
@@ -128,14 +109,6 @@ def read_seq(srl, n, start=0):
 
     time.sleep(0.5)
     return srl.read(n)
-
-
-def parse_paired(filename):
-    return [()]
-
-
-def parse_single(filename):
-    return []
 
 
 if __name__ == "__main__":
@@ -151,10 +124,8 @@ if __name__ == "__main__":
 
     parser = ArgumentParser()
     parser.add_argument('-r', type=int, default=2048, help='Read from the flash sequentially.')
-    parser.add_argument('-ra', type=argparse.FileType('r'), help='Read from the flash using a file of addresses.')
     parser.add_argument('-w', type=argparse.FileType('rb'),
                         help='Write to the flash sequentially using data from a file.')
-    parser.add_argument('-wa', type=argparse.FileType('r'), help='Write to the flash address-wise using the file.')
     parser.add_argument('-b', type=int, default=115200, help='Baud rate for serial communication. (default: 115200)')
     parser.add_argument('-c', default='COM10', help='Serial port for communication. (default: COM10)')
     args = parser.parse_args()

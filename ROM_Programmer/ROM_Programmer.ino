@@ -192,7 +192,6 @@ void chip_erase() {
   WAIT_TCE();
 }
 
-
 void program_byte(uint32_t addr, uint8_t data)
 {
   for (int i = 0; i < 3; i++) {
@@ -247,86 +246,57 @@ void loop() {
         continue;
       }
 
-      uint8_t buf[5];
-      Serial.readBytes(buf, 5);
+      uint8_t buf[8];
+      Serial.readBytes(buf, 8);
 
       uint32_t len = parse32(buf);
-      uint8_t mode = buf[4];
-      if (mode == 'a') {
-        for (uint32_t i = 0; i < len; i++) {
-          Serial.readBytes(buf, 5);
+      uint32_t initial = parse32(buf + 4);
+      uint32_t addr = 0;
 
-          uint32_t addr = parse32(buf);
-          uint8_t  data = buf[4];
+      do {
+        uint32_t p = 0;
+        long lm = millis();
 
-          program_byte(addr, data);
-        }
-      } else if (mode == 's') {
-        Serial.readBytes(buf, 4);
-        uint32_t initial = parse32(buf);
-
-        uint32_t addr = 0;
+        uint8_t *ptr = chunk;
 
         do {
-          uint32_t p = 0;
-          long lm = millis();
-
-          uint8_t *ptr = chunk;
-
-          do {
-            if (Serial.available() > 0) {
-              int nbytes = Serial.available();
-              Serial.readBytes(ptr, nbytes);
-              ptr += nbytes;
-              p += nbytes;
-              lm = millis();
-            }
-          } while (p < CHUNK_SIZE && (millis() - lm) < 1000);
-
-          if (p > 0) {
-            for (int i = 0; i < p; i++) {
-              program_byte(initial+addr, chunk[i]);
-              addr++;
-            }
+          if (Serial.available() > 0) {
+            int nbytes = Serial.available();
+            Serial.readBytes(ptr, nbytes);
+            ptr += nbytes;
+            p += nbytes;
+            lm = millis();
           }
-        } while (addr < len);
-      }
+        } while (p < CHUNK_SIZE && (millis() - lm) < 1000);
+
+        if (p > 0) {
+          for (int i = 0; i < p; i++) {
+            program_byte(initial+addr, chunk[i]);
+            addr++;
+          }
+        }
+      } while (addr < len);
 
       Serial.write((len >> 24) & 0xff);
       Serial.write((len >> 16) & 0xff);
       Serial.write((len >> 8) & 0xff);
       Serial.write(len & 0xff);
   } else if (cmd == 'r') {
-    uint8_t buf[5];
-    Serial.readBytes(buf, 5);
+    uint8_t buf[8];
+    Serial.readBytes(buf, 8);
 
 
     uint32_t len = parse32(buf);
-    uint8_t mode  = buf[4];
+    uint32_t initial = parse32(buf +4);
 
-    if (mode == 'a') {
-      for (uint32_t i = 0; i < len; i++) {
-        uint32_t addr = read32();
-        Serial.write(read_cycle(addr));
-      }
-    } else if (mode == 's') {
-      Serial.readBytes(buf, 4);
-      uint32_t initial = parse32(buf);
+    set_oe(true);
+    set_we(false);
+    for (uint32_t i = 0; i < len; i++) {
+      set_addr(initial+i);
+      WAIT_SINGLE();
 
-      Serial.flush();
-
-      set_oe(true);
-      set_we(false);
-      for (uint32_t i = 0; i < len; i++) {
-        set_addr(initial+i);
-        WAIT_SINGLE();
-
-        Serial.write(inp_data());
-        WAIT_SINGLE();
-      }
+      Serial.write(inp_data());
+      WAIT_SINGLE();
     }
-  } else if (cmd == 't') {
-      Serial.println(read_cycle(0));
-      Serial.println(read_cycle(1));
-    }
+  }
 }
