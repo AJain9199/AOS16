@@ -14,9 +14,6 @@
  *
  */
 
-#include "protocol.hpp"
-#include "crc32.hpp"
-
 #define DDR_ADDR_L   DDRA
 #define DDR_ADDR_M   DDRC
 #define DDR_ADDR_H   DDRG
@@ -159,7 +156,7 @@ uint8_t read_cycle(uint32_t addr)
   WAIT_SINGLE();
   set_addr(addr);
   WAIT_SINGLE();
-  byte r = inp_data();
+  uint8_t r = inp_data();
   return r;
 }
 
@@ -172,8 +169,8 @@ void writeCmd(cmd_step cmd[], int steps) {
 
 uint16_t chipId() {
   writeCmd(CHIP_ID_ENTRY, 3);
-  word a = read_cycle(0x0000u);
-  word b = read_cycle(0x0001u);
+  uint8_t a = read_cycle(0x0000u);
+  uint8_t b = read_cycle(0x0001u);
 
   writeCmd(CHIP_ID_EXIT, 3);
   return (a << 8) | b;
@@ -195,25 +192,8 @@ void chip_erase() {
   WAIT_TCE();
 }
 
-void sector_erase(dword seca) {
-  seca <<= 12;
-  write_cycle(0x5555u, 0xAAu);
-  write_cycle(0x2AAAu, 0x55u);
-  write_cycle(0x5555u, 0x80u);
-  write_cycle(0x5555u, 0xAAu);
-  write_cycle(0x2AAAu, 0x55u);
-  write_cycle(seca,    0x30u);
-  WAIT_TSE();
-}
 
-void sector_read(byte (&buff)[BUFFER_SIZE], dword addr)
-{
-  memset(buff, 0, BUFFER_SIZE);
-  for(dword a = 0; a < BUFFER_SIZE; ++a)
-    buff[a] = read_cycle(addr+a);
-}
-
-void program_byte(dword addr, byte data)
+void program_byte(uint32_t addr, uint8_t data)
 {
   for (int i = 0; i < 3; i++) {
     write_cycle(CHIP_WRITE[i].addr, CHIP_WRITE[i].data);
@@ -223,11 +203,11 @@ void program_byte(dword addr, byte data)
 }
 
 uint32_t parse32(uint8_t *data) {
-  return (*data) | (*(data + 1)) | (*(data+2)) | (*(data+3));
+  return ((*data) << 24) | ((*(data + 1)) << 16) | ((*(data+2)) << 8) | (*(data+3));
 }
 
-#define CHUNK_SIZE 1024
-static uint8_t buf[CHUNK_SIZE];
+#define CHUNK_SIZE 32
+static uint8_t chunk[CHUNK_SIZE];
 
 uint32_t write_seq(uint8_t *buf, uint32_t size, uint32_t start) {
   for (int i = 0; i < size; i++) {
@@ -250,7 +230,7 @@ void loop() {
     return;
   }
 
-  byte cmd = Serial.read();
+  uint8_t cmd = Serial.read();
 
   if (cmd == 'c') {
       uint16_t id = chipId();
@@ -263,12 +243,14 @@ void loop() {
   } else if (cmd == 'w') {
       WAIT_SINGLE();
 
+      while (Serial.available() < 5) {
+        continue;
+      }
+
       uint8_t buf[5];
       Serial.readBytes(buf, 5);
 
       uint32_t len = parse32(buf);
-
-      Serial.println(len);
       uint8_t mode = buf[4];
       if (mode == 'a') {
         for (uint32_t i = 0; i < len; i++) {
@@ -280,23 +262,34 @@ void loop() {
           program_byte(addr, data);
         }
       } else if (mode == 's') {
-        uint32_t addr = 0;
-        for (uint32_t i = 0; i < (len/CHUNK_SIZE); i++) {
-          while (Serial.available() <= 0) {
-            continue;
-          }
-          Serial.readBytes(buf, CHUNK_SIZE);
-          addr = write_seq(buf, CHUNK_SIZE, addr);
-        }
+        Serial.readBytes(buf, 4);
+        uint32_t initial = parse32(buf);
 
-        if (len % CHUNK_SIZE != 0) {
-          while (Serial.available() <= 0) {
-            continue;
+        uint32_t addr = 0;
+
+        do {
+          uint32_t p = 0;
+          long lm = millis();
+
+          uint8_t *ptr = chunk;
+
+          do {
+            if (Serial.available() > 0) {
+              int nbytes = Serial.available();
+              Serial.readBytes(ptr, nbytes);
+              ptr += nbytes;
+              p += nbytes;
+              lm = millis();
+            }
+          } while (p < CHUNK_SIZE && (millis() - lm) < 1000);
+
+          if (p > 0) {
+            for (int i = 0; i < p; i++) {
+              program_byte(initial+addr, chunk[i]);
+              addr++;
+            }
           }
-          Serial.readBytes(buf, len % CHUNK_SIZE);
-          Serial.println(buf[0]);
-          write_seq(buf, len % CHUNK_SIZE, addr);
-        }
+        } while (addr < len);
       }
 
       Serial.write((len >> 24) & 0xff);
@@ -304,8 +297,12 @@ void loop() {
       Serial.write((len >> 8) & 0xff);
       Serial.write(len & 0xff);
   } else if (cmd == 'r') {
-    uint32_t len = read32();
-    uint8_t mode  = read8();
+    uint8_t buf[5];
+    Serial.readBytes(buf, 5);
+
+
+    uint32_t len = parse32(buf);
+    uint8_t mode  = buf[4];
 
     if (mode == 'a') {
       for (uint32_t i = 0; i < len; i++) {
@@ -313,8 +310,19 @@ void loop() {
         Serial.write(read_cycle(addr));
       }
     } else if (mode == 's') {
+      Serial.readBytes(buf, 4);
+      uint32_t initial = parse32(buf);
+
+      Serial.flush();
+
+      set_oe(true);
+      set_we(false);
       for (uint32_t i = 0; i < len; i++) {
-        Serial.write(read_cycle(i));
+        set_addr(initial+i);
+        WAIT_SINGLE();
+
+        Serial.write(inp_data());
+        WAIT_SINGLE();
       }
     }
   } else if (cmd == 't') {

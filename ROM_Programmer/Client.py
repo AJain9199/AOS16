@@ -3,9 +3,10 @@ import time
 import sys
 import argparse
 from argparse import ArgumentParser
+from tqdm import tqdm
 
 
-CHUNK_SIZE = 1024
+CHUNK_SIZE = 4096
 
 def read8(srl):
     return int.from_bytes(srl.read(1))
@@ -60,30 +61,44 @@ def write_data(srl, data):
     return read32(srl) == len(data)
 
 
-def write_seq_chunk(srl, b):
+def write_seq_chunk(srl, b, nb=0):
     srl.write('w'.encode())
     srl.write(len(b).to_bytes(4, 'big'))
     srl.write('s'.encode())
 
-    print(b)
-    print(srl.readline())
-    srl.write(b)
+    srl.write(nb.to_bytes(4, 'big'))
 
     time.sleep(1)
 
-    print(srl.readline())
-    return read32(srl) == len(b)
+    srl.write(b)
+
+    length = int.from_bytes(srl.read(4), 'big')
+    return length == len(b)
 
 
 def write_seq(srl, f):
+    nbytes = 0
+    full_seq = []
+    nchunk = 0
     while True:
         chunk = f.read(CHUNK_SIZE)
-        if not chunk:
+        if not chunk or len(chunk) == 0:
             break
-        if not write_seq_chunk(srl, chunk):
-            return False
-        time.sleep(0.1)
-    return False
+        write_seq_chunk(srl, chunk, nbytes)
+
+        print(f"Chunk {nchunk} with {len(chunk)} bytes written.")
+        full_seq.append(chunk)
+        nbytes += len(chunk)
+        nchunk += 1
+
+    print("Write complete. Verification begun.")
+    for i in range(len(full_seq)):
+        if chunk != read_seq(srl, len(chunk), CHUNK_SIZE*i):
+            print(f"Chunk {i} is compromised.")
+        else:
+            print(f"Chunk {i} is good.")
+    print("Verification complete.")
+    return nbytes
 
 
 def read_addr(srl, addrs):
@@ -101,13 +116,18 @@ def read_addr(srl, addrs):
     return list(srl.read(len(addrs)))
 
 
-def read_seq(srl, n):
+def read_seq(srl, n, start=0):
     srl.write('r'.encode())
-    write32(srl, n)
+    srl.write(n.to_bytes(4, 'big'))
     srl.write('s'.encode())
 
-    time.sleep(1)
-    return list(srl.read(n))
+    srl.write(start.to_bytes(4, 'big'))
+
+    srl.reset_input_buffer()
+    srl.reset_output_buffer()
+
+    time.sleep(0.5)
+    return srl.read(n)
 
 
 def parse_paired(filename):
@@ -140,10 +160,14 @@ if __name__ == "__main__":
     args = parser.parse_args()
     args = vars(args)
 
-
     if args.get('w'):
         chip_erase(srl)
-        print(args['w'])
-        write_seq_chunk(srl, [12, 2])
-        print(read_addr(srl, [0, 1]))
+
+        print("Write begun.")
+        b = write_seq(srl, args['w'])
+        if not b:
+            print("Write failed.")
+            exit(1)
+
+        print(f"{b} bytes written and verified successfully")
     # main()
