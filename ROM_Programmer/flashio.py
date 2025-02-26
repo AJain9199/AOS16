@@ -3,8 +3,6 @@ import time
 import sys
 import argparse
 from argparse import ArgumentParser
-from tqdm import tqdm
-
 
 CHUNK_SIZE = 4096
 
@@ -13,6 +11,7 @@ chip_id = {
     0xB6: "SST39SF020A",
     0xB7: "SST39SF040"
 }
+
 
 def read8(srl):
     return int.from_bytes(srl.read(1))
