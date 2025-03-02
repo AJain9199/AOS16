@@ -422,6 +422,7 @@ cython_debug/
 
 ~*
 *_autosave-*
+\#*#
 *.tmp
 *-save.pro
 *-save.kicad_pcb
