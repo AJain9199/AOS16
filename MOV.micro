@@ -1,0 +1,34 @@
+(MOV:5) {
+    (<REGS:0>) {
+        (RL:1) {
+            (IMM:2)(0:3) {
+                PCO, MAI;
+                MO, MSL, RSE = <REGS:0>, RGI, PCE;
+            }
+
+            (IMM_PTR:2)(0:3) {
+                PCO, MAI;
+                MO, MSL, MAI, PCE;
+                MO, RSE = <REGS:0>, RGI;
+            }
+
+            (REG_PTR:2)(<REGS:1>) {
+                RSE = <REGS:1>, RGO, MAI;
+                MO, RSE = <REGS:0>, RGI;
+            }
+        }
+
+        (LR:1) {
+            (REG_PTR:2)(<REGS:1>) {
+                RSE = <REGS:1>, RGO, MAI;
+                RSE = <REGS:0>, RGO, MI;
+            }
+
+            (IMM_PTR:2)(0:3) {
+                PCO, MAI;
+                MO, MSL, MAI, PCE;
+                RSE = <REGS:0>, RGO, MI;
+            }
+        }
+    }
+}
