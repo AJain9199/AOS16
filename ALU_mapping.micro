@@ -1,0 +1,77 @@
+CTRL {
+    FUNC : 4,
+    MODE,
+    ~CARRY
+}
+
+ZERO = 0x0;
+NOT = 0x1;
+ADD = 0x2;
+MINUS1 = 0x3;
+XOR = 0x4;
+OR = 0x5;
+NOR = 0x6;
+NAND = 0x7;
+INC = 0x8;
+DEC = 0x9;
+RSH = 0xA;
+A = 0xB;
+SUB = 0xC;
+ONE = 0xD;
+AND = 0xE;
+
+(ZERO) {
+    MODE, FUNC = 0x3;
+}
+
+(NOT) {
+    MODE, FUNC = 0x0;
+}
+
+(ADD) {
+    FUNC = 0x9;
+}
+
+(SUB) {
+    FUNC = 0x6, CARRY;
+}
+
+(MINUS1) {
+    FUNC = 0x3;
+}
+
+(XOR) {
+    MODE, FUNC = 0x6;
+}
+
+(NOR) {
+    MODE, FUNC = 0x1;
+}
+
+(OR) {
+    MODE, FUNC = 0xE;
+}
+
+(AND) {
+    MODE, FUNC = 0xB;
+}
+
+(NAND) {
+    MODE, FUNC = 0x4;
+}
+
+(ONE) {
+    MODE, FUNC = 0xC;
+}
+
+(INC) {
+    FUNC = 0x0, CARRY;
+}
+
+(DEC) {
+    FUNC = 0xF;
+}
+
+(RSH) {
+    FUNC = 0xC;
+}

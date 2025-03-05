@@ -16,6 +16,11 @@
                 RSE = <REGS:1>, RGO, MAI;
                 MO, RSE = <REGS:0>, RGI;
             }
+
+            (REG:2)(<REGS:1>) {
+                RSE = <REGS:1>, RGO, AAI;
+                ALF = 0xB, ALO, RSE = <REGS:0>, RGI;
+            }
         }
 
         (LR:1) {
