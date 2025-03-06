@@ -29,7 +29,7 @@
 -   01010: DEC reg/m
 -   01011: CMP reg/m, m/imm16/reg
 -   01100: MOV reg/m, m/imm16/reg
--   01101: PSH m/imm16/reg
+-   01101: PUSH m/imm16/reg
 -   01110: POP m/reg
 -   01111: SWP
 -   10000: JMP imm16/reg

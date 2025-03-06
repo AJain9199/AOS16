@@ -19,6 +19,7 @@ A = 0xB;
 SUB = 0xC;
 ONE = 0xD;
 AND = 0xE;
+B = 0xF;
 
 (ZERO) {
     MODE, FUNC = 0x3;
@@ -74,4 +75,12 @@ AND = 0xE;
 
 (RSH) {
     FUNC = 0xC;
+}
+
+(A) {
+    FUNC = 0x0;
+}
+
+(B) {
+    MODE, FUNC = 0xA;
 }

@@ -20,6 +20,9 @@ CTRL {
 }
 
 MOV = 0x6;
+PUSH = 0xD;
+POP = 0xE;
+
 LR = 0;
 RL = 1;
 
@@ -28,6 +31,13 @@ IMM_PTR = 0x1;
 REG_PTR = 0x2;
 REG = 0x3;
 REGS = [0, 1, 2, 3, 4, 5, 6, 7];
+
+REG_SP = 0x6;
+
+ALU_INC = 0x8;
+ALU_DEC = 0x9;
+ALU_A = 0xB;
+ALU_B = 0xF;
 
 (0) {
     PCO, MAI;

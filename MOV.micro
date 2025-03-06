@@ -1,39 +1,99 @@
-(MOV:5) {
-    (<REGS:0>) {
-        (RL:1) {
-            (IMM:2)(0:3) {
-                PCO, MAI;
-                MO, MSL, RSE = <REGS:0>, RGI, PCE;
-            }
-
-            (IMM_PTR:2)(0:3) {
-                PCO, MAI;
-                MO, MSL, MAI, PCE;
-                MO, RSE = <REGS:0>, RGI;
-            }
-
-            (REG_PTR:2)(<REGS:1>) {
-                RSE = <REGS:1>, RGO, MAI;
-                MO, RSE = <REGS:0>, RGI;
-            }
-
-            (REG:2)(<REGS:1>) {
-                RSE = <REGS:1>, RGO, AAI;
-                ALF = 0xB, ALO, RSE = <REGS:0>, RGI;
-            }
+(MOV:5)(<REGS:0>) {
+    (RL:1) {
+        (IMM:2)(0:3) {
+            PCO, MAI;
+            MO, MSL, RSE = <REGS:0>, RGI, PCE;
         }
 
-        (LR:1) {
-            (REG_PTR:2)(<REGS:1>) {
-                RSE = <REGS:1>, RGO, MAI;
-                RSE = <REGS:0>, RGO, MI;
-            }
-
-            (IMM_PTR:2)(0:3) {
-                PCO, MAI;
-                MO, MSL, MAI, PCE;
-                RSE = <REGS:0>, RGO, MI;
-            }
+        (IMM_PTR:2)(0:3) {
+            PCO, MAI;
+            MO, MSL, MAI, PCE;
+            MO, RSE = <REGS:0>, RGI;
         }
+
+        (REG_PTR:2)(<REGS:1>) {
+            RSE = <REGS:1>, RGO, MAI;
+            MO, RSE = <REGS:0>, RGI;
+        }
+
+        (REG:2)(<REGS:1>) {
+            RSE = <REGS:1>, RGO, AAI;
+            ALF = 0xB, ALO, RSE = <REGS:0>, RGI;
+        }
+    }
+
+    (LR:1) {
+        (REG_PTR:2)(<REGS:1>) {
+            RSE = <REGS:1>, RGO, MAI;
+            RSE = <REGS:0>, RGO, MI;
+        }
+
+        (IMM_PTR:2)(0:3) {
+            PCO, MAI;
+            MO, MSL, MAI, PCE;
+            RSE = <REGS:0>, RGO, MI;
+        }
+
+        (REG:2)(<REGS:1>) {
+            RSE = <REGS:0>, RGO, AAI;
+            ALF = 0xB, ALO, RSE = <REGS:0>, RGI;
+        }
+    }
+}
+
+(PUSH:5) {
+    (REG:2)(<REGS:0>) {
+        RSE = REG_SP, RGO, MAI, AAI;
+        RSE = <REGS:0>, RGO, MI;
+        ALF = ALU_INC, ALO, RSE = REG_SP, RGI;
+    }
+
+    (IMM:2) {
+        PCO, MAI;
+        MO, MSL, ABI, PCE;
+        RSE = REG_SP, RGO, MAI, AAI;
+        ALF = ALU_B, ALO, MI;
+        ALF = ALU_INC, ALO, RSE = REG_SP, RGI;
+    }
+
+    (IMM_PTR:2) {
+        PCO, MAI;
+        MO, MSL, MAI, PCE;
+        MO, ABI;
+        RSE = REG_SP, RGO, MAI, AAI;
+        ALF = ALU_B, ALO, MI;
+        ALF = ALU_INC, ALO, RSE = REG_SP, RGI;
+    }
+
+    (REG_PTR:2)(<REGS:0>) {
+        RSE = <REGS:0>, RGO, MAI;
+        MO, ABI;
+        RSE = REG_SP, RGO, MAI, AAI;
+        ALF = ALU_B, ALO, MI;
+        ALF = ALU_INC, ALO, RSE = REG_SP, RGI;
+    }
+}
+
+(POP:5) {
+    (REG:2)(<REGS:0>) {
+        RSE = REG_SP, RGO, MAI, AAI;
+        MO, RSE = <REGS:0>, RGI;
+        ALF = ALU_DEC, ALO, RSE = REG_SP, RGI;
+    }
+
+    (IMM_PTR:2) {
+        RSE = REG_SP, RGO, MAI, AAI;
+        MO, ABI;
+        PCO, MAI;
+        MO, MSL, MAI, PCE;
+        ALF = ALU_B, MI;
+        ALF = ALU_DEC, RSE = REG_SP, RGI;
+    }
+
+    (REG_PTR:2)(<REGS:0>) {
+        RSE = REG_SP, RGO, MAI, AAI;
+        MO, ABI;
+        RSE = <REGS:0>, RGO, MAI;
+        ALF = ALU_B, MI;
     }
 }
