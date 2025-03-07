@@ -58,8 +58,33 @@ public:
         return currentChar;
     }
 
-    // Getters for source information
     [[nodiscard]] int getLine() const { return lineNumber; }
+
+    void eat(const TokenType token) {
+        if (currentToken != token) {
+            err("Unexpected token");
+        }
+
+        getToken();
+    }
+
+    void eat(const char c) {
+        if (currentToken != PUNCTUATION || c != currentChar) {
+            err("Unexpected character");
+        }
+
+        getToken();
+    }
+
+    std::string eat_id() {
+        if (currentToken != ID) {
+            err("Expected identifier");
+        }
+
+        std::string ret = id;
+        getToken();
+        return ret;
+    }
 
     std::set<char> punctuation = {'.', '[', ']', '%', '(', ')', ','};
 
