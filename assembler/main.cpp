@@ -1,6 +1,6 @@
 #include <iostream>
 #include <Instruction.h>
-#include <Parser.h>
+#include <parse.h>
 
 int main() {
     std::cout << "Hello, World!" << std::endl;

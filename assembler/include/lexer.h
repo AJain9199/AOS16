@@ -86,10 +86,14 @@ public:
         return ret;
     }
 
-    std::set<char> punctuation = {'.', '[', ']', '%', '(', ')', ','};
+    std::set<char> punctuation = {'.', '[', ']', '%', '(', ')', ',', ':'};
+
+    loc getLocation() {
+        return std::make_pair(filename, lineNumber);
+    }
 
     void err(const std::string &msg) {
-        error(std::make_pair(filename, lineNumber), msg);
+        error(getLocation(), msg);
     }
 };
 

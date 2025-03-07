@@ -3,7 +3,8 @@
 
 #include <Operand.h>
 #include <vector>
-#include <Lexer.h>
+#include <lexer.h>
+#include <memory>
 
 #define INS_REG     0x0
 #define INS_REGPTR  0x1
@@ -27,7 +28,7 @@ struct InstructionBytes {
     }
 
     [[nodiscard]] uint8_t size() const {
-        return has_immediate()?2:1;
+        return has_immediate()?4:2;
     }
 };
 
