@@ -82,9 +82,8 @@ std::shared_ptr<Operand> Parser::parseSubOperand() {
     // label
     if (lexer == ID) {
         const string name = lexer.eat_id();
-        auto op = make_shared<Operand>(0, 0);
+        auto op = make_shared<Operand>(IMMEDIATE, 0);
         if (symtab.contains(name)) {
-            op->type = IMMEDIATE;
             op->value = symtab[name];
         } else {
             future_resolution[name].push_back(op);
@@ -103,6 +102,7 @@ std::shared_ptr<Operand> Parser::parseSubOperand() {
 }
 
 
+
 /*
  * Parses a label definition. This method also resolves pending references to this label (if any).
  */
@@ -113,3 +113,23 @@ void Parser::define_label(const std::string &name, const int val) {
         op->value = val;
     }
 }
+
+void Parser::add_machine_code(std::shared_ptr<Instruction> instr, std::vector<std::shared_ptr<Operand>> operands) {
+    machine_code.emplace_back(instr, operands);
+    current_address += instr->size(operands);
+}
+
+void Parser::add_machine_code(const uint16_t constant) {
+    machine_code.emplace_back(constant);
+    current_address += 1;
+}
+
+void Parser::add_register(const std::string& name, const int val) {
+    regtab[name] = val;
+}
+
+void Parser::add_opcode(const std::string &name, const uint8_t opcode, const initializer_list<operandOptions> &operands) {
+    opcodes[name] = make_shared<Instruction>(opcode, operands);
+}
+
+

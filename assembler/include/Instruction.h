@@ -39,8 +39,10 @@ class Instruction {
     uint8_t opcode;
     std::vector<operandOptions> operands;
 
+public:
     Instruction(uint8_t opCode, const std::initializer_list<operandOptions> &operand_constraints);
     std::unique_ptr<InstructionBytes> emit(std::unique_ptr<Operand> op1, std::unique_ptr<Operand> op2);
+    int size(std::vector<std::shared_ptr<Operand>> operands);
 };
 
 #endif //INSTRUCTION_H
