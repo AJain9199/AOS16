@@ -114,7 +114,7 @@ void Parser::define_label(const std::string &name, const int val) {
     }
 }
 
-void Parser::add_machine_code(std::shared_ptr<Instruction> instr, std::vector<std::shared_ptr<Operand>> operands) {
+void Parser::add_machine_code(const std::shared_ptr<Instruction>& instr, const std::vector<std::shared_ptr<Operand>>& operands) {
     machine_code.emplace_back(instr, operands);
     current_address += instr->size(operands);
 }
@@ -124,11 +124,29 @@ void Parser::add_machine_code(const uint16_t constant) {
     current_address += 1;
 }
 
-void Parser::add_register(const std::string& name, const int val) {
+void Parser::write_machine_code(const std::string &filename) {
+    fstream outfile(filename, ios_base::binary | ios_base::out);
+
+    for (const auto &i : machine_code) {
+        if (i.is_constant) {
+            outfile << i.constant;
+        } else {
+            const std::unique_ptr<InstructionBytes> ins = i.instruction->emit(i.operands);
+            outfile << ins->get_instruction();
+            if (ins->has_immediate()) {
+                outfile << ins->get_immediate();
+            }
+        }
+    }
+
+    outfile.close();
+}
+
+void add_register(const std::string& name, const int val) {
     regtab[name] = val;
 }
 
-void Parser::add_opcode(const std::string &name, const uint8_t opcode, const initializer_list<operandOptions> &operands) {
+void add_opcode(const std::string &name, const uint8_t opcode, const initializer_list<operandOptions> &operands) {
     opcodes[name] = make_shared<Instruction>(opcode, operands);
 }
 

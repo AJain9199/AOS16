@@ -8,6 +8,10 @@
 #include <lexer.h>
 #include <string>
 
+static std::map<std::string, int> regtab;
+static std::map<std::string, std::shared_ptr<Instruction>> opcodes;
+void add_opcode(const std::string &name, uint8_t opcode, const std::initializer_list<unsigned char> &operands);
+void add_register(const std::string& name, int val);
 
 /*
  * Container class for parsing the assembly code
@@ -20,16 +24,18 @@ class Parser {
         std::shared_ptr<Instruction> instruction;
         std::vector<std::shared_ptr<Operand>> operands;
 
-        explicit MachineCodeInstance(const uint16_t constant) : is_constant(true), constant(constant) {}
+        explicit MachineCodeInstance(const uint16_t constant) : is_constant(true), constant(constant) {
+        }
+
         MachineCodeInstance(const std::shared_ptr<Instruction> &instr, const std::vector<std::shared_ptr<Operand>> &operands) : instruction(instr), operands(operands) {}
     };
 
     std::vector<MachineCodeInstance> machine_code;
-    void add_machine_code(std::shared_ptr<Instruction> instr, std::vector<std::shared_ptr<Operand>> operands);
+    void add_machine_code(const std::shared_ptr<Instruction>& instr, const std::vector<std::shared_ptr<Operand>>& operands);
     void add_machine_code(uint16_t constant);
 
-    static std::map<std::string, int> regtab;
-    static std::map<std::string, std::shared_ptr<Instruction>> opcodes;
+    void write_machine_code(const std::string &filename);
+
 
     std::map<std::string, int> symtab;
     void define_label(const std::string &name, int val);
@@ -52,10 +58,6 @@ class Parser {
     }
 
     Lexer lexer;
-
-public:
-    static void add_opcode(const std::string &name, uint8_t opcode, const std::initializer_list<unsigned char> &operands);
-    static void add_register(const std::string& name, int val);
 };
 
 #endif //PARSE_H

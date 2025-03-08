@@ -29,8 +29,8 @@ static uint8_t to_ins(operandOptions op) {
 /*
  * Instruction format for the architecture
  */
-__attribute__((packed)) struct InstructionBytes {
-    __attribute__((packed)) struct InstructionWord {
+struct __attribute__((packed)) InstructionBytes {
+    struct __attribute__((packed)) InstructionWord {
         uint8_t opcode :    5;
         uint8_t dir :       1;
         uint8_t reg :       3;
@@ -64,8 +64,8 @@ class Instruction {
 
 public:
     Instruction(uint8_t opCode, const std::initializer_list<operandOptions> &operand_constraints);
-    [[nodiscard]] std::unique_ptr<InstructionBytes> emit(std::vector<Operand> &ops) const;
-    int size(std::vector<std::shared_ptr<Operand>> operands);
+    [[nodiscard]] std::unique_ptr<InstructionBytes> emit(std::vector<std::shared_ptr<Operand>> ops) const;
+    int size(const std::vector<std::shared_ptr<Operand>>& operands);
 };
 
 #endif //INSTRUCTION_H
