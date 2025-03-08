@@ -9,15 +9,19 @@
 
 typedef uint8_t operandOptions;
 
-#define REG    0b0001
+#define REG         0b0001
 #define IMMEDIATE   0b0010
 #define REG_PTR     0b0100
 #define IMM_PTR     0b1000
+
+#define LR 0x0
+#define RL 0x1
 
 
 struct Operand {
     uint8_t type;
     uint16_t value;
+    bool is_rom = false;
 
     Operand(const uint8_t type, const uint16_t value) : type(type), value(value) {};
 

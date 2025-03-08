@@ -25,15 +25,11 @@ class Parser {
     };
 
     std::vector<MachineCodeInstance> machine_code;
-
     void add_machine_code(std::shared_ptr<Instruction> instr, std::vector<std::shared_ptr<Operand>> operands);
     void add_machine_code(uint16_t constant);
 
     static std::map<std::string, int> regtab;
-    static void add_register(const std::string& name, int val);
-
     static std::map<std::string, std::shared_ptr<Instruction>> opcodes;
-    static void add_opcode(const std::string &name, uint8_t opcode, const std::initializer_list<unsigned char> &operands);
 
     std::map<std::string, int> symtab;
     void define_label(const std::string &name, int val);
@@ -56,6 +52,10 @@ class Parser {
     }
 
     Lexer lexer;
+
+public:
+    static void add_opcode(const std::string &name, uint8_t opcode, const std::initializer_list<unsigned char> &operands);
+    static void add_register(const std::string& name, int val);
 };
 
 #endif //PARSE_H
