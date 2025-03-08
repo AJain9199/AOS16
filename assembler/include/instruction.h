@@ -47,7 +47,7 @@ struct __attribute__((packed)) InstructionBytes {
     }
 
     [[nodiscard]] uint16_t get_instruction() const {
-        return ins.opcode;
+        return (ins.reg2_hi << 2) | (ins.relative << 3) | (ins.mod << 4) | (ins.type << 5) | (ins.reg << 7) | (ins.dir << 10) | (ins.opcode << 11);
     }
 
     [[nodiscard]] uint16_t get_immediate() const {

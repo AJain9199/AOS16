@@ -17,6 +17,7 @@ class Lexer {
     std::string filename;
     int lineNumber = 0;
     char currentChar = '\0';
+    char punc = '\0';
     bool atEOF = false;
     TokenType currentToken = EOF_TOKEN;
 
@@ -42,7 +43,7 @@ public:
     }
 
     bool operator==(const char c) const {
-        return currentChar == c;
+        return currentToken == PUNCTUATION && punc == c;
     }
 
     // accessors
@@ -55,7 +56,7 @@ public:
     }
 
     [[nodiscard]] char getPunc() const {
-        return currentChar;
+        return punc;
     }
 
     [[nodiscard]] int getLine() const { return lineNumber; }
@@ -69,7 +70,7 @@ public:
     }
 
     void eat(const char c) {
-        if (currentToken != PUNCTUATION || c != currentChar) {
+        if (currentToken != PUNCTUATION || punc != c) {
             err("Unexpected character");
         }
 

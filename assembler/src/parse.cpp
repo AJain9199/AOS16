@@ -1,3 +1,4 @@
+#include <iomanip>
 #include <parse.h>
 
 using namespace std;
@@ -16,8 +17,9 @@ void Parser::parseStatement() {
         return;
     }
 
-    const string id = lexer.eat_id();
-    if (lexer == PUNCTUATION) {
+    const string id = lexer.getIdentifier();
+    lexer.getToken();
+    if (lexer == PUNCTUATION && lexer == ':') {
         lexer.eat(':');
         define_label(id, current_address);
     }
@@ -44,7 +46,8 @@ void Parser::parseDirective() {
  * Parses a list of operands of the form: op, op1, op2...
  */
 std::vector<std::shared_ptr<Operand>> Parser::parseOperands() {
-    vector operands = {parseOperand()};
+    auto op = parseOperand();
+    vector operands = {op};
     while (lexer == ',') {
         lexer.eat(',');
         operands.push_back(parseOperand());
@@ -62,6 +65,7 @@ std::shared_ptr<Operand> Parser::parseOperand() {
     if (lexer == PUNCTUATION && lexer == '(') {
         lexer.eat('(');
         auto op = parseSubOperand();
+        lexer.getToken();
         lexer.eat(')');
 
         op->make_pointer();
@@ -125,16 +129,21 @@ void Parser::add_machine_code(const uint16_t constant) {
 }
 
 void Parser::write_machine_code(const std::string &filename) {
-    fstream outfile(filename, ios_base::binary | ios_base::out);
+    fstream outfile;
+    outfile.open(filename, ios_base::binary | ios_base::out);
 
     for (const auto &i : machine_code) {
         if (i.is_constant) {
             outfile << i.constant;
         } else {
             const std::unique_ptr<InstructionBytes> ins = i.instruction->emit(i.operands);
-            outfile << ins->get_instruction();
+            uint16_t ins_bin = ins->get_instruction();
+            outfile.put(ins_bin >> 8);
+            outfile.put(ins_bin & 0xFF);
             if (ins->has_immediate()) {
-                outfile << ins->get_immediate();
+                ins_bin = ins->get_immediate();
+                outfile.put(ins_bin >> 8);
+                outfile.put(ins_bin & 0xFF);
             }
         }
     }
@@ -144,6 +153,12 @@ void Parser::write_machine_code(const std::string &filename) {
 
 void add_register(const std::string& name, const int val) {
     regtab[name] = val;
+}
+
+void Parser::parse() {
+    while (lexer.getToken() != EOF_TOKEN) {
+        parseStatement();
+    }
 }
 
 void add_opcode(const std::string &name, const uint8_t opcode, const initializer_list<operandOptions> &operands) {

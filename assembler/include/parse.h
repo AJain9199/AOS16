@@ -17,6 +17,14 @@ void add_register(const std::string& name, int val);
  * Container class for parsing the assembly code
  */
 class Parser {
+public:
+    explicit Parser(const std::string &filename) : lexer(filename) {
+    }
+
+    void parse();
+    void write_machine_code(const std::string &filename);
+
+private:
     struct MachineCodeInstance {
         bool is_constant = false;
         uint16_t constant = 0;
@@ -34,7 +42,6 @@ class Parser {
     void add_machine_code(const std::shared_ptr<Instruction>& instr, const std::vector<std::shared_ptr<Operand>>& operands);
     void add_machine_code(uint16_t constant);
 
-    void write_machine_code(const std::string &filename);
 
 
     std::map<std::string, int> symtab;

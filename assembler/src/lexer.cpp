@@ -7,7 +7,7 @@ TokenType Lexer::getToken() {
     skipWhitespace();
 
     if (atEOF) {
-        return EOF_TOKEN;
+        return currentToken = EOF_TOKEN;
     }
 
     // comments
@@ -22,28 +22,30 @@ TokenType Lexer::getToken() {
     // numeric literal
     if (isdigit(currentChar)) {
         number = parseNumber();
-        return NUM;
+        return currentToken = NUM;
     }
 
     // identifiers
     if (isalpha(currentChar) || currentChar == '_') {
         id = currentChar;
         advance();
-        while (isalnum(currentChar) || currentChar == '_') {
+        while ((isalnum(currentChar) || currentChar == '_') && !atEOF) {
             id += currentChar;
             advance();
         }
 
-        return ID;
+        return currentToken = ID;
     }
 
     // checks against the list of valid punctuation marks
     if (punctuation.contains(currentChar)) {
-        return PUNCTUATION;
+        punc = currentChar;
+        advance();
+        return currentToken = PUNCTUATION;
     }
 
     err("Invalid character");
-    return EOF_TOKEN;
+    return currentToken = EOF_TOKEN;
 }
 
 Lexer::Lexer(const std::string &sourceFile) : filename(sourceFile) {
@@ -81,7 +83,7 @@ int64_t Lexer::parseNumber() {
     }
 
     string num;
-    while (isalnum(currentChar)) {
+    while (isalnum(currentChar) && !atEOF) {
         num += currentChar;
         advance();
     }
