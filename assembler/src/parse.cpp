@@ -1,5 +1,6 @@
 #include <iomanip>
 #include <parse.h>
+#include <algorithm>
 
 using namespace std;
 
@@ -17,14 +18,21 @@ void Parser::parseStatement() {
         return;
     }
 
-    const string id = lexer.getIdentifier();
+    string id = lexer.getIdentifier();
     lexer.getToken();
     if (lexer == PUNCTUATION && lexer == ':') {
         lexer.eat(':');
         define_label(id, current_address);
+        return;
     }
 
-    add_machine_code(opcodes[id], parseOperands());
+    if (!opcodes.contains(id)) {
+        err("Unknown opcode");
+    }
+
+    ranges::transform(id, id.begin(), [] (const char c) {return tolower(c);});
+
+    add_machine_code(opcodes.at(id), parseOperands());
 }
 
 /*
@@ -80,7 +88,9 @@ std::shared_ptr<Operand> Parser::parseOperand() {
  */
 std::shared_ptr<Operand> Parser::parseSubOperand() {
     if (lexer == NUM) {
-        return make_shared<Operand>(IMMEDIATE, lexer.getNumber());
+        auto ret = make_shared<Operand>(IMMEDIATE, lexer.getNumber());
+        lexer.getToken();
+        return ret;
     }
 
     // label
@@ -134,7 +144,8 @@ void Parser::write_machine_code(const std::string &filename) {
 
     for (const auto &i : machine_code) {
         if (i.is_constant) {
-            outfile << i.constant;
+            outfile.put(i.constant >> 8);
+            outfile.put(i.constant & 0xFF);
         } else {
             const std::unique_ptr<InstructionBytes> ins = i.instruction->emit(i.operands);
             uint16_t ins_bin = ins->get_instruction();
@@ -156,7 +167,8 @@ void add_register(const std::string& name, const int val) {
 }
 
 void Parser::parse() {
-    while (lexer.getToken() != EOF_TOKEN) {
+    lexer.getToken();
+    while (lexer != EOF_TOKEN) {
         parseStatement();
     }
 }
