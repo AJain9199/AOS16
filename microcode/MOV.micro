@@ -1,21 +1,26 @@
 (MOV:5)(<REGS:0>) {
     (RL:1) {
+
+        # mov reg, imm16
         (IMM:2)(0:3) {
             PCO, MAI;
             MO, MSL, RSE = <REGS:0>, RGI, PCE;
         }
 
+        # mov reg, *imm16
         (IMM_PTR:2)(0:3) {
             PCO, MAI;
             MO, MSL, MAI, PCE;
             MO, RSE = <REGS:0>, RGI;
         }
 
+        # mov reg, *reg
         (REG_PTR:2)(<REGS:1>) {
             RSE = <REGS:1>, RGO, MAI;
             MO, RSE = <REGS:0>, RGI;
         }
 
+        # mov reg, reg
         (REG:2)(<REGS:1>) {
             RSE = <REGS:1>, RGO, AAI;
             ALF = 0xB, ALO, RSE = <REGS:0>, RGI;
@@ -23,17 +28,20 @@
     }
 
     (LR:1) {
+        # mov *reg, reg
         (REG_PTR:2)(<REGS:1>) {
             RSE = <REGS:1>, RGO, MAI;
             RSE = <REGS:0>, RGO, MI;
         }
 
+        # mov *imm16, reg
         (IMM_PTR:2)(0:3) {
             PCO, MAI;
             MO, MSL, MAI, PCE;
             RSE = <REGS:0>, RGO, MI;
         }
 
+        # mov reg, reg
         (REG:2)(<REGS:1>) {
             RSE = <REGS:0>, RGO, AAI;
             ALF = 0xB, ALO, RSE = <REGS:0>, RGI;
@@ -42,12 +50,15 @@
 }
 
 (PUSH:5) {
+
+    # push reg
     (REG:2)(<REGS:0>) {
         RSE = REG_SP, RGO, MAI, AAI;
         RSE = <REGS:0>, RGO, MI;
         ALF = ALU_INC, ALO, RSE = REG_SP, RGI;
     }
 
+    # push imm16
     (IMM:2) {
         PCO, MAI;
         MO, MSL, ABI, PCE;
@@ -56,6 +67,7 @@
         ALF = ALU_INC, ALO, RSE = REG_SP, RGI;
     }
 
+    # push *imm16
     (IMM_PTR:2) {
         PCO, MAI;
         MO, MSL, MAI, PCE;
@@ -65,6 +77,7 @@
         ALF = ALU_INC, ALO, RSE = REG_SP, RGI;
     }
 
+    # push *reg
     (REG_PTR:2)(<REGS:0>) {
         RSE = <REGS:0>, RGO, MAI;
         MO, ABI;
@@ -75,12 +88,15 @@
 }
 
 (POP:5) {
+
+    # pop reg
     (REG:2)(<REGS:0>) {
         RSE = REG_SP, RGO, MAI, AAI;
         MO, RSE = <REGS:0>, RGI;
         ALF = ALU_DEC, ALO, RSE = REG_SP, RGI;
     }
 
+    # pop *imm16
     (IMM_PTR:2) {
         RSE = REG_SP, RGO, MAI, AAI;
         MO, ABI;
@@ -90,6 +106,7 @@
         ALF = ALU_DEC, RSE = REG_SP, RGI;
     }
 
+    # pop *reg
     (REG_PTR:2)(<REGS:0>) {
         RSE = REG_SP, RGO, MAI, AAI;
         MO, ABI;

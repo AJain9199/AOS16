@@ -1,0 +1,12 @@
+(INT)(<INTS:0>) {
+    RSE = REG_SP, RGO, MAI, AAI;
+    PCO, MI;
+    ALF = ALU_INC, ALO, RSE = REG_SP, RGI;
+    ALF = ALU_ZERO, ALO, MAI;
+    MO, PCL;
+}
+
+(IRET) {
+    RSE = REG_SP, RGO, MAI, AAI;
+    MO, PCL;
+}
