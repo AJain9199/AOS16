@@ -40,7 +40,11 @@
 -   10101: JGT imm16/reg
 -   10110: JGE imm16/reg
 -   10111: HLT
--   11000 - 11110: UNALLOCATED
+-   11000: CALL imm16/reg/m
+-   11001: RET
+-   11010: INT imm4
+-   11011: IRET
+-   11100 - 11110: UNALLOCATED
 -   11111: NOP (Data is all high in EEPROM upon erase)
 
 ## Registers

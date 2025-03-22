@@ -1972,6 +1972,12 @@
 		(uuid "07d381d6-71fc-43e2-ad93-29c09292df46")
 	)
 	(junction
+		(at 90.551 53.34)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "0c501d90-5868-4100-983c-3d88c585e7a5")
+	)
+	(junction
 		(at 32.385 86.995)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1994,6 +2000,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "3ca547c9-f2ac-469e-b447-852007d47cbb")
+	)
+	(junction
+		(at 73.66 38.1)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "53f07e5e-94e9-46b6-88e5-57cd5ac6c22e")
 	)
 	(junction
 		(at 111.76 21.59)
@@ -2313,6 +2325,16 @@
 		)
 		(uuid "4ba010d6-2b99-490a-940c-4dfe894abea4")
 	)
+	(bus
+		(pts
+			(xy 73.66 38.1) (xy 73.66 50.165)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4c0181a2-c0f1-44f6-a8c8-533e6924bfb5")
+	)
 	(wire
 		(pts
 			(xy 114.935 40.005) (xy 110.49 40.005)
@@ -2362,6 +2384,16 @@
 			(type default)
 		)
 		(uuid "5322c507-9912-42ad-9320-098fe9234743")
+	)
+	(wire
+		(pts
+			(xy 103.505 53.34) (xy 103.505 57.785)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "57d28b91-5cec-4a06-8bf6-c5de396463fe")
 	)
 	(wire
 		(pts
@@ -2415,6 +2447,16 @@
 	)
 	(wire
 		(pts
+			(xy 90.17 53.34) (xy 90.551 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "61a547e0-cf50-419b-a14c-de41010e509f")
+	)
+	(wire
+		(pts
 			(xy 68.58 75.565) (xy 73.025 75.565)
 		)
 		(stroke
@@ -2422,6 +2464,16 @@
 			(type default)
 		)
 		(uuid "677104c2-ff7c-4dc4-b0ac-cb119a7622bc")
+	)
+	(bus
+		(pts
+			(xy 75.565 50.165) (xy 73.66 50.165)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "699999d6-b66d-443f-bff4-41a24b6036be")
 	)
 	(wire
 		(pts
@@ -2592,6 +2644,16 @@
 			(type default)
 		)
 		(uuid "9eb2427d-7099-4e29-a179-9045faeef6ed")
+	)
+	(wire
+		(pts
+			(xy 90.551 53.34) (xy 103.505 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9f54fb7d-5e6e-4635-82b7-4b574f638b12")
 	)
 	(wire
 		(pts
@@ -4040,7 +4102,7 @@
 				)
 			)
 		)
-		(property "Value" "74AHC1G32"
+		(property "Value" "74LVC1G32"
 			(at 100.33 103.5364 0)
 			(effects
 				(font
@@ -4251,7 +4313,7 @@
 				)
 			)
 		)
-		(property "Value" "74AHC1G32"
+		(property "Value" "74LVC1G32"
 			(at 100.33 74.3264 0)
 			(effects
 				(font
@@ -4329,7 +4391,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "74LS157"
+		(property "Value" "74LVC157"
 			(at 223.8091 34.29 0)
 			(effects
 				(font
@@ -4638,7 +4700,7 @@
 				)
 			)
 		)
-		(property "Value" "74AHC1G04"
+		(property "Value" "74LVC1G04"
 			(at 162.56 73.6914 0)
 			(effects
 				(font
@@ -4755,6 +4817,72 @@
 			(project ""
 				(path "/131fc824-3141-4c3d-90f1-eeaffe39dfa6"
 					(reference "#PWR029")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 103.505 57.785 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a3e2b16c-4a5a-42cf-83a9-2df64f7e350a")
+		(property "Reference" "#PWR042"
+			(at 103.505 64.135 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 103.505 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 103.505 57.785 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 103.505 57.785 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 103.505 57.785 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "eca95710-ab6a-4db6-a63b-bc6d52c26602")
+		)
+		(instances
+			(project ""
+				(path "/131fc824-3141-4c3d-90f1-eeaffe39dfa6"
+					(reference "#PWR042")
 					(unit 1)
 				)
 			)
@@ -5170,15 +5298,15 @@
 		(fields_autoplaced yes)
 		(uuid "c4b53dcf-aaa1-4723-862e-b84e8d957aa0")
 		(property "Reference" "U2"
-			(at 68.58 98.4564 0)
+			(at 67.31 98.4564 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "74AHC1G08"
-			(at 68.58 100.9964 0)
+		(property "Value" "74LVC1G08"
+			(at 67.31 100.9964 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5451,15 +5579,15 @@
 		(fields_autoplaced yes)
 		(uuid "d7dba080-24c7-4999-95ec-1c835131a396")
 		(property "Reference" "U1"
-			(at 68.58 69.2464 0)
+			(at 67.31 69.2464 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "74AHC1G08"
-			(at 68.58 71.7864 0)
+		(property "Value" "74LVC1G08"
+			(at 67.31 71.7864 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5808,7 +5936,7 @@
 				)
 			)
 		)
-		(property "Value" "74AHC1G04"
+		(property "Value" "74LVC1G04"
 			(at 162.56 102.9014 0)
 			(effects
 				(font
@@ -6357,6 +6485,64 @@
 			(project "AOS16 Double Buffer"
 				(path "/131fc824-3141-4c3d-90f1-eeaffe39dfa6"
 					(page "6")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 75.438 48.514)
+		(size 15.113 6.858)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0.0000)
+		)
+		(uuid "101247ad-0ffe-499f-9636-a746f97bda05")
+		(property "Sheetname" "pull_resistor"
+			(at 75.438 47.8024 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "pull_resistor.kicad_sch"
+			(at 75.438 55.9566 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(pin "IN[0..15]" input
+			(at 75.438 50.165 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "af83e13e-00e3-48a3-bf8b-2e4f27e5b6e7")
+		)
+		(pin "pull_value" input
+			(at 90.551 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "46225cf9-531e-4dd5-972c-b21c8fed5f71")
+		)
+		(instances
+			(project "AOS16 Double Buffer"
+				(path "/131fc824-3141-4c3d-90f1-eeaffe39dfa6"
+					(page "11")
 				)
 			)
 		)

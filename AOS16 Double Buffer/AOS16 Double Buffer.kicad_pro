@@ -38,8 +38,8 @@
         "other_text_upright": false,
         "pads": {
           "drill": 0.0,
-          "height": 0.4,
-          "width": 0.65
+          "height": 0.3,
+          "width": 0.8
         },
         "silk_line_width": 0.2,
         "silk_text_italic": false,
@@ -682,6 +682,10 @@
     [
       "d9a6115e-3904-4e81-b48d-1645cc7984ea",
       "word_buffer"
+    ],
+    [
+      "101247ad-0ffe-499f-9636-a746f97bda05",
+      "pull_resistor"
     ],
     [
       "196d0e4a-1bc5-46ff-9e6e-eb4153430b9c",
