@@ -5,7 +5,9 @@
 	(uuid "d0ff1746-05b2-48b8-98b2-17770b6e43fd")
 	(paper "A4")
 	(title_block
+		(title "16-bit Register")
 		(rev "V1.0")
+		(comment 1 "Designed to be used as a drop-in replacement to 4 74LS173 ICs used together")
 	)
 	(lib_symbols
 		(symbol "74FCT16374CTPVG:74FCT16374CTPVG"
@@ -4306,7 +4308,7 @@
 			(uuid "6725abe1-7d69-4cd0-9dd4-04e556cea7a5")
 		)
 		(instances
-			(project ""
+			(project "ALU"
 				(path "/c0bb03ae-ed0c-4e9e-9f7c-15f29fb8b868/e88f18b5-e72c-4b0e-9142-9a24ab457305"
 					(reference "TP2")
 					(unit 1)
@@ -4889,7 +4891,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-353_SC-70-5"
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
 			(at 81.915 126.365 0)
 			(effects
 				(font

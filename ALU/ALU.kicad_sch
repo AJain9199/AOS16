@@ -738,7 +738,7 @@
 	)
 	(wire
 		(pts
-			(xy 31.115 43.815) (xy 36.83 43.815)
+			(xy 31.115 43.815) (xy 46.99 43.815)
 		)
 		(stroke
 			(width 0)
@@ -758,7 +758,7 @@
 	)
 	(wire
 		(pts
-			(xy 153.035 22.606) (xy 146.05 22.606)
+			(xy 170.815 22.606) (xy 170.18 22.606)
 		)
 		(stroke
 			(width 0)
@@ -775,16 +775,6 @@
 			(type default)
 		)
 		(uuid "13be6f02-bfc4-4748-bb89-cc568a88c416")
-	)
-	(wire
-		(pts
-			(xy 46.99 29.21) (xy 48.26 29.21)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "153807f3-2817-4c89-9b0c-ecfc7cc08a48")
 	)
 	(wire
 		(pts
@@ -928,7 +918,7 @@
 	)
 	(wire
 		(pts
-			(xy 146.05 22.606) (xy 146.05 31.496)
+			(xy 170.18 22.606) (xy 170.18 35.56)
 		)
 		(stroke
 			(width 0)
@@ -968,7 +958,7 @@
 	)
 	(wire
 		(pts
-			(xy 31.369 28.575) (xy 36.83 28.575)
+			(xy 31.369 28.575) (xy 48.26 28.575)
 		)
 		(stroke
 			(width 0)
@@ -1038,16 +1028,6 @@
 	)
 	(wire
 		(pts
-			(xy 36.83 43.815) (xy 36.83 28.575)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9f2fd8f9-2f07-4e38-b5b7-257701a59e1b")
-	)
-	(wire
-		(pts
 			(xy 26.035 69.215) (xy 29.21 69.215)
 		)
 		(stroke
@@ -1066,9 +1046,19 @@
 		)
 		(uuid "b9c5bc21-f173-43d4-b694-015d15807971")
 	)
+	(wire
+		(pts
+			(xy 46.99 43.815) (xy 46.99 44.45)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "be76a8a9-2885-4592-9787-e7c424e4ea59")
+	)
 	(bus
 		(pts
-			(xy 143.51 27.94) (xy 153.035 27.94)
+			(xy 143.51 27.94) (xy 170.815 27.94)
 		)
 		(stroke
 			(width 0)
@@ -1302,17 +1292,6 @@
 		)
 		(uuid "671c67d8-5c7a-4da8-bc1f-110afced04b7")
 	)
-	(label "CLK"
-		(at 46.99 29.21 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "70d37e78-1d7a-463c-9c84-dd2c982e1880")
-	)
 	(label "S1"
 		(at 26.035 69.215 0)
 		(fields_autoplaced yes)
@@ -1323,17 +1302,6 @@
 			(justify left bottom)
 		)
 		(uuid "8cc6140f-a310-43be-a265-9c507259538f")
-	)
-	(label "CLK"
-		(at 46.99 44.45 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "987d7a01-3ca6-40d8-8fa6-43a74bb44cd5")
 	)
 	(label "S[0..3]"
 		(at 36.83 64.135 0)
@@ -1390,17 +1358,6 @@
 		)
 		(uuid "e2fd9e50-7e01-44cc-91dc-0295b9df7e98")
 	)
-	(label "CLK"
-		(at 36.83 28.575 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "e3863aaa-f7ef-4f76-a165-db460c1df118")
-	)
 	(label "INA"
 		(at 46.99 31.115 180)
 		(fields_autoplaced yes)
@@ -1425,7 +1382,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 146.05 31.496 0)
+		(at 170.18 35.56 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1434,7 +1391,7 @@
 		(fields_autoplaced yes)
 		(uuid "1f521f07-4518-49fb-af0a-9e8e64a368af")
 		(property "Reference" "#PWR05"
-			(at 146.05 37.846 0)
+			(at 170.18 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1443,7 +1400,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 146.05 35.941 0)
+			(at 170.18 40.005 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1452,7 +1409,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 146.05 31.496 0)
+			(at 170.18 35.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1461,7 +1418,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 146.05 31.496 0)
+			(at 170.18 35.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1470,7 +1427,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 146.05 31.496 0)
+			(at 170.18 35.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2115,13 +2072,14 @@
 				(justify left bottom)
 			)
 		)
-		(property "Sheetfile" "tri-state buffer16.kicad_sch"
+		(property "Sheetfile" "../common/tri-state buffer16.kicad_sch"
 			(at 124.206 33.9856 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
+				(hide yes)
 			)
 		)
 		(pin "A[0..15]" bidirectional
@@ -2193,13 +2151,14 @@
 				(justify left bottom)
 			)
 		)
-		(property "Sheetfile" "bus_conn.kicad_sch"
+		(property "Sheetfile" "../common/bus_conn.kicad_sch"
 			(at 17.907 49.2256 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
+				(hide yes)
 			)
 		)
 		(pin "5V" input
@@ -2253,7 +2212,6 @@
 	(sheet
 		(at 17.78 25.4)
 		(size 13.589 8.128)
-		(fields_autoplaced yes)
 		(stroke
 			(width 0.1524)
 			(type solid)
@@ -2271,13 +2229,14 @@
 				(justify left bottom)
 			)
 		)
-		(property "Sheetfile" "bus_conn.kicad_sch"
-			(at 17.78 34.1126 0)
+		(property "Sheetfile" "../common/bus_conn.kicad_sch"
+			(at 12.954 34.798 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
+				(hide yes)
 			)
 		)
 		(pin "5V" input
@@ -2329,7 +2288,7 @@
 		)
 	)
 	(sheet
-		(at 153.035 21.082)
+		(at 170.815 21.082)
 		(size 13.589 8.128)
 		(fields_autoplaced yes)
 		(stroke
@@ -2341,7 +2300,7 @@
 		)
 		(uuid "de17c4ab-fa99-4cb9-b952-5c28477908f5")
 		(property "Sheetname" "bus_connector1"
-			(at 153.035 20.3704 0)
+			(at 170.815 20.3704 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2349,17 +2308,18 @@
 				(justify left bottom)
 			)
 		)
-		(property "Sheetfile" "bus_conn.kicad_sch"
-			(at 153.035 29.7946 0)
+		(property "Sheetfile" "../common/bus_conn.kicad_sch"
+			(at 170.815 29.7946 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
+				(hide yes)
 			)
 		)
 		(pin "5V" input
-			(at 153.035 24.13 180)
+			(at 170.815 24.13 180)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2369,7 +2329,7 @@
 			(uuid "4bb59eed-9fe8-4d38-b042-af4de7118a08")
 		)
 		(pin "GND" input
-			(at 153.035 22.606 180)
+			(at 170.815 22.606 180)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2379,7 +2339,7 @@
 			(uuid "22fefda4-c5ef-4cec-8df4-8b65aeec42a7")
 		)
 		(pin "IO[0..15]" tri_state
-			(at 153.035 27.94 180)
+			(at 170.815 27.94 180)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2389,7 +2349,7 @@
 			(uuid "96a0f5c5-0b6d-4638-9f1a-e7c136d84d9e")
 		)
 		(pin "CLK" input
-			(at 153.035 26.035 180)
+			(at 170.815 26.035 180)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2427,13 +2387,14 @@
 				(justify left bottom)
 			)
 		)
-		(property "Sheetfile" "reg16F.kicad_sch"
+		(property "Sheetfile" "../common/reg16F.kicad_sch"
 			(at 48.26 49.7336 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
+				(hide yes)
 			)
 		)
 		(pin "DIN[0..15]" input
@@ -2623,13 +2584,14 @@
 				(justify left bottom)
 			)
 		)
-		(property "Sheetfile" "reg16F.kicad_sch"
+		(property "Sheetfile" "../common/reg16F.kicad_sch"
 			(at 48.26 34.8746 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left top)
+				(hide yes)
 			)
 		)
 		(pin "DIN[0..15]" input
@@ -2653,7 +2615,7 @@
 			(uuid "46374f38-8dc7-4635-bd56-67a11d16f25b")
 		)
 		(pin "CLK" input
-			(at 48.26 29.21 180)
+			(at 48.26 28.575 180)
 			(effects
 				(font
 					(size 1.27 1.27)

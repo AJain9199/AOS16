@@ -440,3 +440,4 @@ fp-info-cache
 *.csv
 
 build/
+*/plots/
