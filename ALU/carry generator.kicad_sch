@@ -7236,8 +7236,8 @@
 				)
 			)
 		)
-		(property "Value" "74AHC1G04"
-			(at 52.324 51.943 0)
+		(property "Value" "74AHC1G04DBVR"
+			(at 53.594 51.816 0)
 			(effects
 				(font
 					(size 1.27 1.27)
