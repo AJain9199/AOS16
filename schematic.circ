@@ -243,6 +243,7 @@
     <comp lib="0" loc="(980,980)" name="Tunnel">
       <a name="label" val="SWP"/>
     </comp>
+    <comp lib="2" loc="(230,990)" name="Priority Encoder"/>
     <comp lib="4" loc="(600,310)" name="J-K Flip-Flop">
       <a name="appearance" val="logisim_evolution"/>
     </comp>
@@ -265,6 +266,7 @@
     <wire from="(210,880)" to="(320,880)"/>
     <wire from="(220,420)" to="(320,420)"/>
     <wire from="(220,460)" to="(320,460)"/>
+    <wire from="(230,990)" to="(300,990)"/>
     <wire from="(240,270)" to="(240,300)"/>
     <wire from="(240,270)" to="(260,270)"/>
     <wire from="(240,720)" to="(320,720)"/>
