@@ -3215,7 +3215,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "SN74AHCT16245DGVR"
+		(property "Value" "SN74AHCT16245DGGR"
 			(at 34.036 38.735 0)
 			(effects
 				(font
