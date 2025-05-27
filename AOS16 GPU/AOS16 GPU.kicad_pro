@@ -411,6 +411,14 @@
     [
       "30867551-fb5e-4d50-9b6f-10252ea432a0",
       "Root"
+    ],
+    [
+      "4bf792ca-1e03-422d-88f5-eccf37716806",
+      "HCounter"
+    ],
+    [
+      "ca6d6f3a-bc28-4e9a-b64e-d96f2c2badaa",
+      "VCounter"
     ]
   ],
   "text_variables": {}

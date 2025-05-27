@@ -94,3 +94,17 @@ The bits in the status register, from LSB to MSB:
 -   20: HLT: Global Halt
 -   21: MCR: Microcode Reset
 -   22: SWAP: Swap the double buffer selection
+
+## GPU
+Resolution: 160x128 (5:4 aspect ratio)\
+Clock: 13.5MHz
+
+### VGA Timing
+Horizontal Timing
+| Scanline Part | Pixels | Pixel Counter    |
+|---------------|--------| ---------------- |
+| Visible Area  | 160    | 160 (0b10100000) |
+| Front porch   | 6      | 166 (0b10100110) |
+| Sync Pulse    | 14     | 180 (0b10110100) |
+| Back porch    | 31     | 211 (0b11010011) |
+| Whole Line    | 211    |
