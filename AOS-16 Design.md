@@ -96,6 +96,7 @@ The bits in the status register, from LSB to MSB:
 -   22: SWAP: Swap the double buffer selection
 
 ## GPU
+VGA Timing Mode: VESA 1280x1024 @60Hz\
 Resolution: 160x128 (5:4 aspect ratio)\
 Clock: 13.5MHz
 
@@ -107,4 +108,12 @@ Horizontal Timing
 | Front porch   | 6      | 166 (0b10100110) |
 | Sync Pulse    | 14     | 180 (0b10110100) |
 | Back porch    | 31     | 211 (0b11010011) |
-| Whole Line    | 211    |
+| Whole Line    | 211    |                  |
+
+ Vertical Timing (Every pixel is repeated 8 times in vertical direction to achieve 128 lines)
+| Frame part | Lines | Line Counter | 
+| ---------- | ----- | ------------ |
+| Visible Area | 1024 | 1024 (0b0100 0000 0000) |
+| Front porch | 1 | 1025 (0b0100 0000 0001) |
+| Sync Pulse | 3| 1028 (0b0100 0000 0100)|
+| Back Porch | 38 | 1066 (0b0100 0010 1010)
