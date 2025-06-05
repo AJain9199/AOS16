@@ -5124,15 +5124,15 @@
 		)
 		(uuid "1a689202-6947-4265-9ac5-9a2ccde30ec2")
 	)
-	(label "~{B4}"
-		(at 105.41 40.64 180)
+	(label "~{B0}"
+		(at 105.41 43.18 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right bottom)
 		)
-		(uuid "1faa4572-1a38-48f4-abc7-2e22054aabe6")
+		(uuid "252acef7-fb43-44b5-a363-54095bb443f1")
 	)
 	(label "~{B0}"
 		(at 106.68 130.81 180)
@@ -5153,16 +5153,6 @@
 			(justify right bottom)
 		)
 		(uuid "331686d1-01b9-403c-8011-aa9ebe69aca5")
-	)
-	(label "~{B0}"
-		(at 105.41 30.48 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "39e1e719-01e6-472f-bdea-3ac2ee4f8f84")
 	)
 	(label "B1"
 		(at 106.68 103.505 180)
@@ -5223,16 +5213,6 @@
 			(justify left bottom)
 		)
 		(uuid "5e303f5c-290a-4e68-9fac-86b6126e78c0")
-	)
-	(label "B1"
-		(at 105.41 33.02 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "5ed93292-ed66-4bcd-b691-0033eeaf64fe")
 	)
 	(label "B5"
 		(at 106.68 143.51 180)
@@ -5494,15 +5474,25 @@
 		)
 		(uuid "b0d53a7b-001e-4aab-b82c-9f55ff111846")
 	)
-	(label "B5"
-		(at 105.41 43.18 180)
+	(label "B1"
+		(at 105.41 40.64 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right bottom)
 		)
-		(uuid "bc234028-f647-46e2-9f71-ca27d259d500")
+		(uuid "b282efc2-eb0b-404a-942b-8cbc3f2b2141")
+	)
+	(label "B5"
+		(at 105.41 30.48 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "bd1beb7a-5df2-4b9b-ad98-e44e85649e0f")
 	)
 	(label "~{READ RESET}"
 		(at 128.27 138.43 0)
@@ -5523,6 +5513,16 @@
 			(justify left bottom)
 		)
 		(uuid "bf27922d-0a73-4159-be92-5db36b08686b")
+	)
+	(label "~{B4}"
+		(at 105.41 33.02 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "c9ae79b3-5d76-4b56-a65c-bb2814cca441")
 	)
 	(label "B2"
 		(at 220.98 33.02 180)
@@ -7451,13 +7451,13 @@
 	(symbol
 		(lib_id "74xx:74AHC04")
 		(at 78.105 104.14 0)
-		(unit 6)
+		(unit 2)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "6453e01d-dbb1-4549-8d38-a7e0d769e97f")
-		(property "Reference" "U6"
+		(property "Reference" "U7"
 			(at 77.343 104.013 0)
 			(effects
 				(font
@@ -7545,8 +7545,8 @@
 		(instances
 			(project "AOS16 GPU"
 				(path "/30867551-fb5e-4d50-9b6f-10252ea432a0/4bf792ca-1e03-422d-88f5-eccf37716806"
-					(reference "U6")
-					(unit 6)
+					(reference "U7")
+					(unit 2)
 				)
 			)
 		)
@@ -7865,7 +7865,7 @@
 	(symbol
 		(lib_id "74xx:74AHC04")
 		(at 78.105 115.57 0)
-		(unit 1)
+		(unit 3)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
@@ -7960,7 +7960,7 @@
 			(project "AOS16 GPU"
 				(path "/30867551-fb5e-4d50-9b6f-10252ea432a0/4bf792ca-1e03-422d-88f5-eccf37716806"
 					(reference "U7")
-					(unit 1)
+					(unit 3)
 				)
 			)
 		)
@@ -7968,13 +7968,13 @@
 	(symbol
 		(lib_id "74xx:74AHC04")
 		(at 77.47 92.71 0)
-		(unit 5)
+		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "8d670704-3b8e-4901-b5c0-fc5a56f51b30")
-		(property "Reference" "U6"
+		(property "Reference" "U7"
 			(at 76.708 92.583 0)
 			(effects
 				(font
@@ -8062,8 +8062,8 @@
 		(instances
 			(project "AOS16 GPU"
 				(path "/30867551-fb5e-4d50-9b6f-10252ea432a0/4bf792ca-1e03-422d-88f5-eccf37716806"
-					(reference "U6")
-					(unit 5)
+					(reference "U7")
+					(unit 1)
 				)
 			)
 		)
@@ -8620,7 +8620,7 @@
 	(symbol
 		(lib_id "74xx:74AHC04")
 		(at 78.105 127.635 0)
-		(unit 2)
+		(unit 4)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
@@ -8715,7 +8715,7 @@
 			(project "AOS16 GPU"
 				(path "/30867551-fb5e-4d50-9b6f-10252ea432a0/4bf792ca-1e03-422d-88f5-eccf37716806"
 					(reference "U7")
-					(unit 2)
+					(unit 4)
 				)
 			)
 		)
