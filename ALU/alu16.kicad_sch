@@ -1,11 +1,11 @@
 (kicad_sch
-	(version 20231120)
+	(version 20250114)
 	(generator "eeschema")
-	(generator_version "8.0")
+	(generator_version "9.0")
 	(uuid "7da8cb5e-457b-4db7-a8f9-65963ab0a0c0")
 	(paper "A4")
 	(title_block
-		(rev "V1.0")
+		(rev "V1.1")
 	)
 	(lib_symbols
 		(symbol "74xx:74LS181"
@@ -87,6 +87,31 @@
 			(symbol "74LS181_1_0"
 				(polyline
 					(pts
+						(xy -6.35 -2.54) (xy -6.35 -10.16) (xy -3.81 -10.16) (xy -3.81 -2.54) (xy -6.35 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -5.08 16.51) (xy -5.08 11.43) (xy -2.54 8.89) (xy -5.08 6.35) (xy -5.08 1.27) (xy 0 1.27)
+						(xy 5.08 5.08) (xy 5.08 12.7) (xy 0 16.51) (xy -5.08 16.51)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
 						(xy -3.81 -6.35) (xy -2.54 -6.35) (xy -2.54 1.27)
 					)
 					(stroke
@@ -135,18 +160,6 @@
 				)
 				(polyline
 					(pts
-						(xy 4.445 -7.62) (xy 3.175 -6.985) (xy 3.175 -8.255) (xy 4.445 -7.62)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
 						(xy 4.445 -5.08) (xy 3.175 -4.445) (xy 3.175 -5.715) (xy 4.445 -5.08)
 					)
 					(stroke
@@ -159,27 +172,22 @@
 				)
 				(polyline
 					(pts
-						(xy -6.35 -2.54) (xy -6.35 -10.16) (xy -3.81 -10.16) (xy -3.81 -2.54) (xy -6.35 -2.54)
+						(xy 4.445 -7.62) (xy 3.175 -6.985) (xy 3.175 -8.255) (xy 4.445 -7.62)
 					)
 					(stroke
 						(width 0)
 						(type default)
 					)
 					(fill
-						(type none)
+						(type outline)
 					)
 				)
-				(polyline
-					(pts
-						(xy -5.08 16.51) (xy -5.08 11.43) (xy -2.54 8.89) (xy -5.08 6.35) (xy -5.08 1.27) (xy 0 1.27)
-						(xy 5.08 5.08) (xy 5.08 12.7) (xy 0 16.51) (xy -5.08 16.51)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
+				(text "Decod"
+					(at -5.08 -6.35 900)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
 					)
 				)
 				(text "A"
@@ -198,19 +206,83 @@
 						)
 					)
 				)
-				(text "Decod"
-					(at -5.08 -6.35 900)
-					(effects
-						(font
-							(size 1.27 1.27)
-						)
-					)
-				)
 				(text "S"
 					(at 3.302 9.144 0)
 					(effects
 						(font
 							(size 2.286 2.286)
+						)
+					)
+				)
+				(pin input line
+					(at -15.24 17.78 0)
+					(length 5.08)
+					(name "A0"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -15.24 15.24 0)
+					(length 5.08)
+					(name "A1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "23"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -15.24 12.7 0)
+					(length 5.08)
+					(name "A2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "21"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -15.24 10.16 0)
+					(length 5.08)
+					(name "A3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "19"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
 						)
 					)
 				)
@@ -225,6 +297,222 @@
 						)
 					)
 					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -15.24 5.08 0)
+					(length 5.08)
+					(name "B1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "22"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -15.24 2.54 0)
+					(length 5.08)
+					(name "B2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "20"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -15.24 0 0)
+					(length 5.08)
+					(name "B3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "18"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -15.24 -2.54 0)
+					(length 5.08)
+					(name "S0"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -15.24 -5.08 0)
+					(length 5.08)
+					(name "S1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -15.24 -7.62 0)
+					(length 5.08)
+					(name "S2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -15.24 -10.16 0)
+					(length 5.08)
+					(name "S3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -15.24 -15.24 0)
+					(length 5.08)
+					(name "M"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input inverted
+					(at -15.24 -17.78 0)
+					(length 5.08)
+					(name "Cn"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 0 25.4 270)
+					(length 5.08)
+					(name "VCC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "24"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 0 -25.4 90)
+					(length 5.08)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "12"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 15.24 12.7 180)
+					(length 5.08)
+					(name "F0"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "9"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -268,24 +556,6 @@
 						)
 					)
 				)
-				(pin power_in line
-					(at 0 -25.4 90)
-					(length 5.08)
-					(name "GND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "12"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
 				(pin output line
 					(at 15.24 5.08 180)
 					(length 5.08)
@@ -297,42 +567,6 @@
 						)
 					)
 					(number "13"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin output line
-					(at 15.24 -7.62 180)
-					(length 5.08)
-					(name "A=B"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "14"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin output line
-					(at 15.24 -15.24 180)
-					(length 5.08)
-					(name "X"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "15"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -359,6 +593,24 @@
 					)
 				)
 				(pin output line
+					(at 15.24 -7.62 180)
+					(length 5.08)
+					(name "A=B"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "14"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin output line
 					(at 15.24 -12.7 180)
 					(length 5.08)
 					(name "Y"
@@ -376,269 +628,17 @@
 						)
 					)
 				)
-				(pin input line
-					(at -15.24 0 0)
-					(length 5.08)
-					(name "B3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "18"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -15.24 10.16 0)
-					(length 5.08)
-					(name "A3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "19"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -15.24 17.78 0)
-					(length 5.08)
-					(name "A0"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -15.24 2.54 0)
-					(length 5.08)
-					(name "B2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "20"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -15.24 12.7 0)
-					(length 5.08)
-					(name "A2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "21"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -15.24 5.08 0)
-					(length 5.08)
-					(name "B1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "22"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -15.24 15.24 0)
-					(length 5.08)
-					(name "A1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "23"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin power_in line
-					(at 0 25.4 270)
-					(length 5.08)
-					(name "VCC"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "24"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -15.24 -10.16 0)
-					(length 5.08)
-					(name "S3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -15.24 -7.62 0)
-					(length 5.08)
-					(name "S2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -15.24 -5.08 0)
-					(length 5.08)
-					(name "S1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -15.24 -2.54 0)
-					(length 5.08)
-					(name "S0"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input inverted
-					(at -15.24 -17.78 0)
-					(length 5.08)
-					(name "Cn"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin input line
-					(at -15.24 -15.24 0)
-					(length 5.08)
-					(name "M"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "8"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
 				(pin output line
-					(at 15.24 12.7 180)
+					(at 15.24 -15.24 180)
 					(length 5.08)
-					(name "F0"
+					(name "X"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "9"
+					(number "15"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -660,11 +660,16 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "Connector:TestPoint"
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 0.762) hide)
+				(offset 0.762)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -762,9 +767,12 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "Device:C"
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
 				(offset 0.254)
 			)
@@ -837,7 +845,7 @@
 			(symbol "C_0_1"
 				(polyline
 					(pts
-						(xy -2.032 -0.762) (xy 2.032 -0.762)
+						(xy -2.032 0.762) (xy 2.032 0.762)
 					)
 					(stroke
 						(width 0.508)
@@ -849,7 +857,7 @@
 				)
 				(polyline
 					(pts
-						(xy -2.032 0.762) (xy 2.032 0.762)
+						(xy -2.032 -0.762) (xy 2.032 -0.762)
 					)
 					(stroke
 						(width 0.508)
@@ -898,12 +906,17 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "power:+5V"
 			(power)
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 0) hide)
+				(offset 0)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -975,7 +988,7 @@
 				)
 				(polyline
 					(pts
-						(xy 0 0) (xy 0 2.54)
+						(xy 0 2.54) (xy 0.762 1.27)
 					)
 					(stroke
 						(width 0)
@@ -987,7 +1000,7 @@
 				)
 				(polyline
 					(pts
-						(xy 0 2.54) (xy 0.762 1.27)
+						(xy 0 0) (xy 0 2.54)
 					)
 					(stroke
 						(width 0)
@@ -1018,12 +1031,17 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "power:GND"
 			(power)
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 0) hide)
+				(offset 0)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -1114,7 +1132,104 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
+	)
+	(rectangle
+		(start 59.436 87.376)
+		(end 119.634 157.48)
+		(stroke
+			(width 0)
+			(type dash)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 077dbbcc-0f24-4c92-a565-46a6f01dc17e)
+	)
+	(rectangle
+		(start 136.652 87.376)
+		(end 202.184 157.48)
+		(stroke
+			(width 0)
+			(type dash)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 0cbdec7d-0e69-4e7d-8b6c-f651c1ff006a)
+	)
+	(rectangle
+		(start 136.652 14.732)
+		(end 202.184 84.836)
+		(stroke
+			(width 0)
+			(type dash)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 56a180c7-6c94-40ba-b152-202bfaaf4b47)
+	)
+	(rectangle
+		(start 59.436 14.732)
+		(end 119.634 84.836)
+		(stroke
+			(width 0)
+			(type dash)
+		)
+		(fill
+			(type none)
+		)
+		(uuid e95c7950-0251-441b-a0ff-afe2b086d148)
+	)
+	(text "4..7"
+		(exclude_from_sim no)
+		(at 199.898 83.566 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.254)
+				(bold yes)
+			)
+		)
+		(uuid "e5d567e2-c6e7-4a4b-a38a-d3dbd2221327")
+	)
+	(text "0..3\n"
+		(exclude_from_sim no)
+		(at 117.094 83.566 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.254)
+				(bold yes)
+			)
+		)
+		(uuid "ea1cdcb7-47f4-4d8a-8f8f-37818673e42d")
+	)
+	(text "12..15\n"
+		(exclude_from_sim no)
+		(at 198.12 156.21 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.254)
+				(bold yes)
+			)
+		)
+		(uuid "f1149c02-9b08-42cf-ae27-c64ec4d88209")
+	)
+	(text "8..11"
+		(exclude_from_sim no)
+		(at 117.094 156.21 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.254)
+				(bold yes)
+			)
+		)
+		(uuid "f151c2b7-11e2-4c4e-811f-a2961a1d15a6")
 	)
 	(junction
 		(at 165.735 76.835)
@@ -3482,105 +3597,8 @@
 		)
 		(uuid "ff21b6a1-2bdd-43bf-8277-9a8c52b691d5")
 	)
-	(rectangle
-		(start 59.436 87.376)
-		(end 119.634 157.48)
-		(stroke
-			(width 0)
-			(type dash)
-		)
-		(fill
-			(type none)
-		)
-		(uuid 077dbbcc-0f24-4c92-a565-46a6f01dc17e)
-	)
-	(rectangle
-		(start 136.652 87.376)
-		(end 202.184 157.48)
-		(stroke
-			(width 0)
-			(type dash)
-		)
-		(fill
-			(type none)
-		)
-		(uuid 0cbdec7d-0e69-4e7d-8b6c-f651c1ff006a)
-	)
-	(rectangle
-		(start 136.652 14.732)
-		(end 202.184 84.836)
-		(stroke
-			(width 0)
-			(type dash)
-		)
-		(fill
-			(type none)
-		)
-		(uuid 56a180c7-6c94-40ba-b152-202bfaaf4b47)
-	)
-	(rectangle
-		(start 59.436 14.732)
-		(end 119.634 84.836)
-		(stroke
-			(width 0)
-			(type dash)
-		)
-		(fill
-			(type none)
-		)
-		(uuid e95c7950-0251-441b-a0ff-afe2b086d148)
-	)
-	(text "4..7"
-		(exclude_from_sim no)
-		(at 199.898 83.566 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-		)
-		(uuid "e5d567e2-c6e7-4a4b-a38a-d3dbd2221327")
-	)
-	(text "0..3\n"
-		(exclude_from_sim no)
-		(at 117.094 83.566 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-		)
-		(uuid "ea1cdcb7-47f4-4d8a-8f8f-37818673e42d")
-	)
-	(text "12..15\n"
-		(exclude_from_sim no)
-		(at 198.12 156.21 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-		)
-		(uuid "f1149c02-9b08-42cf-ae27-c64ec4d88209")
-	)
-	(text "8..11"
-		(exclude_from_sim no)
-		(at 117.094 156.21 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-				(thickness 0.254)
-				(bold yes)
-			)
-		)
-		(uuid "f151c2b7-11e2-4c4e-811f-a2961a1d15a6")
-	)
 	(label "X0"
 		(at 232.41 128.27 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3591,7 +3609,6 @@
 	)
 	(label "X1"
 		(at 232.41 132.08 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3602,7 +3619,6 @@
 	)
 	(label "S3"
 		(at 150.495 60.325 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3613,7 +3629,6 @@
 	)
 	(label "M"
 		(at 69.215 138.43 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3624,7 +3639,6 @@
 	)
 	(label "A11"
 		(at 33.02 50.8 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3635,7 +3649,6 @@
 	)
 	(label "B9"
 		(at 69.215 118.11 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3646,7 +3659,6 @@
 	)
 	(label "A7"
 		(at 150.495 40.005 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3657,7 +3669,6 @@
 	)
 	(label "Cny"
 		(at 253.365 128.27 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3668,7 +3679,6 @@
 	)
 	(label "OUT12"
 		(at 180.975 110.49 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3679,7 +3689,6 @@
 	)
 	(label "M"
 		(at 150.495 138.43 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3690,7 +3699,6 @@
 	)
 	(label "OUT2"
 		(at 258.445 26.035 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3701,7 +3709,6 @@
 	)
 	(label "OUT12"
 		(at 258.445 51.435 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3712,7 +3719,6 @@
 	)
 	(label "B2"
 		(at 33.02 71.12 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3723,7 +3729,6 @@
 	)
 	(label "S3"
 		(at 69.215 133.35 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3734,7 +3739,6 @@
 	)
 	(label "Y1"
 		(at 232.41 133.985 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3745,7 +3749,6 @@
 	)
 	(label "OUT4"
 		(at 258.445 31.115 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3756,7 +3759,6 @@
 	)
 	(label "OUT11"
 		(at 99.695 118.11 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3767,7 +3769,6 @@
 	)
 	(label "S2"
 		(at 69.215 130.81 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3778,7 +3779,6 @@
 	)
 	(label "S0"
 		(at 150.495 125.73 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3789,7 +3789,6 @@
 	)
 	(label "OUT15"
 		(at 180.975 118.11 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3800,7 +3799,6 @@
 	)
 	(label "OUT3"
 		(at 258.445 28.575 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3811,7 +3809,6 @@
 	)
 	(label "B12"
 		(at 33.02 96.52 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3822,7 +3819,6 @@
 	)
 	(label "B13"
 		(at 33.02 99.06 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3833,7 +3829,6 @@
 	)
 	(label "A13"
 		(at 33.02 55.88 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3844,7 +3839,6 @@
 	)
 	(label "B1"
 		(at 33.02 68.58 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3855,7 +3849,6 @@
 	)
 	(label "OUT6"
 		(at 258.445 36.195 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3866,7 +3859,6 @@
 	)
 	(label "OUT9"
 		(at 99.695 113.03 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3877,7 +3869,6 @@
 	)
 	(label "OUT15"
 		(at 258.445 59.055 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3888,7 +3879,6 @@
 	)
 	(label "A13"
 		(at 150.495 107.95 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3899,7 +3889,6 @@
 	)
 	(label "S1"
 		(at 150.495 55.245 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3910,7 +3899,6 @@
 	)
 	(label "OUT14"
 		(at 180.975 115.57 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3921,7 +3909,6 @@
 	)
 	(label "A14"
 		(at 33.02 58.42 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3932,7 +3919,6 @@
 	)
 	(label "Cny"
 		(at 67.31 140.97 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3943,7 +3929,6 @@
 	)
 	(label "B5"
 		(at 33.02 78.74 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3954,7 +3939,6 @@
 	)
 	(label "A6"
 		(at 150.495 37.465 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3965,7 +3949,6 @@
 	)
 	(label "Cnx"
 		(at 147.955 67.945 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3976,7 +3959,6 @@
 	)
 	(label "A0"
 		(at 33.02 22.86 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3987,7 +3969,6 @@
 	)
 	(label "A6"
 		(at 33.02 38.1 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3998,7 +3979,6 @@
 	)
 	(label "B0"
 		(at 33.02 66.04 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4009,7 +3989,6 @@
 	)
 	(label "S0"
 		(at 150.495 52.705 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4020,7 +3999,6 @@
 	)
 	(label "OUT7"
 		(at 258.445 38.735 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4031,7 +4009,6 @@
 	)
 	(label "OUT5"
 		(at 258.445 33.655 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4042,7 +4019,6 @@
 	)
 	(label "B7"
 		(at 33.02 83.82 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4053,7 +4029,6 @@
 	)
 	(label "Cnx"
 		(at 253.365 126.365 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4064,7 +4039,6 @@
 	)
 	(label "A9"
 		(at 33.02 45.72 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4075,7 +4049,6 @@
 	)
 	(label "X2"
 		(at 99.695 138.43 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4086,7 +4059,6 @@
 	)
 	(label "B1"
 		(at 69.85 45.085 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4097,7 +4069,6 @@
 	)
 	(label "S0"
 		(at 69.215 125.73 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4108,7 +4079,6 @@
 	)
 	(label "OUT6"
 		(at 180.975 42.545 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4119,7 +4089,6 @@
 	)
 	(label "A2"
 		(at 69.85 37.465 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4130,7 +4099,6 @@
 	)
 	(label "A8"
 		(at 69.215 105.41 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4141,7 +4109,6 @@
 	)
 	(label "M"
 		(at 27.94 134.62 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4152,7 +4119,6 @@
 	)
 	(label "~{Cin}"
 		(at 232.41 126.365 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4163,7 +4129,6 @@
 	)
 	(label "S1"
 		(at 150.495 128.27 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4174,7 +4139,6 @@
 	)
 	(label "A12"
 		(at 33.02 53.34 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4185,7 +4149,6 @@
 	)
 	(label "A0"
 		(at 69.85 32.385 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4196,7 +4159,6 @@
 	)
 	(label "B5"
 		(at 150.495 45.085 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4207,7 +4169,6 @@
 	)
 	(label "B3"
 		(at 69.85 50.165 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4218,7 +4179,6 @@
 	)
 	(label "OUT11"
 		(at 258.445 48.895 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4229,7 +4189,6 @@
 	)
 	(label "OUT7"
 		(at 180.975 45.085 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4240,7 +4199,6 @@
 	)
 	(label "Cnz"
 		(at 253.365 130.175 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4251,7 +4209,6 @@
 	)
 	(label "A15"
 		(at 150.495 113.03 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4262,7 +4219,6 @@
 	)
 	(label "S1"
 		(at 69.215 128.27 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4273,7 +4229,6 @@
 	)
 	(label "S1"
 		(at 69.85 55.245 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4284,7 +4239,6 @@
 	)
 	(label "Y2"
 		(at 232.41 137.795 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4295,7 +4249,6 @@
 	)
 	(label "A3"
 		(at 33.02 30.48 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4306,7 +4259,6 @@
 	)
 	(label "B10"
 		(at 33.02 91.44 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4317,7 +4269,6 @@
 	)
 	(label "A5"
 		(at 150.495 34.925 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4328,7 +4279,6 @@
 	)
 	(label "A12"
 		(at 150.495 105.41 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4339,7 +4289,6 @@
 	)
 	(label "OUT10"
 		(at 258.445 46.355 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4350,7 +4299,6 @@
 	)
 	(label "B11"
 		(at 69.215 123.19 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4361,7 +4309,6 @@
 	)
 	(label "B3"
 		(at 33.02 73.66 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4372,7 +4319,6 @@
 	)
 	(label "B4"
 		(at 150.495 42.545 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4383,7 +4329,6 @@
 	)
 	(label "B10"
 		(at 69.215 120.65 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4394,7 +4339,6 @@
 	)
 	(label "S1"
 		(at 33.02 111.76 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4405,7 +4349,6 @@
 	)
 	(label "B14"
 		(at 150.495 120.65 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4416,7 +4359,6 @@
 	)
 	(label "S0"
 		(at 33.02 109.22 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4427,7 +4369,6 @@
 	)
 	(label "A10"
 		(at 33.02 48.26 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4438,7 +4379,6 @@
 	)
 	(label "A4"
 		(at 150.495 32.385 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4449,7 +4389,6 @@
 	)
 	(label "OUT3"
 		(at 100.33 45.085 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4460,7 +4399,6 @@
 	)
 	(label "B11"
 		(at 33.02 93.98 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4471,7 +4409,6 @@
 	)
 	(label "B14"
 		(at 33.02 101.6 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4482,7 +4419,6 @@
 	)
 	(label "B0"
 		(at 69.85 42.545 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4493,7 +4429,6 @@
 	)
 	(label "OUT1"
 		(at 100.33 40.005 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4504,7 +4439,6 @@
 	)
 	(label "B15"
 		(at 150.495 123.19 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4515,7 +4449,6 @@
 	)
 	(label "B7"
 		(at 150.495 50.165 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4526,7 +4459,6 @@
 	)
 	(label "OUT5"
 		(at 180.975 40.005 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4537,7 +4469,6 @@
 	)
 	(label "B13"
 		(at 150.495 118.11 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4548,7 +4479,6 @@
 	)
 	(label "A15"
 		(at 33.02 60.96 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4559,7 +4489,6 @@
 	)
 	(label "B4"
 		(at 33.02 76.2 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4570,7 +4499,6 @@
 	)
 	(label "OUT8"
 		(at 258.445 41.275 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4581,7 +4509,6 @@
 	)
 	(label "Y0"
 		(at 232.41 130.175 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4592,7 +4519,6 @@
 	)
 	(label "B8"
 		(at 69.215 115.57 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4603,7 +4529,6 @@
 	)
 	(label "S3"
 		(at 33.02 116.84 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4614,7 +4539,6 @@
 	)
 	(label "B6"
 		(at 150.495 47.625 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4625,7 +4549,6 @@
 	)
 	(label "A7"
 		(at 33.02 40.64 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4636,7 +4559,6 @@
 	)
 	(label "B8"
 		(at 33.02 86.36 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4647,7 +4569,6 @@
 	)
 	(label "S2"
 		(at 69.85 57.785 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4658,7 +4579,6 @@
 	)
 	(label "M"
 		(at 69.85 65.405 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4669,7 +4589,6 @@
 	)
 	(label "A1"
 		(at 33.02 25.4 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4680,7 +4599,6 @@
 	)
 	(label "S2"
 		(at 33.02 114.3 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4691,7 +4609,6 @@
 	)
 	(label "X2"
 		(at 232.41 135.89 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4702,7 +4619,6 @@
 	)
 	(label "S2"
 		(at 150.495 130.81 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4713,7 +4629,6 @@
 	)
 	(label "S0"
 		(at 69.85 52.705 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4724,7 +4639,6 @@
 	)
 	(label "A1"
 		(at 69.85 34.925 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4735,7 +4649,6 @@
 	)
 	(label "A9"
 		(at 69.215 107.95 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4746,7 +4659,6 @@
 	)
 	(label "X1"
 		(at 180.975 65.405 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4757,7 +4669,6 @@
 	)
 	(label "A8"
 		(at 33.02 43.18 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4768,7 +4679,6 @@
 	)
 	(label "OUT8"
 		(at 99.695 110.49 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4779,7 +4689,6 @@
 	)
 	(label "S2"
 		(at 150.495 57.785 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4790,7 +4699,6 @@
 	)
 	(label "M"
 		(at 150.495 65.405 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4801,7 +4709,6 @@
 	)
 	(label "OUT0"
 		(at 100.33 37.465 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4812,7 +4719,6 @@
 	)
 	(label "A11"
 		(at 69.215 113.03 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4823,7 +4729,6 @@
 	)
 	(label "A10"
 		(at 69.215 110.49 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4834,7 +4739,6 @@
 	)
 	(label "X0"
 		(at 100.33 65.405 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4845,7 +4749,6 @@
 	)
 	(label "Cnz"
 		(at 147.32 140.97 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4856,7 +4759,6 @@
 	)
 	(label "OUT1"
 		(at 258.445 23.495 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4867,7 +4769,6 @@
 	)
 	(label "OUT13"
 		(at 180.975 113.03 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4878,7 +4779,6 @@
 	)
 	(label "B12"
 		(at 150.495 115.57 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4889,7 +4789,6 @@
 	)
 	(label "~{Cin}"
 		(at 69.85 67.945 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4900,7 +4799,6 @@
 	)
 	(label "A5"
 		(at 33.02 35.56 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4911,7 +4809,6 @@
 	)
 	(label "S3"
 		(at 69.85 60.325 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4922,7 +4819,6 @@
 	)
 	(label "OUT10"
 		(at 99.695 115.57 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4933,7 +4829,6 @@
 	)
 	(label "OUT9"
 		(at 258.445 43.815 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4944,7 +4839,6 @@
 	)
 	(label "B15"
 		(at 33.02 104.14 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4955,7 +4849,6 @@
 	)
 	(label "Y0"
 		(at 100.33 62.865 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4966,7 +4859,6 @@
 	)
 	(label "B9"
 		(at 33.02 88.9 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4977,7 +4869,6 @@
 	)
 	(label "Y2"
 		(at 99.695 135.89 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4988,7 +4879,6 @@
 	)
 	(label "OUT2"
 		(at 100.33 42.545 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -4999,7 +4889,6 @@
 	)
 	(label "Y1"
 		(at 180.975 62.865 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5010,7 +4899,6 @@
 	)
 	(label "~{Cin}"
 		(at 27.94 132.08 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5021,7 +4909,6 @@
 	)
 	(label "A3"
 		(at 69.85 40.005 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5032,7 +4919,6 @@
 	)
 	(label "OUT0"
 		(at 258.445 20.955 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5043,7 +4929,6 @@
 	)
 	(label "OUT14"
 		(at 258.445 56.515 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5054,7 +4939,6 @@
 	)
 	(label "A2"
 		(at 33.02 27.94 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5065,7 +4949,6 @@
 	)
 	(label "B2"
 		(at 69.85 47.625 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5076,7 +4959,6 @@
 	)
 	(label "A14"
 		(at 150.495 110.49 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5087,7 +4969,6 @@
 	)
 	(label "B6"
 		(at 33.02 81.28 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5098,7 +4979,6 @@
 	)
 	(label "OUT4"
 		(at 180.975 37.465 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5109,7 +4989,6 @@
 	)
 	(label "OUT13"
 		(at 258.445 53.975 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5120,7 +4999,6 @@
 	)
 	(label "S3"
 		(at 150.495 133.35 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5131,7 +5009,6 @@
 	)
 	(label "A4"
 		(at 33.02 33.02 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5143,7 +5020,6 @@
 	(hierarchical_label "S[0..3]"
 		(shape input)
 		(at 26.67 106.68 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5155,7 +5031,6 @@
 	(hierarchical_label "M"
 		(shape input)
 		(at 26.035 134.62 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5167,7 +5042,6 @@
 	(hierarchical_label "B[0..15]"
 		(shape input)
 		(at 26.67 63.5 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5179,7 +5053,6 @@
 	(hierarchical_label "A[0..15]"
 		(shape input)
 		(at 26.67 20.32 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5191,7 +5064,6 @@
 	(hierarchical_label "Cout"
 		(shape input)
 		(at 189.23 153.035 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5203,7 +5075,6 @@
 	(hierarchical_label "OUT[0..15]"
 		(shape input)
 		(at 267.335 18.415 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -5215,7 +5086,6 @@
 	(hierarchical_label "~{Cin}"
 		(shape input)
 		(at 26.035 132.08 180)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -7251,6 +7121,10 @@
 	(sheet
 		(at 236.22 125.349)
 		(size 15.24 18.669)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(stroke
 			(width 0.1524)
@@ -7280,103 +7154,103 @@
 		)
 		(pin "~{Cin}" input
 			(at 236.22 126.365 180)
+			(uuid "ba2a7d7d-993b-4680-b9ed-d1528244e586")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
 			)
-			(uuid "ba2a7d7d-993b-4680-b9ed-d1528244e586")
 		)
 		(pin "X0" input
 			(at 236.22 128.27 180)
+			(uuid "1e341a70-fbbe-4090-8576-dd560657aed8")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
 			)
-			(uuid "1e341a70-fbbe-4090-8576-dd560657aed8")
 		)
 		(pin "Y0" input
 			(at 236.22 130.175 180)
+			(uuid "cd770122-5f1b-4490-bbcb-fc05c0c4b6bd")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
 			)
-			(uuid "cd770122-5f1b-4490-bbcb-fc05c0c4b6bd")
 		)
 		(pin "Cnx" output
 			(at 251.46 126.365 0)
+			(uuid "dc52adcd-138b-4c03-aa73-8e4f37c51517")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify right)
 			)
-			(uuid "dc52adcd-138b-4c03-aa73-8e4f37c51517")
 		)
 		(pin "Cny" output
 			(at 251.46 128.27 0)
+			(uuid "5c78e553-2132-4b4f-b9bd-55de5ea99c48")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify right)
 			)
-			(uuid "5c78e553-2132-4b4f-b9bd-55de5ea99c48")
 		)
 		(pin "Cnz" output
 			(at 251.46 130.175 0)
+			(uuid "c375b5b5-0652-40a3-931d-7d143d0ff614")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify right)
 			)
-			(uuid "c375b5b5-0652-40a3-931d-7d143d0ff614")
 		)
 		(pin "X1" input
 			(at 236.22 132.08 180)
+			(uuid "32e2733a-71bd-499a-9174-b67cd00a5932")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
 			)
-			(uuid "32e2733a-71bd-499a-9174-b67cd00a5932")
 		)
 		(pin "Y1" input
 			(at 236.22 133.985 180)
+			(uuid "236a398b-f5d7-4a50-b144-747620dffc29")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
 			)
-			(uuid "236a398b-f5d7-4a50-b144-747620dffc29")
 		)
 		(pin "X2" input
 			(at 236.22 135.89 180)
+			(uuid "b535bbd4-24b7-4458-bfda-146a68647ff7")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
 			)
-			(uuid "b535bbd4-24b7-4458-bfda-146a68647ff7")
 		)
 		(pin "Y2" input
 			(at 236.22 137.795 180)
+			(uuid "0a4dc436-86a5-4f28-93a0-1c0ad76f0171")
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
 			)
-			(uuid "0a4dc436-86a5-4f28-93a0-1c0ad76f0171")
 		)
 		(instances
 			(project "ALU"
