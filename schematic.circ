@@ -15,7 +15,7 @@
       <a name="facing" val="west"/>
     </tool>
     <tool name="Tunnel">
-      <a name="facing" val="north"/>
+      <a name="facing" val="east"/>
     </tool>
     <tool name="Pull Resistor">
       <a name="facing" val="north"/>
@@ -66,7 +66,7 @@
   <lib desc="#BFH-Praktika" name="9"/>
   <lib desc="#Input/Output-Extra" name="10"/>
   <lib desc="#Soc" name="11"/>
-  <main name="mainnew"/>
+  <main name="main"/>
   <options>
     <a name="gateUndefined" val="ignore"/>
     <a name="simlimit" val="1000"/>
@@ -92,7 +92,7 @@
     </tool>
     <sep/>
     <tool lib="1" name="NOT Gate">
-      <a name="facing" val="north"/>
+      <a name="facing" val="south"/>
     </tool>
     <tool lib="1" name="AND Gate">
       <a name="size" val="30"/>
@@ -108,6 +108,7 @@
     <tool lib="4" name="Register"/>
   </toolbar>
   <circuit name="main">
+    <a name="appearance" val="custom"/>
     <a name="circuit" val="main"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="simulationFrequency" val="1.0"/>
@@ -140,10 +141,6 @@
     <comp lib="0" loc="(150,660)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="label" val="ALO"/>
-    </comp>
-    <comp lib="0" loc="(150,860)" name="Tunnel">
-      <a name="facing" val="east"/>
-      <a name="label" val="SWP_STATE"/>
     </comp>
     <comp lib="0" loc="(160,580)" name="Tunnel">
       <a name="facing" val="east"/>
@@ -179,6 +176,14 @@
       <a name="facing" val="east"/>
       <a name="label" val="CLK"/>
     </comp>
+    <comp lib="0" loc="(220,820)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="ZF"/>
+    </comp>
+    <comp lib="0" loc="(220,860)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="SF"/>
+    </comp>
     <comp lib="0" loc="(240,300)" name="Clock">
       <a name="facing" val="north"/>
     </comp>
@@ -197,13 +202,21 @@
       <a name="facing" val="east"/>
       <a name="label" val="CLK"/>
     </comp>
-    <comp lib="0" loc="(550,600)" name="Tunnel">
-      <a name="facing" val="north"/>
-      <a name="label" val="CF"/>
+    <comp lib="0" loc="(490,570)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="ZF"/>
+    </comp>
+    <comp lib="0" loc="(490,610)" name="Tunnel">
+      <a name="facing" val="east"/>
+      <a name="label" val="SF"/>
     </comp>
     <comp lib="0" loc="(560,320)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="label" val="SWP"/>
+    </comp>
+    <comp lib="0" loc="(560,620)" name="Tunnel">
+      <a name="facing" val="north"/>
+      <a name="label" val="CF"/>
     </comp>
     <comp lib="0" loc="(570,450)" name="Tunnel">
       <a name="facing" val="north"/>
@@ -280,7 +293,6 @@
     <wire from="(1090,720)" to="(1090,1030)"/>
     <wire from="(150,440)" to="(320,440)"/>
     <wire from="(150,660)" to="(320,660)"/>
-    <wire from="(150,860)" to="(170,860)"/>
     <wire from="(160,580)" to="(320,580)"/>
     <wire from="(180,720)" to="(320,720)"/>
     <wire from="(180,760)" to="(320,760)"/>
@@ -289,6 +301,8 @@
     <wire from="(210,640)" to="(320,640)"/>
     <wire from="(220,420)" to="(320,420)"/>
     <wire from="(220,460)" to="(320,460)"/>
+    <wire from="(220,820)" to="(320,820)"/>
+    <wire from="(220,860)" to="(320,860)"/>
     <wire from="(230,990)" to="(300,990)"/>
     <wire from="(240,270)" to="(240,300)"/>
     <wire from="(240,270)" to="(260,270)"/>
@@ -304,12 +318,18 @@
     <wire from="(260,780)" to="(320,780)"/>
     <wire from="(260,840)" to="(320,840)"/>
     <wire from="(270,880)" to="(320,880)"/>
+    <wire from="(490,570)" to="(550,570)"/>
+    <wire from="(490,610)" to="(550,610)"/>
     <wire from="(540,420)" to="(560,420)"/>
-    <wire from="(540,540)" to="(550,540)"/>
+    <wire from="(540,540)" to="(560,540)"/>
     <wire from="(540,560)" to="(620,560)"/>
+    <wire from="(540,580)" to="(550,580)"/>
+    <wire from="(540,600)" to="(550,600)"/>
     <wire from="(540,720)" to="(620,720)"/>
-    <wire from="(550,540)" to="(550,600)"/>
+    <wire from="(550,570)" to="(550,580)"/>
+    <wire from="(550,600)" to="(550,610)"/>
     <wire from="(560,320)" to="(570,320)"/>
+    <wire from="(560,540)" to="(560,620)"/>
     <wire from="(570,320)" to="(570,340)"/>
     <wire from="(570,320)" to="(590,320)"/>
     <wire from="(570,340)" to="(590,340)"/>
@@ -599,6 +619,23 @@
     <a name="circuit" val="alu16"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="simulationFrequency" val="1.0"/>
+    <comp lib="0" loc="(1040,1140)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="ZF"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(1040,1180)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="SF"/>
+      <a name="output" val="true"/>
+    </comp>
+    <comp lib="0" loc="(1110,1000)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="north"/>
+      <a name="label" val="ALUOUT"/>
+    </comp>
     <comp lib="0" loc="(1150,490)" name="Tunnel">
       <a name="label" val="X2"/>
     </comp>
@@ -621,6 +658,14 @@
       <a name="appearance" val="NewPins"/>
       <a name="label" val="FUNC"/>
       <a name="width" val="4"/>
+    </comp>
+    <comp lib="0" loc="(1250,940)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="label" val="O"/>
+      <a name="output" val="true"/>
+      <a name="radix" val="16"/>
+      <a name="width" val="16"/>
     </comp>
     <comp lib="0" loc="(360,440)" name="Splitter">
       <a name="appear" val="center"/>
@@ -787,11 +832,6 @@
       <a name="facing" val="east"/>
       <a name="label" val="Y0"/>
     </comp>
-    <comp lib="0" loc="(890,1010)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="north"/>
-      <a name="label" val="ALUOUT"/>
-    </comp>
     <comp lib="0" loc="(90,540)" name="Tunnel">
       <a name="facing" val="east"/>
       <a name="label" val="S"/>
@@ -801,13 +841,19 @@
       <a name="facing" val="east"/>
       <a name="label" val="M"/>
     </comp>
-    <comp lib="0" loc="(940,940)" name="Pin">
-      <a name="appearance" val="NewPins"/>
-      <a name="facing" val="west"/>
-      <a name="label" val="O"/>
-      <a name="output" val="true"/>
-      <a name="radix" val="16"/>
-      <a name="width" val="16"/>
+    <comp lib="0" loc="(930,990)" name="Splitter">
+      <a name="appear" val="center"/>
+      <a name="bit10" val="11"/>
+      <a name="bit11" val="12"/>
+      <a name="bit12" val="13"/>
+      <a name="bit13" val="14"/>
+      <a name="bit14" val="15"/>
+      <a name="bit15" val="16"/>
+      <a name="bit8" val="9"/>
+      <a name="bit9" val="10"/>
+      <a name="facing" val="south"/>
+      <a name="fanout" val="17"/>
+      <a name="incoming" val="16"/>
     </comp>
     <comp lib="0" loc="(960,470)" name="Tunnel">
       <a name="facing" val="east"/>
@@ -834,6 +880,13 @@
       <a name="label" val="X3"/>
     </comp>
     <comp lib="1" loc="(770,870)" name="NOT Gate"/>
+    <comp lib="1" loc="(930,1080)" name="OR Gate">
+      <a name="facing" val="south"/>
+      <a name="inputs" val="16"/>
+    </comp>
+    <comp lib="1" loc="(930,1120)" name="NOT Gate">
+      <a name="facing" val="south"/>
+    </comp>
     <comp lib="4" loc="(130,950)" name="ROM">
       <a name="addrWidth" val="4"/>
       <a name="appearance" val="logisim_evolution"/>
@@ -844,19 +897,23 @@
     <comp lib="6" loc="(1070,460)" name="74182">
       <a name="facing" val="south"/>
     </comp>
+    <comp loc="(1130,940)" name="buffer16"/>
     <comp loc="(310,320)" name="reg16"/>
     <comp loc="(310,430)" name="reg16"/>
     <comp loc="(730,460)" name="alu4"/>
     <comp loc="(730,590)" name="alu4"/>
     <comp loc="(730,720)" name="alu4"/>
     <comp loc="(730,850)" name="alu4"/>
-    <comp loc="(910,940)" name="buffer16"/>
+    <wire from="(1000,1010)" to="(1000,1030)"/>
+    <wire from="(1010,1010)" to="(1010,1030)"/>
     <wire from="(1100,490)" to="(1150,490)"/>
     <wire from="(1100,510)" to="(1180,510)"/>
     <wire from="(1100,530)" to="(1150,530)"/>
     <wire from="(1100,550)" to="(1180,550)"/>
     <wire from="(1100,570)" to="(1150,570)"/>
     <wire from="(1100,610)" to="(1180,610)"/>
+    <wire from="(1110,960)" to="(1110,1000)"/>
+    <wire from="(1130,940)" to="(1250,940)"/>
     <wire from="(120,960)" to="(130,960)"/>
     <wire from="(310,320)" to="(340,320)"/>
     <wire from="(310,430)" to="(330,430)"/>
@@ -945,16 +1002,37 @@
     <wire from="(80,470)" to="(90,470)"/>
     <wire from="(800,670)" to="(800,930)"/>
     <wire from="(800,930)" to="(820,930)"/>
+    <wire from="(810,1020)" to="(810,1180)"/>
+    <wire from="(810,1020)" to="(850,1020)"/>
+    <wire from="(810,1180)" to="(1040,1180)"/>
     <wire from="(810,540)" to="(810,920)"/>
     <wire from="(810,920)" to="(820,920)"/>
-    <wire from="(840,940)" to="(880,940)"/>
-    <wire from="(890,960)" to="(890,1010)"/>
+    <wire from="(840,940)" to="(930,940)"/>
+    <wire from="(850,1010)" to="(850,1020)"/>
+    <wire from="(850,1020)" to="(850,1030)"/>
+    <wire from="(860,1010)" to="(860,1030)"/>
+    <wire from="(870,1010)" to="(870,1030)"/>
+    <wire from="(880,1010)" to="(880,1030)"/>
+    <wire from="(890,1010)" to="(890,1030)"/>
     <wire from="(90,540)" to="(370,540)"/>
     <wire from="(90,570)" to="(310,570)"/>
-    <wire from="(910,940)" to="(940,940)"/>
+    <wire from="(900,1010)" to="(900,1030)"/>
+    <wire from="(910,1010)" to="(910,1030)"/>
+    <wire from="(920,1010)" to="(920,1030)"/>
+    <wire from="(930,1080)" to="(930,1090)"/>
+    <wire from="(930,1120)" to="(930,1140)"/>
+    <wire from="(930,1140)" to="(1040,1140)"/>
+    <wire from="(930,940)" to="(1100,940)"/>
+    <wire from="(930,940)" to="(930,990)"/>
+    <wire from="(940,1010)" to="(940,1030)"/>
+    <wire from="(950,1010)" to="(950,1030)"/>
+    <wire from="(960,1010)" to="(960,1030)"/>
     <wire from="(960,470)" to="(1040,470)"/>
     <wire from="(960,510)" to="(1040,510)"/>
     <wire from="(960,550)" to="(1040,550)"/>
+    <wire from="(970,1010)" to="(970,1030)"/>
+    <wire from="(980,1010)" to="(980,1030)"/>
+    <wire from="(990,1010)" to="(990,1030)"/>
     <wire from="(990,490)" to="(1040,490)"/>
     <wire from="(990,530)" to="(1040,530)"/>
     <wire from="(990,570)" to="(1040,570)"/>
@@ -1124,7 +1202,7 @@
       <a name="addrWidth" val="16"/>
       <a name="appearance" val="classic"/>
       <a name="contents">addr/data: 16 16
-c20 1111
+c20 ffff
 </a>
       <a name="dataWidth" val="16"/>
     </comp>
@@ -1192,11 +1270,10 @@ c20 1111
     <wire from="(550,590)" to="(550,600)"/>
     <wire from="(550,590)" to="(560,590)"/>
     <wire from="(690,550)" to="(690,560)"/>
-    <wire from="(690,560)" to="(700,560)"/>
+    <wire from="(690,560)" to="(800,560)"/>
     <wire from="(700,330)" to="(700,380)"/>
     <wire from="(700,380)" to="(700,550)"/>
     <wire from="(700,380)" to="(740,380)"/>
-    <wire from="(700,560)" to="(800,560)"/>
     <wire from="(750,380)" to="(800,380)"/>
     <wire from="(750,400)" to="(840,400)"/>
     <wire from="(780,690)" to="(790,690)"/>
@@ -2097,7 +2174,7 @@ c20 1111
     <wire from="(410,340)" to="(450,340)"/>
   </circuit>
   <circuit name="prgm_counter">
-    <a name="appearance" val="logisim_evolution"/>
+    <a name="appearance" val="custom"/>
     <a name="circuit" val="prgm_counter"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="simulationFrequency" val="1.0"/>
@@ -2488,161 +2565,332 @@ c20 1111
       <a name="addrWidth" val="18"/>
       <a name="appearance" val="logisim_evolution"/>
       <a name="contents">addr/data: 18 24
-250c13 2f0c0d 49278*2d0c1b 250c13 2f0c0d 250c13 2f0c15 2d0e1a
-d0c1b d0c1b d0c1b 120*2d0c1b 250c13 2f0c0d 2d0e13 2d0e1a
-d0c1b d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d 2d0e33 2d0e1a
-d0c1b d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d 2d0e53 2d0e1a
-d0c1b d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d 2d0e73 2d0e1a
-d0c1b d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d 2d0e93 2d0e1a
-d0c1b d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d 2d0eb3 2d0e1a
-d0c1b d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d 2d0ed3 2d0e1a
-d0c1b d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d 2d0ef3 2d0e1a
-d0c1b d0c1b d0c1b 137*2d0c1b 250c13 2f0c0d 250c13 2f0d1d
-d0c1b d0c1b d0c1b 121*2d0c1b 250c13 2f0c0d 250c13 2f0c15
-2d0d19 d0c1b d0c1b d0c1b 120*2d0c1b 250c13 2f0c0d 2d0e13
-2d0d19 d0c1b d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d 2d0e33
-2d0d19 d0c1b d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d 2d0e53
-2d0d19 d0c1b d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d 2d0e73
-2d0d19 d0c1b d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d 2d0e93
-2d0d19 d0c1b d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d 2d0eb3
-2d0d19 d0c1b d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d 2d0ed3
-2d0d19 d0c1b d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d 2d0ef3
-2d0d19 d0c1b d0c1b d0c1b 265*2d0c1b 250c13 2f0c0d 250c13
-2f0c15 2d0e3a d0c1b d0c1b d0c1b 120*2d0c1b 250c13 2f0c0d
-2d0e13 2d0e3a d0c1b d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d
-2d0e33 2d0e3a d0c1b d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d
-2d0e53 2d0e3a d0c1b d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d
-2d0e73 2d0e3a d0c1b d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d
-2d0e93 2d0e3a d0c1b d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d
-2d0eb3 2d0e3a d0c1b d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d
-2d0ed3 2d0e3a d0c1b d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d
-2d0ef3 2d0e3a d0c1b d0c1b d0c1b 137*2d0c1b 250c13 2f0c0d
-250c13 2f0d3d d0c1b d0c1b d0c1b 121*2d0c1b 250c13 2f0c0d
-250c13 2f0c15 2d0d39 d0c1b d0c1b d0c1b 120*2d0c1b 250c13
-2f0c0d 2d0e13 2d0d39 d0c1b d0c1b d0c1b 9*2d0c1b 250c13
-2f0c0d 2d0e33 2d0d39 d0c1b d0c1b d0c1b 9*2d0c1b 250c13
-2f0c0d 2d0e53 2d0d39 d0c1b d0c1b d0c1b 9*2d0c1b 250c13
-2f0c0d 2d0e73 2d0d39 d0c1b d0c1b d0c1b 9*2d0c1b 250c13
-2f0c0d 2d0e93 2d0d39 d0c1b d0c1b d0c1b 9*2d0c1b 250c13
-2f0c0d 2d0eb3 2d0d39 d0c1b d0c1b d0c1b 9*2d0c1b 250c13
-2f0c0d 2d0ed3 2d0d39 d0c1b d0c1b d0c1b 9*2d0c1b 250c13
-2f0c0d 2d0ef3 2d0d39 d0c1b d0c1b d0c1b 265*2d0c1b 250c13
-2f0c0d 250c13 2f0c15 2d0e5a d0c1b d0c1b d0c1b 120*2d0c1b
-250c13 2f0c0d 2d0e13 2d0e5a d0c1b d0c1b d0c1b 9*2d0c1b
-250c13 2f0c0d 2d0e33 2d0e5a d0c1b d0c1b d0c1b 9*2d0c1b
-250c13 2f0c0d 2d0e53 2d0e5a d0c1b d0c1b d0c1b 9*2d0c1b
-250c13 2f0c0d 2d0e73 2d0e5a d0c1b d0c1b d0c1b 9*2d0c1b
-250c13 2f0c0d 2d0e93 2d0e5a d0c1b d0c1b d0c1b 9*2d0c1b
-250c13 2f0c0d 2d0eb3 2d0e5a d0c1b d0c1b d0c1b 9*2d0c1b
-250c13 2f0c0d 2d0ed3 2d0e5a d0c1b d0c1b d0c1b 9*2d0c1b
-250c13 2f0c0d 2d0ef3 2d0e5a d0c1b d0c1b d0c1b 137*2d0c1b
-250c13 2f0c0d 250c13 2f0d5d d0c1b d0c1b d0c1b 121*2d0c1b
-250c13 2f0c0d 250c13 2f0c15 2d0d59 d0c1b d0c1b d0c1b
-120*2d0c1b 250c13 2f0c0d 2d0e13 2d0d59 d0c1b d0c1b d0c1b
-9*2d0c1b 250c13 2f0c0d 2d0e33 2d0d59 d0c1b d0c1b d0c1b
-9*2d0c1b 250c13 2f0c0d 2d0e53 2d0d59 d0c1b d0c1b d0c1b
-9*2d0c1b 250c13 2f0c0d 2d0e73 2d0d59 d0c1b d0c1b d0c1b
-9*2d0c1b 250c13 2f0c0d 2d0e93 2d0d59 d0c1b d0c1b d0c1b
-9*2d0c1b 250c13 2f0c0d 2d0eb3 2d0d59 d0c1b d0c1b d0c1b
-9*2d0c1b 250c13 2f0c0d 2d0ed3 2d0d59 d0c1b d0c1b d0c1b
-9*2d0c1b 250c13 2f0c0d 2d0ef3 2d0d59 d0c1b d0c1b d0c1b
-265*2d0c1b 250c13 2f0c0d 250c13 2f0c15 2d0e7a d0c1b d0c1b
-d0c1b 120*2d0c1b 250c13 2f0c0d 2d0e13 2d0e7a d0c1b d0c1b
-d0c1b 9*2d0c1b 250c13 2f0c0d 2d0e33 2d0e7a d0c1b d0c1b
-d0c1b 9*2d0c1b 250c13 2f0c0d 2d0e53 2d0e7a d0c1b d0c1b
-d0c1b 9*2d0c1b 250c13 2f0c0d 2d0e73 2d0e7a d0c1b d0c1b
-d0c1b 9*2d0c1b 250c13 2f0c0d 2d0e93 2d0e7a d0c1b d0c1b
-d0c1b 9*2d0c1b 250c13 2f0c0d 2d0eb3 2d0e7a d0c1b d0c1b
-d0c1b 9*2d0c1b 250c13 2f0c0d 2d0ed3 2d0e7a d0c1b d0c1b
-d0c1b 9*2d0c1b 250c13 2f0c0d 2d0ef3 2d0e7a d0c1b d0c1b
-d0c1b 137*2d0c1b 250c13 2f0c0d 250c13 2f0d7d d0c1b d0c1b
-d0c1b 121*2d0c1b 250c13 2f0c0d 250c13 2f0c15 2d0d79 d0c1b
-d0c1b d0c1b 120*2d0c1b 250c13 2f0c0d 2d0e13 2d0d79 d0c1b
-d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d 2d0e33 2d0d79 d0c1b
-d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d 2d0e53 2d0d79 d0c1b
-d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d 2d0e73 2d0d79 d0c1b
-d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d 2d0e93 2d0d79 d0c1b
-d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d 2d0eb3 2d0d79 d0c1b
-d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d 2d0ed3 2d0d79 d0c1b
-d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d 2d0ef3 2d0d79 d0c1b
-d0c1b d0c1b 265*2d0c1b 250c13 2f0c0d 250c13 2f0c15 2d0e9a
-d0c1b d0c1b d0c1b 120*2d0c1b 250c13 2f0c0d 2d0e13 2d0e9a
-d0c1b d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d 2d0e33 2d0e9a
-d0c1b d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d 2d0e53 2d0e9a
-d0c1b d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d 2d0e73 2d0e9a
-d0c1b d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d 2d0e93 2d0e9a
-d0c1b d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d 2d0eb3 2d0e9a
-d0c1b d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d 2d0ed3 2d0e9a
-d0c1b d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d 2d0ef3 2d0e9a
-d0c1b d0c1b d0c1b 137*2d0c1b 250c13 2f0c0d 250c13 2f0d9d
-d0c1b d0c1b d0c1b 121*2d0c1b 250c13 2f0c0d 250c13 2f0c15
-2d0d99 d0c1b d0c1b d0c1b 120*2d0c1b 250c13 2f0c0d 2d0e13
-2d0d99 d0c1b d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d 2d0e33
-2d0d99 d0c1b d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d 2d0e53
-2d0d99 d0c1b d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d 2d0e73
-2d0d99 d0c1b d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d 2d0e93
-2d0d99 d0c1b d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d 2d0eb3
-2d0d99 d0c1b d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d 2d0ed3
-2d0d99 d0c1b d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d 2d0ef3
-2d0d99 d0c1b d0c1b d0c1b 265*2d0c1b 250c13 2f0c0d 250c13
-2f0c15 2d0eba d0c1b d0c1b d0c1b 120*2d0c1b 250c13 2f0c0d
-2d0e13 2d0eba d0c1b d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d
-2d0e33 2d0eba d0c1b d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d
-2d0e53 2d0eba d0c1b d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d
-2d0e73 2d0eba d0c1b d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d
-2d0e93 2d0eba d0c1b d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d
-2d0eb3 2d0eba d0c1b d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d
-2d0ed3 2d0eba d0c1b d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d
-2d0ef3 2d0eba d0c1b d0c1b d0c1b 137*2d0c1b 250c13 2f0c0d
-250c13 2f0dbd d0c1b d0c1b d0c1b 121*2d0c1b 250c13 2f0c0d
-250c13 2f0c15 2d0db9 d0c1b d0c1b d0c1b 120*2d0c1b 250c13
-2f0c0d 2d0e13 2d0db9 d0c1b d0c1b d0c1b 9*2d0c1b 250c13
-2f0c0d 2d0e33 2d0db9 d0c1b d0c1b d0c1b 9*2d0c1b 250c13
-2f0c0d 2d0e53 2d0db9 d0c1b d0c1b d0c1b 9*2d0c1b 250c13
-2f0c0d 2d0e73 2d0db9 d0c1b d0c1b d0c1b 9*2d0c1b 250c13
-2f0c0d 2d0e93 2d0db9 d0c1b d0c1b d0c1b 9*2d0c1b 250c13
-2f0c0d 2d0eb3 2d0db9 d0c1b d0c1b d0c1b 9*2d0c1b 250c13
-2f0c0d 2d0ed3 2d0db9 d0c1b d0c1b d0c1b 9*2d0c1b 250c13
-2f0c0d 2d0ef3 2d0db9 d0c1b d0c1b d0c1b 265*2d0c1b 250c13
-2f0c0d 250c13 2f0c15 2d0eda d0c1b d0c1b d0c1b 120*2d0c1b
-250c13 2f0c0d 2d0e13 2d0eda d0c1b d0c1b d0c1b 9*2d0c1b
-250c13 2f0c0d 2d0e33 2d0eda d0c1b d0c1b d0c1b 9*2d0c1b
-250c13 2f0c0d 2d0e53 2d0eda d0c1b d0c1b d0c1b 9*2d0c1b
-250c13 2f0c0d 2d0e73 2d0eda d0c1b d0c1b d0c1b 9*2d0c1b
-250c13 2f0c0d 2d0e93 2d0eda d0c1b d0c1b d0c1b 9*2d0c1b
-250c13 2f0c0d 2d0eb3 2d0eda d0c1b d0c1b d0c1b 9*2d0c1b
-250c13 2f0c0d 2d0ed3 2d0eda d0c1b d0c1b d0c1b 9*2d0c1b
-250c13 2f0c0d 2d0ef3 2d0eda d0c1b d0c1b d0c1b 137*2d0c1b
-250c13 2f0c0d 250c13 2f0ddd d0c1b d0c1b d0c1b 121*2d0c1b
-250c13 2f0c0d 250c13 2f0c15 2d0dd9 d0c1b d0c1b d0c1b
-120*2d0c1b 250c13 2f0c0d 2d0e13 2d0dd9 d0c1b d0c1b d0c1b
-9*2d0c1b 250c13 2f0c0d 2d0e33 2d0dd9 d0c1b d0c1b d0c1b
-9*2d0c1b 250c13 2f0c0d 2d0e53 2d0dd9 d0c1b d0c1b d0c1b
-9*2d0c1b 250c13 2f0c0d 2d0e73 2d0dd9 d0c1b d0c1b d0c1b
-9*2d0c1b 250c13 2f0c0d 2d0e93 2d0dd9 d0c1b d0c1b d0c1b
-9*2d0c1b 250c13 2f0c0d 2d0eb3 2d0dd9 d0c1b d0c1b d0c1b
-9*2d0c1b 250c13 2f0c0d 2d0ed3 2d0dd9 d0c1b d0c1b d0c1b
-9*2d0c1b 250c13 2f0c0d 2d0ef3 2d0dd9 d0c1b d0c1b d0c1b
-265*2d0c1b 250c13 2f0c0d 250c13 2f0c15 2d0efa d0c1b d0c1b
-d0c1b 120*2d0c1b 250c13 2f0c0d 2d0e13 2d0efa d0c1b d0c1b
-d0c1b 9*2d0c1b 250c13 2f0c0d 2d0e33 2d0efa d0c1b d0c1b
-d0c1b 9*2d0c1b 250c13 2f0c0d 2d0e53 2d0efa d0c1b d0c1b
-d0c1b 9*2d0c1b 250c13 2f0c0d 2d0e73 2d0efa d0c1b d0c1b
-d0c1b 9*2d0c1b 250c13 2f0c0d 2d0e93 2d0efa d0c1b d0c1b
-d0c1b 9*2d0c1b 250c13 2f0c0d 2d0eb3 2d0efa d0c1b d0c1b
-d0c1b 9*2d0c1b 250c13 2f0c0d 2d0ed3 2d0efa d0c1b d0c1b
-d0c1b 9*2d0c1b 250c13 2f0c0d 2d0ef3 2d0efa d0c1b d0c1b
-d0c1b 137*2d0c1b 250c13 2f0c0d 250c13 2f0dfd d0c1b d0c1b
-d0c1b 121*2d0c1b 250c13 2f0c0d 250c13 2f0c15 2d0df9 d0c1b
-d0c1b d0c1b 120*2d0c1b 250c13 2f0c0d 2d0e13 2d0df9 d0c1b
-d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d 2d0e33 2d0df9 d0c1b
-d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d 2d0e53 2d0df9 d0c1b
-d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d 2d0e73 2d0df9 d0c1b
-d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d 2d0e93 2d0df9 d0c1b
-d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d 2d0eb3 2d0df9 d0c1b
-d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d 2d0ed3 2d0df9 d0c1b
-d0c1b d0c1b 9*2d0c1b 250c13 2f0c0d 2d0ef3 2d0df9 d0c1b
-d0c1b d0c1b 8*2d0c1b
+250f13 2f0f0d 830*2d0f1b 250f13 2f0f0d 250f13 2f071d 2d09d3
+2cff1a 2c8edb d0f1b d0f1b d0f1b 6*2d0f1b 250f13 2f0f0d
+250f13 2f0f15 2d0719 2d09d3 2cff1a 2c8edb d0f1b d0f1b
+d0f1b 53*2d0f1b 250f13 2f0f0d 2d09d3 2d0719 250f13 2f0f15
+2dff1a 2d9edb d0f1b d0f1b d0f1b 5989*2d0f1b 250f13 2f0f0d
+2d0d13 2d0719 2d09d3 2cff1a 2c8edb d0f1b d0f1b d0f1b
+6*2d0f1b 250f13 2f0f0d 2d0d33 2d0719 2d09d3 2cff1a 2c8edb
+d0f1b d0f1b d0f1b 6*2d0f1b 250f13 2f0f0d 2d0d53 2d0719
+2d09d3 2cff1a 2c8edb d0f1b d0f1b d0f1b 6*2d0f1b 250f13
+2f0f0d 2d0d73 2d0719 2d09d3 2cff1a 2c8edb d0f1b d0f1b
+d0f1b 6*2d0f1b 250f13 2f0f0d 2d0d93 2d0719 2d09d3 2cff1a
+2c8edb d0f1b d0f1b d0f1b 6*2d0f1b 250f13 2f0f0d 2d0db3
+2d0719 2d09d3 2cff1a 2c8edb d0f1b d0f1b d0f1b 6*2d0f1b
+250f13 2f0f0d 2d0dd3 2d0719 2d09d3 2cff1a 2c8edb d0f1b
+d0f1b d0f1b 6*2d0f1b 250f13 2f0f0d 2d0df3 2d0719 2d09d3
+2cff1a 2c8edb d0f1b d0f1b d0f1b 6*2d0f1b 250f13 2f0f0d
+2d09d3 2d0d1a 2c8edb d0f1b d0f1b d0f1b 8*2d0f1b 250f13
+2f0f0d 2d09d3 2d0d3a 2c8edb d0f1b d0f1b d0f1b 8*2d0f1b
+250f13 2f0f0d 2d09d3 2d0d5a 2c8edb d0f1b d0f1b d0f1b
+8*2d0f1b 250f13 2f0f0d 2d09d3 2d0d7a 2c8edb d0f1b d0f1b
+d0f1b 8*2d0f1b 250f13 2f0f0d 2d09d3 2d0d9a 2c8edb d0f1b
+d0f1b d0f1b 8*2d0f1b 250f13 2f0f0d 2d09d3 2d0dba 2c8edb
+d0f1b d0f1b d0f1b 8*2d0f1b 250f13 2f0f0d 2d09d3 2d0dda
+2c8edb d0f1b d0f1b d0f1b 8*2d0f1b 250f13 2f0f0d 2d09d3
+2d0dfa 2c8edb d0f1b d0f1b d0f1b 264*2d0f1b 250f13 2f0f0d
+2d09d3 2d0719 2d0d13 2dff1a d0f1b d0f1b d0f1b 7*2d0f1b
+250f13 2f0f0d 2d09d3 2d0719 2d0d33 2dff1a d0f1b d0f1b
+d0f1b 7*2d0f1b 250f13 2f0f0d 2d09d3 2d0719 2d0d53 2dff1a
+d0f1b d0f1b d0f1b 7*2d0f1b 250f13 2f0f0d 2d09d3 2d0719
+2d0d73 2dff1a d0f1b d0f1b d0f1b 7*2d0f1b 250f13 2f0f0d
+2d09d3 2d0719 2d0d93 2dff1a d0f1b d0f1b d0f1b 7*2d0f1b
+250f13 2f0f0d 2d09d3 2d0719 2d0db3 2dff1a d0f1b d0f1b
+d0f1b 7*2d0f1b 250f13 2f0f0d 2d09d3 2d0719 2d0dd3 2dff1a
+d0f1b d0f1b d0f1b 7*2d0f1b 250f13 2f0f0d 2d09d3 2d0719
+2d0df3 2dff1a d0f1b d0f1b d0f1b 7*2d0f1b 250f13 2f0f0d
+2d09d3 2d0e19 2c9edb d0f1b d0f1b d0f1b 8*2d0f1b 250f13
+2f0f0d 2d09d3 2d0e39 2c9edb d0f1b d0f1b d0f1b 8*2d0f1b
+250f13 2f0f0d 2d09d3 2d0e59 2c9edb d0f1b d0f1b d0f1b
+8*2d0f1b 250f13 2f0f0d 2d09d3 2d0e79 2c9edb d0f1b d0f1b
+d0f1b 8*2d0f1b 250f13 2f0f0d 2d09d3 2d0e99 2c9edb d0f1b
+d0f1b d0f1b 8*2d0f1b 250f13 2f0f0d 2d09d3 2d0eb9 2c9edb
+d0f1b d0f1b d0f1b 8*2d0f1b 250f13 2f0f0d 2d09d3 2d0ed9
+2c9edb d0f1b d0f1b d0f1b 8*2d0f1b 250f13 2f0f0d 2d09d3
+2d0ef9 2c9edb d0f1b d0f1b d0f1b 41608*2d0f1b 250f13 2f0f0d
+250f13 2f0f15 2d0d1a d0f1b d0f1b d0f1b 120*2d0f1b 250f13
+2f0f0d 2d0d13 2d0d1a d0f1b d0f1b d0f1b 9*2d0f1b 250f13
+2f0f0d 2d0d33 2d0d1a d0f1b d0f1b d0f1b 9*2d0f1b 250f13
+2f0f0d 2d0d53 2d0d1a d0f1b d0f1b d0f1b 9*2d0f1b 250f13
+2f0f0d 2d0d73 2d0d1a d0f1b d0f1b d0f1b 9*2d0f1b 250f13
+2f0f0d 2d0d93 2d0d1a d0f1b d0f1b d0f1b 9*2d0f1b 250f13
+2f0f0d 2d0db3 2d0d1a d0f1b d0f1b d0f1b 9*2d0f1b 250f13
+2f0f0d 2d0dd3 2d0d1a d0f1b d0f1b d0f1b 9*2d0f1b 250f13
+2f0f0d 2d0df3 2d0d1a d0f1b d0f1b d0f1b 9*2d0f1b 250f13
+2f0f0d 2d091b 2cbe1b d0f1b d0f1b d0f1b 9*2d0f1b 250f13
+2f0f0d 2d091b 2cbe1b d0f1b d0f1b d0f1b 9*2d0f1b 250f13
+2f0f0d 2d091b 2cbe1b d0f1b d0f1b d0f1b 9*2d0f1b 250f13
+2f0f0d 2d091b 2cbe1b d0f1b d0f1b d0f1b 9*2d0f1b 250f13
+2f0f0d 2d091b 2cbe1b d0f1b d0f1b d0f1b 9*2d0f1b 250f13
+2f0f0d 2d091b 2cbe1b d0f1b d0f1b d0f1b 9*2d0f1b 250f13
+2f0f0d 2d091b 2cbe1b d0f1b d0f1b d0f1b 9*2d0f1b 250f13
+2f0f0d 2d091b 2cbe1b d0f1b d0f1b d0f1b 9*2d0f1b 250f13
+2f0f0d 250f13 2f0e1d d0f1b d0f1b d0f1b 121*2d0f1b 250f13
+2f0f0d 250f13 2f0f15 2d0e19 d0f1b d0f1b d0f1b 120*2d0f1b
+250f13 2f0f0d 2d0d13 2d0e19 d0f1b d0f1b d0f1b 9*2d0f1b
+250f13 2f0f0d 2d0d33 2d0e19 d0f1b d0f1b d0f1b 9*2d0f1b
+250f13 2f0f0d 2d0d53 2d0e19 d0f1b d0f1b d0f1b 9*2d0f1b
+250f13 2f0f0d 2d0d73 2d0e19 d0f1b d0f1b d0f1b 9*2d0f1b
+250f13 2f0f0d 2d0d93 2d0e19 d0f1b d0f1b d0f1b 9*2d0f1b
+250f13 2f0f0d 2d0db3 2d0e19 d0f1b d0f1b d0f1b 9*2d0f1b
+250f13 2f0f0d 2d0dd3 2d0e19 d0f1b d0f1b d0f1b 9*2d0f1b
+250f13 2f0f0d 2d0df3 2d0e19 d0f1b d0f1b d0f1b 9*2d0f1b
+250f13 2f0f0d 2d091b 2cbe1b d0f1b d0f1b d0f1b 9*2d0f1b
+250f13 2f0f0d 2d093b 2cbe1b d0f1b d0f1b d0f1b 9*2d0f1b
+250f13 2f0f0d 2d095b 2cbe1b d0f1b d0f1b d0f1b 9*2d0f1b
+250f13 2f0f0d 2d097b 2cbe1b d0f1b d0f1b d0f1b 9*2d0f1b
+250f13 2f0f0d 2d099b 2cbe1b d0f1b d0f1b d0f1b 9*2d0f1b
+250f13 2f0f0d 2d09bb 2cbe1b d0f1b d0f1b d0f1b 9*2d0f1b
+250f13 2f0f0d 2d09db 2cbe1b d0f1b d0f1b d0f1b 9*2d0f1b
+250f13 2f0f0d 2d09fb 2cbe1b d0f1b d0f1b d0f1b 137*2d0f1b
+250f13 2f0f0d 250f13 2f0f15 2d0d3a d0f1b d0f1b d0f1b
+120*2d0f1b 250f13 2f0f0d 2d0d13 2d0d3a d0f1b d0f1b d0f1b
+9*2d0f1b 250f13 2f0f0d 2d0d33 2d0d3a d0f1b d0f1b d0f1b
+9*2d0f1b 250f13 2f0f0d 2d0d53 2d0d3a d0f1b d0f1b d0f1b
+9*2d0f1b 250f13 2f0f0d 2d0d73 2d0d3a d0f1b d0f1b d0f1b
+9*2d0f1b 250f13 2f0f0d 2d0d93 2d0d3a d0f1b d0f1b d0f1b
+9*2d0f1b 250f13 2f0f0d 2d0db3 2d0d3a d0f1b d0f1b d0f1b
+9*2d0f1b 250f13 2f0f0d 2d0dd3 2d0d3a d0f1b d0f1b d0f1b
+9*2d0f1b 250f13 2f0f0d 2d0df3 2d0d3a d0f1b d0f1b d0f1b
+9*2d0f1b 250f13 2f0f0d 2d093b 2cbe3b d0f1b d0f1b d0f1b
+9*2d0f1b 250f13 2f0f0d 2d093b 2cbe3b d0f1b d0f1b d0f1b
+9*2d0f1b 250f13 2f0f0d 2d093b 2cbe3b d0f1b d0f1b d0f1b
+9*2d0f1b 250f13 2f0f0d 2d093b 2cbe3b d0f1b d0f1b d0f1b
+9*2d0f1b 250f13 2f0f0d 2d093b 2cbe3b d0f1b d0f1b d0f1b
+9*2d0f1b 250f13 2f0f0d 2d093b 2cbe3b d0f1b d0f1b d0f1b
+9*2d0f1b 250f13 2f0f0d 2d093b 2cbe3b d0f1b d0f1b d0f1b
+9*2d0f1b 250f13 2f0f0d 2d093b 2cbe3b d0f1b d0f1b d0f1b
+9*2d0f1b 250f13 2f0f0d 250f13 2f0e3d d0f1b d0f1b d0f1b
+121*2d0f1b 250f13 2f0f0d 250f13 2f0f15 2d0e39 d0f1b d0f1b
+d0f1b 120*2d0f1b 250f13 2f0f0d 2d0d13 2d0e39 d0f1b d0f1b
+d0f1b 9*2d0f1b 250f13 2f0f0d 2d0d33 2d0e39 d0f1b d0f1b
+d0f1b 9*2d0f1b 250f13 2f0f0d 2d0d53 2d0e39 d0f1b d0f1b
+d0f1b 9*2d0f1b 250f13 2f0f0d 2d0d73 2d0e39 d0f1b d0f1b
+d0f1b 9*2d0f1b 250f13 2f0f0d 2d0d93 2d0e39 d0f1b d0f1b
+d0f1b 9*2d0f1b 250f13 2f0f0d 2d0db3 2d0e39 d0f1b d0f1b
+d0f1b 9*2d0f1b 250f13 2f0f0d 2d0dd3 2d0e39 d0f1b d0f1b
+d0f1b 9*2d0f1b 250f13 2f0f0d 2d0df3 2d0e39 d0f1b d0f1b
+d0f1b 9*2d0f1b 250f13 2f0f0d 2d091b 2cbe3b d0f1b d0f1b
+d0f1b 9*2d0f1b 250f13 2f0f0d 2d093b 2cbe3b d0f1b d0f1b
+d0f1b 9*2d0f1b 250f13 2f0f0d 2d095b 2cbe3b d0f1b d0f1b
+d0f1b 9*2d0f1b 250f13 2f0f0d 2d097b 2cbe3b d0f1b d0f1b
+d0f1b 9*2d0f1b 250f13 2f0f0d 2d099b 2cbe3b d0f1b d0f1b
+d0f1b 9*2d0f1b 250f13 2f0f0d 2d09bb 2cbe3b d0f1b d0f1b
+d0f1b 9*2d0f1b 250f13 2f0f0d 2d09db 2cbe3b d0f1b d0f1b
+d0f1b 9*2d0f1b 250f13 2f0f0d 2d09fb 2cbe3b d0f1b d0f1b
+d0f1b 137*2d0f1b 250f13 2f0f0d 250f13 2f0f15 2d0d5a d0f1b
+d0f1b d0f1b 120*2d0f1b 250f13 2f0f0d 2d0d13 2d0d5a d0f1b
+d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d0d33 2d0d5a d0f1b
+d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d0d53 2d0d5a d0f1b
+d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d0d73 2d0d5a d0f1b
+d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d0d93 2d0d5a d0f1b
+d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d0db3 2d0d5a d0f1b
+d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d0dd3 2d0d5a d0f1b
+d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d0df3 2d0d5a d0f1b
+d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d095b 2cbe5b d0f1b
+d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d095b 2cbe5b d0f1b
+d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d095b 2cbe5b d0f1b
+d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d095b 2cbe5b d0f1b
+d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d095b 2cbe5b d0f1b
+d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d095b 2cbe5b d0f1b
+d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d095b 2cbe5b d0f1b
+d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d095b 2cbe5b d0f1b
+d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 250f13 2f0e5d d0f1b
+d0f1b d0f1b 121*2d0f1b 250f13 2f0f0d 250f13 2f0f15 2d0e59
+d0f1b d0f1b d0f1b 120*2d0f1b 250f13 2f0f0d 2d0d13 2d0e59
+d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d0d33 2d0e59
+d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d0d53 2d0e59
+d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d0d73 2d0e59
+d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d0d93 2d0e59
+d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d0db3 2d0e59
+d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d0dd3 2d0e59
+d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d0df3 2d0e59
+d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d091b 2cbe5b
+d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d093b 2cbe5b
+d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d095b 2cbe5b
+d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d097b 2cbe5b
+d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d099b 2cbe5b
+d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d09bb 2cbe5b
+d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d09db 2cbe5b
+d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d09fb 2cbe5b
+d0f1b d0f1b d0f1b 137*2d0f1b 250f13 2f0f0d 250f13 2f0f15
+2d0d7a d0f1b d0f1b d0f1b 120*2d0f1b 250f13 2f0f0d 2d0d13
+2d0d7a d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d0d33
+2d0d7a d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d0d53
+2d0d7a d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d0d73
+2d0d7a d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d0d93
+2d0d7a d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d0db3
+2d0d7a d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d0dd3
+2d0d7a d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d0df3
+2d0d7a d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d097b
+2cbe7b d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d097b
+2cbe7b d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d097b
+2cbe7b d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d097b
+2cbe7b d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d097b
+2cbe7b d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d097b
+2cbe7b d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d097b
+2cbe7b d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d097b
+2cbe7b d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 250f13
+2f0e7d d0f1b d0f1b d0f1b 121*2d0f1b 250f13 2f0f0d 250f13
+2f0f15 2d0e79 d0f1b d0f1b d0f1b 120*2d0f1b 250f13 2f0f0d
+2d0d13 2d0e79 d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d
+2d0d33 2d0e79 d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d
+2d0d53 2d0e79 d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d
+2d0d73 2d0e79 d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d
+2d0d93 2d0e79 d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d
+2d0db3 2d0e79 d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d
+2d0dd3 2d0e79 d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d
+2d0df3 2d0e79 d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d
+2d091b 2cbe7b d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d
+2d093b 2cbe7b d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d
+2d095b 2cbe7b d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d
+2d097b 2cbe7b d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d
+2d099b 2cbe7b d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d
+2d09bb 2cbe7b d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d
+2d09db 2cbe7b d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d
+2d09fb 2cbe7b d0f1b d0f1b d0f1b 137*2d0f1b 250f13 2f0f0d
+250f13 2f0f15 2d0d9a d0f1b d0f1b d0f1b 120*2d0f1b 250f13
+2f0f0d 2d0d13 2d0d9a d0f1b d0f1b d0f1b 9*2d0f1b 250f13
+2f0f0d 2d0d33 2d0d9a d0f1b d0f1b d0f1b 9*2d0f1b 250f13
+2f0f0d 2d0d53 2d0d9a d0f1b d0f1b d0f1b 9*2d0f1b 250f13
+2f0f0d 2d0d73 2d0d9a d0f1b d0f1b d0f1b 9*2d0f1b 250f13
+2f0f0d 2d0d93 2d0d9a d0f1b d0f1b d0f1b 9*2d0f1b 250f13
+2f0f0d 2d0db3 2d0d9a d0f1b d0f1b d0f1b 9*2d0f1b 250f13
+2f0f0d 2d0dd3 2d0d9a d0f1b d0f1b d0f1b 9*2d0f1b 250f13
+2f0f0d 2d0df3 2d0d9a d0f1b d0f1b d0f1b 9*2d0f1b 250f13
+2f0f0d 2d099b 2cbe9b d0f1b d0f1b d0f1b 9*2d0f1b 250f13
+2f0f0d 2d099b 2cbe9b d0f1b d0f1b d0f1b 9*2d0f1b 250f13
+2f0f0d 2d099b 2cbe9b d0f1b d0f1b d0f1b 9*2d0f1b 250f13
+2f0f0d 2d099b 2cbe9b d0f1b d0f1b d0f1b 9*2d0f1b 250f13
+2f0f0d 2d099b 2cbe9b d0f1b d0f1b d0f1b 9*2d0f1b 250f13
+2f0f0d 2d099b 2cbe9b d0f1b d0f1b d0f1b 9*2d0f1b 250f13
+2f0f0d 2d099b 2cbe9b d0f1b d0f1b d0f1b 9*2d0f1b 250f13
+2f0f0d 2d099b 2cbe9b d0f1b d0f1b d0f1b 9*2d0f1b 250f13
+2f0f0d 250f13 2f0e9d d0f1b d0f1b d0f1b 121*2d0f1b 250f13
+2f0f0d 250f13 2f0f15 2d0e99 d0f1b d0f1b d0f1b 120*2d0f1b
+250f13 2f0f0d 2d0d13 2d0e99 d0f1b d0f1b d0f1b 9*2d0f1b
+250f13 2f0f0d 2d0d33 2d0e99 d0f1b d0f1b d0f1b 9*2d0f1b
+250f13 2f0f0d 2d0d53 2d0e99 d0f1b d0f1b d0f1b 9*2d0f1b
+250f13 2f0f0d 2d0d73 2d0e99 d0f1b d0f1b d0f1b 9*2d0f1b
+250f13 2f0f0d 2d0d93 2d0e99 d0f1b d0f1b d0f1b 9*2d0f1b
+250f13 2f0f0d 2d0db3 2d0e99 d0f1b d0f1b d0f1b 9*2d0f1b
+250f13 2f0f0d 2d0dd3 2d0e99 d0f1b d0f1b d0f1b 9*2d0f1b
+250f13 2f0f0d 2d0df3 2d0e99 d0f1b d0f1b d0f1b 9*2d0f1b
+250f13 2f0f0d 2d091b 2cbe9b d0f1b d0f1b d0f1b 9*2d0f1b
+250f13 2f0f0d 2d093b 2cbe9b d0f1b d0f1b d0f1b 9*2d0f1b
+250f13 2f0f0d 2d095b 2cbe9b d0f1b d0f1b d0f1b 9*2d0f1b
+250f13 2f0f0d 2d097b 2cbe9b d0f1b d0f1b d0f1b 9*2d0f1b
+250f13 2f0f0d 2d099b 2cbe9b d0f1b d0f1b d0f1b 9*2d0f1b
+250f13 2f0f0d 2d09bb 2cbe9b d0f1b d0f1b d0f1b 9*2d0f1b
+250f13 2f0f0d 2d09db 2cbe9b d0f1b d0f1b d0f1b 9*2d0f1b
+250f13 2f0f0d 2d09fb 2cbe9b d0f1b d0f1b d0f1b 137*2d0f1b
+250f13 2f0f0d 250f13 2f0f15 2d0dba d0f1b d0f1b d0f1b
+120*2d0f1b 250f13 2f0f0d 2d0d13 2d0dba d0f1b d0f1b d0f1b
+9*2d0f1b 250f13 2f0f0d 2d0d33 2d0dba d0f1b d0f1b d0f1b
+9*2d0f1b 250f13 2f0f0d 2d0d53 2d0dba d0f1b d0f1b d0f1b
+9*2d0f1b 250f13 2f0f0d 2d0d73 2d0dba d0f1b d0f1b d0f1b
+9*2d0f1b 250f13 2f0f0d 2d0d93 2d0dba d0f1b d0f1b d0f1b
+9*2d0f1b 250f13 2f0f0d 2d0db3 2d0dba d0f1b d0f1b d0f1b
+9*2d0f1b 250f13 2f0f0d 2d0dd3 2d0dba d0f1b d0f1b d0f1b
+9*2d0f1b 250f13 2f0f0d 2d0df3 2d0dba d0f1b d0f1b d0f1b
+9*2d0f1b 250f13 2f0f0d 2d09bb 2cbebb d0f1b d0f1b d0f1b
+9*2d0f1b 250f13 2f0f0d 2d09bb 2cbebb d0f1b d0f1b d0f1b
+9*2d0f1b 250f13 2f0f0d 2d09bb 2cbebb d0f1b d0f1b d0f1b
+9*2d0f1b 250f13 2f0f0d 2d09bb 2cbebb d0f1b d0f1b d0f1b
+9*2d0f1b 250f13 2f0f0d 2d09bb 2cbebb d0f1b d0f1b d0f1b
+9*2d0f1b 250f13 2f0f0d 2d09bb 2cbebb d0f1b d0f1b d0f1b
+9*2d0f1b 250f13 2f0f0d 2d09bb 2cbebb d0f1b d0f1b d0f1b
+9*2d0f1b 250f13 2f0f0d 2d09bb 2cbebb d0f1b d0f1b d0f1b
+9*2d0f1b 250f13 2f0f0d 250f13 2f0ebd d0f1b d0f1b d0f1b
+121*2d0f1b 250f13 2f0f0d 250f13 2f0f15 2d0eb9 d0f1b d0f1b
+d0f1b 120*2d0f1b 250f13 2f0f0d 2d0d13 2d0eb9 d0f1b d0f1b
+d0f1b 9*2d0f1b 250f13 2f0f0d 2d0d33 2d0eb9 d0f1b d0f1b
+d0f1b 9*2d0f1b 250f13 2f0f0d 2d0d53 2d0eb9 d0f1b d0f1b
+d0f1b 9*2d0f1b 250f13 2f0f0d 2d0d73 2d0eb9 d0f1b d0f1b
+d0f1b 9*2d0f1b 250f13 2f0f0d 2d0d93 2d0eb9 d0f1b d0f1b
+d0f1b 9*2d0f1b 250f13 2f0f0d 2d0db3 2d0eb9 d0f1b d0f1b
+d0f1b 9*2d0f1b 250f13 2f0f0d 2d0dd3 2d0eb9 d0f1b d0f1b
+d0f1b 9*2d0f1b 250f13 2f0f0d 2d0df3 2d0eb9 d0f1b d0f1b
+d0f1b 9*2d0f1b 250f13 2f0f0d 2d091b 2cbebb d0f1b d0f1b
+d0f1b 9*2d0f1b 250f13 2f0f0d 2d093b 2cbebb d0f1b d0f1b
+d0f1b 9*2d0f1b 250f13 2f0f0d 2d095b 2cbebb d0f1b d0f1b
+d0f1b 9*2d0f1b 250f13 2f0f0d 2d097b 2cbebb d0f1b d0f1b
+d0f1b 9*2d0f1b 250f13 2f0f0d 2d099b 2cbebb d0f1b d0f1b
+d0f1b 9*2d0f1b 250f13 2f0f0d 2d09bb 2cbebb d0f1b d0f1b
+d0f1b 9*2d0f1b 250f13 2f0f0d 2d09db 2cbebb d0f1b d0f1b
+d0f1b 9*2d0f1b 250f13 2f0f0d 2d09fb 2cbebb d0f1b d0f1b
+d0f1b 137*2d0f1b 250f13 2f0f0d 250f13 2f0f15 2d0dda d0f1b
+d0f1b d0f1b 120*2d0f1b 250f13 2f0f0d 2d0d13 2d0dda d0f1b
+d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d0d33 2d0dda d0f1b
+d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d0d53 2d0dda d0f1b
+d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d0d73 2d0dda d0f1b
+d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d0d93 2d0dda d0f1b
+d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d0db3 2d0dda d0f1b
+d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d0dd3 2d0dda d0f1b
+d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d0df3 2d0dda d0f1b
+d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d09db 2cbedb d0f1b
+d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d09db 2cbedb d0f1b
+d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d09db 2cbedb d0f1b
+d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d09db 2cbedb d0f1b
+d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d09db 2cbedb d0f1b
+d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d09db 2cbedb d0f1b
+d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d09db 2cbedb d0f1b
+d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d09db 2cbedb d0f1b
+d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 250f13 2f0edd d0f1b
+d0f1b d0f1b 121*2d0f1b 250f13 2f0f0d 250f13 2f0f15 2d0ed9
+d0f1b d0f1b d0f1b 120*2d0f1b 250f13 2f0f0d 2d0d13 2d0ed9
+d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d0d33 2d0ed9
+d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d0d53 2d0ed9
+d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d0d73 2d0ed9
+d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d0d93 2d0ed9
+d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d0db3 2d0ed9
+d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d0dd3 2d0ed9
+d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d0df3 2d0ed9
+d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d091b 2cbedb
+d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d093b 2cbedb
+d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d095b 2cbedb
+d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d097b 2cbedb
+d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d099b 2cbedb
+d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d09bb 2cbedb
+d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d09db 2cbedb
+d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d09fb 2cbedb
+d0f1b d0f1b d0f1b 137*2d0f1b 250f13 2f0f0d 250f13 2f0f15
+2d0dfa d0f1b d0f1b d0f1b 120*2d0f1b 250f13 2f0f0d 2d0d13
+2d0dfa d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d0d33
+2d0dfa d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d0d53
+2d0dfa d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d0d73
+2d0dfa d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d0d93
+2d0dfa d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d0db3
+2d0dfa d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d0dd3
+2d0dfa d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d0df3
+2d0dfa d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d09fb
+2cbefb d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d09fb
+2cbefb d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d09fb
+2cbefb d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d09fb
+2cbefb d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d09fb
+2cbefb d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d09fb
+2cbefb d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d09fb
+2cbefb d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 2d09fb
+2cbefb d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d 250f13
+2f0efd d0f1b d0f1b d0f1b 121*2d0f1b 250f13 2f0f0d 250f13
+2f0f15 2d0ef9 d0f1b d0f1b d0f1b 120*2d0f1b 250f13 2f0f0d
+2d0d13 2d0ef9 d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d
+2d0d33 2d0ef9 d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d
+2d0d53 2d0ef9 d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d
+2d0d73 2d0ef9 d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d
+2d0d93 2d0ef9 d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d
+2d0db3 2d0ef9 d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d
+2d0dd3 2d0ef9 d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d
+2d0df3 2d0ef9 d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d
+2d091b 2cbefb d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d
+2d093b 2cbefb d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d
+2d095b 2cbefb d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d
+2d097b 2cbefb d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d
+2d099b 2cbefb d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d
+2d09bb 2cbefb d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d
+2d09db 2cbefb d0f1b d0f1b d0f1b 9*2d0f1b 250f13 2f0f0d
+2d09fb 2cbefb d0f1b d0f1b d0f1b 8*2d0f1b
 </a>
       <a name="dataWidth" val="24"/>
     </comp>
@@ -2974,7 +3222,7 @@ d0c1b d0c1b 8*2d0c1b
     <wire from="(580,600)" to="(580,770)"/>
   </circuit>
   <circuit name="registers">
-    <a name="appearance" val="custom"/>
+    <a name="appearance" val="logisim_evolution"/>
     <a name="circuit" val="registers"/>
     <a name="circuitnamedboxfixedsize" val="true"/>
     <a name="simulationFrequency" val="1.0"/>
@@ -3002,6 +3250,22 @@ d0c1b d0c1b 8*2d0c1b
       <rect height="20" stroke="none" width="200" x="60" y="230"/>
       <rect fill="none" height="200" stroke="#000000" stroke-width="2" width="200" x="60" y="50"/>
       <text dominant-baseline="alphabetic" fill="#ffffff" font-family="Dialog" font-size="14" font-weight="bold" text-anchor="middle" x="160" y="244">registers</text>
+      <visible-register height="10" path="/reg4x16(650,150)/Logi74670(480,350)/Register(380,210)" stroke-width="0" width="6" x="119" y="70"/>
+      <visible-register height="10" path="/reg4x16(650,150)/Logi74670(480,350)/Register(380,320)" stroke-width="0" width="6" x="119" y="81"/>
+      <visible-register height="10" path="/reg4x16(650,150)/Logi74670(480,350)/Register(380,430)" stroke-width="0" width="6" x="119" y="92"/>
+      <visible-register height="10" path="/reg4x16(650,150)/Logi74670(480,350)/Register(380,540)" stroke-width="0" width="6" x="119" y="103"/>
+      <visible-register height="10" path="/reg4x16(650,150)/Logi74670(480,490)/Register(380,210)" stroke-width="0" width="6" x="45" y="45"/>
+      <visible-register height="10" path="/reg4x16(650,150)/Logi74670(480,490)/Register(380,320)" stroke-width="0" width="6" x="45" y="65"/>
+      <visible-register height="10" path="/reg4x16(650,150)/Logi74670(480,490)/Register(380,430)" stroke-width="0" width="6" x="45" y="85"/>
+      <visible-register height="10" path="/reg4x16(650,150)/Logi74670(480,490)/Register(380,540)" stroke-width="0" width="6" x="45" y="105"/>
+      <visible-register height="10" path="/reg4x16(650,150)/Logi74670(480,630)/Register(380,210)" stroke-width="0" width="6" x="45" y="125"/>
+      <visible-register height="10" path="/reg4x16(650,150)/Logi74670(480,630)/Register(380,320)" stroke-width="0" width="6" x="45" y="145"/>
+      <visible-register height="10" path="/reg4x16(650,150)/Logi74670(480,630)/Register(380,430)" stroke-width="0" width="6" x="45" y="165"/>
+      <visible-register height="10" path="/reg4x16(650,150)/Logi74670(480,630)/Register(380,540)" stroke-width="0" width="6" x="45" y="185"/>
+      <visible-register height="10" path="/reg4x16(650,150)/Logi74670(480,770)/Register(380,210)" stroke-width="0" width="6" x="45" y="205"/>
+      <visible-register height="10" path="/reg4x16(650,150)/Logi74670(480,770)/Register(380,320)" stroke-width="0" width="6" x="45" y="225"/>
+      <visible-register height="10" path="/reg4x16(650,150)/Logi74670(480,770)/Register(380,430)" stroke-width="0" width="6" x="45" y="235"/>
+      <visible-register height="10" path="/reg4x16(650,150)/Logi74670(480,770)/Register(380,540)" stroke-width="0" width="6" x="85" y="110"/>
       <circ-anchor facing="east" x="270" y="60"/>
       <circ-port dir="in" pin="140,230" x="50" y="120"/>
       <circ-port dir="in" pin="140,440" x="50" y="140"/>
@@ -3163,13 +3427,6 @@ d0c1b d0c1b 8*2d0c1b
     <wire from="(730,150)" to="(730,330)"/>
     <wire from="(730,330)" to="(730,500)"/>
     <wire from="(730,330)" to="(810,330)"/>
-  </circuit>
-  <circuit name="mainnew">
-    <a name="appearance" val="logisim_evolution"/>
-    <a name="circuit" val="mainnew"/>
-    <a name="circuitnamedboxfixedsize" val="true"/>
-    <a name="simulationFrequency" val="1.0"/>
-    <comp lib="6" loc="(570,570)" name="74670"/>
   </circuit>
   <circuit name="Logi74670">
     <a name="appearance" val="logisim_evolution"/>
