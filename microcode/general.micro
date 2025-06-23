@@ -5,11 +5,11 @@ CTRL {
     ~MAI,
     ~IRI,
     RSE : 3,
-    RGI,
-    RGO,
+    ~RGI,
+    ~RGO,
     ~AAI,
     ~ABI,
-    AlF: 4,
+    ALF: 4,
     ~ALO,
     PCE,
     ~PCL,
@@ -35,13 +35,25 @@ REG = 0x3;
 REGS = [0, 1, 2, 3, 4, 5, 6, 7];
 INTS = [0, 1, 2, 3, 4, 5, 6, 7];
 
+REG_STATUS = 0x7;
 REG_SP = 0x6;
 
 ALU_INC = 0x8;
 ALU_DEC = 0x9;
 ALU_A = 0xB;
+ALU_ADD = 0x2;
 ALU_B = 0xF;
 ALU_ZERO = 0x0;
+
+ADD = 0x0;
+SWP = 0xf;
+
+(SWP:5)(0:9) {
+    PCO, MAI;
+    MO, IRI, PCE, MSL;
+    SWP;
+    MCR;
+}
 
 (0) {
     PCO, MAI;
@@ -53,8 +65,8 @@ ALU_ZERO = 0x0;
     MO, IRI, PCE, MSL;
 
     include "MOV.micro"
+    include "ARITHMETIC.micro"
 
     MCR;
-    MCR;
-    MCR;
 }
+

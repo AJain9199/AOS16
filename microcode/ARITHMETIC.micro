@@ -1,0 +1,11 @@
+(ADD:5)(<REGS:0>) {
+    (RL:1) {
+        # add reg, imm16
+        (IMM:2)(0:3) {
+            PCO, MAI;
+            MO, MSL, AAI, PCE;
+            RSE = <REGS:0>, RGO, ABI;
+            ALF = ALU_ADD, ALO, RSE = <REGS:0>, RGI;
+        }
+    }
+}
