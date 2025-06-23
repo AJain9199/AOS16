@@ -5,6 +5,7 @@
 #define MOV_LIKE {REG | REG_PTR | IMM_PTR, REG | REG_PTR | IMM_PTR | IMMEDIATE}
 #define SINGLE_ARG {REG|REG_PTR|IMM_PTR}
 #define SINGLE_ARG_ALL {REG | REG_PTR | IMM_PTR | IMMEDIATE}
+#define NO_ARGS {}
 
 void init_opcodes() {
     add_opcode("add", 0x0, MOV_LIKE);
@@ -22,6 +23,7 @@ void init_opcodes() {
     add_opcode("mov", 0x6, MOV_LIKE);
     add_opcode("push", 0xd, SINGLE_ARG_ALL);
     add_opcode("pop", 0xe, SINGLE_ARG);
+    add_opcode("swp", 0xf, NO_ARGS);
 }
 
 int main() {

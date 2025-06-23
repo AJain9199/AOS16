@@ -65,6 +65,11 @@ public:
     Instruction(uint8_t opCode, const std::initializer_list<operandOptions> &operand_constraints);
     [[nodiscard]] std::unique_ptr<InstructionBytes> emit(std::vector<std::shared_ptr<Operand>> ops) const;
     int size(const std::vector<std::shared_ptr<Operand>>& operands);
+
+    [[nodiscard]] unsigned long long no_operands() const {
+        return operands.size();
+    }
+
 };
 
 #endif //INSTRUCTION_H

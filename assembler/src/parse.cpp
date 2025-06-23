@@ -30,9 +30,13 @@ void Parser::parseStatement() {
         err("Unknown opcode");
     }
 
-    ranges::transform(id, id.begin(), [] (const char c) {return tolower(c);});
+    ranges::transform(id, id.begin(), [](const char c) { return tolower(c); });
 
-    add_machine_code(opcodes.at(id), parseOperands());
+    if (opcodes[id]->no_operands() == 0) {
+        add_machine_code(opcodes[id], {});
+    } else {
+        add_machine_code(opcodes[id], parseOperands());
+    }
 }
 
 /*
@@ -41,10 +45,10 @@ void Parser::parseStatement() {
  */
 void Parser::parseDirective() {
     const string directive = lexer.eat_id();
-    const vector<shared_ptr<Operand>> operands = parseOperands();
+    const vector<shared_ptr<Operand> > operands = parseOperands();
 
     if (directive == "uint8" || directive == "uint16") {
-        for (const shared_ptr<Operand> & op : operands) {
+        for (const shared_ptr<Operand> &op: operands) {
             add_machine_code(op->value);
         }
     }
@@ -53,7 +57,7 @@ void Parser::parseDirective() {
 /*
  * Parses a list of operands of the form: op, op1, op2...
  */
-std::vector<std::shared_ptr<Operand>> Parser::parseOperands() {
+std::vector<std::shared_ptr<Operand> > Parser::parseOperands() {
     auto op = parseOperand();
     vector operands = {op};
     while (lexer == ',') {
@@ -73,7 +77,6 @@ std::shared_ptr<Operand> Parser::parseOperand() {
     if (lexer == PUNCTUATION && lexer == '(') {
         lexer.eat('(');
         auto op = parseSubOperand();
-        lexer.getToken();
         lexer.eat(')');
 
         op->make_pointer();
@@ -116,19 +119,19 @@ std::shared_ptr<Operand> Parser::parseSubOperand() {
 }
 
 
-
 /*
  * Parses a label definition. This method also resolves pending references to this label (if any).
  */
 void Parser::define_label(const std::string &name, const int val) {
     symtab[name] = val;
 
-    for (const shared_ptr<Operand> &op : future_resolution[name]) {
+    for (const shared_ptr<Operand> &op: future_resolution[name]) {
         op->value = val;
     }
 }
 
-void Parser::add_machine_code(const std::shared_ptr<Instruction>& instr, const std::vector<std::shared_ptr<Operand>>& operands) {
+void Parser::add_machine_code(const std::shared_ptr<Instruction> &instr,
+                              const std::vector<std::shared_ptr<Operand> > &operands) {
     machine_code.emplace_back(instr, operands);
     current_address += instr->size(operands);
 }
@@ -142,7 +145,7 @@ void Parser::write_machine_code(const std::string &filename) const {
     fstream outfile;
     outfile.open(filename, ios_base::binary | ios_base::out);
 
-    for (const auto &i : machine_code) {
+    for (const auto &i: machine_code) {
         if (i.is_constant) {
             outfile.put(i.constant >> 8);
             outfile.put(i.constant & 0xFF);
@@ -162,7 +165,7 @@ void Parser::write_machine_code(const std::string &filename) const {
     outfile.close();
 }
 
-void add_register(const std::string& name, const int val) {
+void add_register(const std::string &name, const int val) {
     regtab[name] = val;
 }
 
@@ -176,5 +179,3 @@ void Parser::parse() {
 void add_opcode(const std::string &name, const uint8_t opcode, const initializer_list<operandOptions> &operands) {
     opcodes[name] = make_shared<Instruction>(opcode, operands);
 }
-
-
