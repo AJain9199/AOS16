@@ -22,7 +22,7 @@ public:
     }
 
     void parse();
-    void write_machine_code(const std::string &filename);
+    void write_machine_code(const std::string &filename) const;
 
 private:
     struct MachineCodeInstance {

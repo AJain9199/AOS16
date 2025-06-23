@@ -138,7 +138,7 @@ void Parser::add_machine_code(const uint16_t constant) {
     current_address += 1;
 }
 
-void Parser::write_machine_code(const std::string &filename) {
+void Parser::write_machine_code(const std::string &filename) const {
     fstream outfile;
     outfile.open(filename, ios_base::binary | ios_base::out);
 
