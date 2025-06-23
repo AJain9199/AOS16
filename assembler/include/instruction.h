@@ -31,13 +31,13 @@ static uint8_t to_ins(const operandOptions op) {
  */
 struct __pragma( pack(push, 1) ) InstructionBytes {
     struct __pragma( pack(push, 1) ) InstructionWord {
-        uint8_t opcode :    5;
-        uint8_t reg :       3;
-        uint8_t dir :       1;
-        uint8_t type :      2;
-        uint8_t mod :       1; // controls if memory access is RAM or ROM
-        uint8_t relative :  1; // controls if the address is relative to the current address
-        uint8_t reg2_hi :   1;
+        uint8_t opcode :    5 = 0;
+        uint8_t reg :       3 = 0;
+        uint8_t dir :       1 = 0;
+        uint8_t type :      2 = 0;
+        uint8_t mod :       1 = 0; // controls if memory access is RAM or ROM
+        uint8_t relative :  1 = 0; // controls if the address is relative to the current address
+        uint8_t reg2_hi :   1 = 0;
     } __pragma( pack(pop)) ins;
     uint16_t value;
 

@@ -154,7 +154,7 @@ void Parser::write_machine_code(const std::string &filename) const {
             uint16_t ins_bin = ins->get_instruction();
             outfile.put(ins_bin >> 8);
             outfile.put(ins_bin & 0xFF);
-            if (ins->has_immediate()) {
+            if (ins->has_immediate() && !i.operands.empty()) {
                 ins_bin = ins->get_immediate();
                 outfile.put(ins_bin >> 8);
                 outfile.put(ins_bin & 0xFF);
