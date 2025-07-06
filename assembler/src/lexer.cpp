@@ -20,7 +20,7 @@ TokenType Lexer::getToken() {
     }
 
     // numeric literal
-    if (isdigit(currentChar)) {
+    if (isdigit(currentChar) || currentChar == '-') {
         number = parseNumber();
         return currentToken = NUM;
     }
@@ -77,9 +77,13 @@ void Lexer::skipWhitespace() {
     }
 }
 
-int64_t Lexer::parseNumber() {
-    if (!isdigit(currentChar)) {
-        return 0;
+int16_t Lexer::parseNumber() {
+    bool negative = false;
+    if (!isdigit(currentChar) || currentChar != '-') {
+        if (currentChar == '-') {
+            negative = true;
+            advance();
+        }
     }
 
     string num;
@@ -89,7 +93,8 @@ int64_t Lexer::parseNumber() {
     }
 
     try {
-        return stoll(num, nullptr, 0);
+        const auto n = static_cast<int16_t>(stoi(num, nullptr, 0));
+        return negative ? -n : n;
     } catch (const std::invalid_argument &e) {
         err("Invalid number");
     }

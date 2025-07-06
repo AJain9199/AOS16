@@ -20,10 +20,10 @@ typedef uint8_t operandOptions;
 
 struct Operand {
     uint8_t type;
-    uint16_t value;
+    int16_t value;
     bool is_rom = false;
 
-    Operand(const uint8_t type, const uint16_t value) : type(type), value(value) {};
+    Operand(const uint8_t type, const int16_t value) : type(type), value(value) {};
 
     [[nodiscard]] bool satisfies(const uint8_t constraints) const {
         return constraints & type;

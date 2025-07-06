@@ -21,12 +21,12 @@ class Lexer {
     bool atEOF = false;
     TokenType currentToken = EOF_TOKEN;
 
-    int64_t number = 0;
+    int16_t number = 0;
     std::string id;
 
     // Internal methods
     void advance();
-    int64_t parseNumber();
+    int16_t parseNumber();
     void skipWhitespace();
 
 public:
@@ -47,7 +47,7 @@ public:
     }
 
     // accessors
-    [[nodiscard]] int64_t getNumber() const {
+    [[nodiscard]] int16_t getNumber() const {
         return number;
     }
 
