@@ -17,6 +17,7 @@ CTRL {
     HLT,
     ~MCR,
     SWP,
+    JNZ,
     INT_CODE: 3
 }
 
@@ -46,14 +47,9 @@ ALU_B = 0xF;
 ALU_ZERO = 0x0;
 
 ADD = 0x0;
-SWP = 0xf;
-
-(SWP:5)(0:9) {
-    PCO, MAI;
-    MO, IRI, PCE, MSL;
-    SWP;
-    MCR;
-}
+SWP_CMD = 0xf;
+JMP = 0x10;
+JNZ_CMD = 0x11;
 
 (0) {
     PCO, MAI;
@@ -66,6 +62,11 @@ SWP = 0xf;
 
     include "MOV.micro"
     include "ARITHMETIC.micro"
+    include "JMP.micro"
+
+    (SWP_CMD:5)(0:9) {
+        SWP;
+    }
 
     MCR;
 }

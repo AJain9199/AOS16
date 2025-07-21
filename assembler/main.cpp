@@ -25,6 +25,7 @@ void init_opcodes() {
     add_opcode("pop", 0xe, SINGLE_ARG);
     add_opcode("swp", 0xf, NO_ARGS);
     add_opcode("jmp", 0x10, {REG | IMMEDIATE});
+    add_opcode("jnz", 0x11, {REG | IMMEDIATE});
 }
 
 int main() {

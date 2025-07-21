@@ -1,0 +1,19 @@
+(JMP:5) {
+    (0:4)(IMM:2)(0:3) {
+        PCO, MAI;
+        MO, MSL, PCL;
+    }
+    (0:4)(REG:2)(<REGS:0>) {
+        RSE = <REGS:0>, RGO, PCL;
+    }
+}
+
+(JNZ_CMD:5) {
+    (0:4)(IMM:2)(0:3) {
+        PCO, MAI;
+        MO, MSL, PCL, JNZ;
+    }
+    (0:4)(REG:2)(<REGS:0>) {
+        RSE = <REGS:0>, RGO, PCL, JNZ;
+    }
+}
