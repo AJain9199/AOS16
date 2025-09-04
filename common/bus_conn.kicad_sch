@@ -2004,7 +2004,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "67087102-fd2e-4881-bee7-c4993bbdca16")
-		(property "Reference" "J2"
+		(property "Reference" "J3"
 			(at 60.96 18.415 0)
 			(effects
 				(font
@@ -2138,6 +2138,12 @@
 			(uuid "341cb012-3b0a-4b27-badd-403b8c7c1a26")
 		)
 		(instances
+			(project "reg4x16"
+				(path "/af77a583-757b-4cb3-a1ea-fa2a5568a329/1c38704f-fad9-48eb-80d8-771b91c8e7ce"
+					(reference "J3")
+					(unit 1)
+				)
+			)
 			(project "ALU"
 				(path "/c0bb03ae-ed0c-4e9e-9f7c-15f29fb8b868/bdad24a6-397c-42d5-914a-4a0f0d69aaaa"
 					(reference "J3")
