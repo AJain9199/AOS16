@@ -2048,113 +2048,103 @@
 			)
 		)
 		(pin "5"
-			(uuid "3dc24ddc-5478-47c7-812d-e3b806aee4cd")
+			(uuid "5d178af0-2c83-451b-a2c7-64aa6e44e4c0")
 		)
 		(pin "2"
-			(uuid "6f9abb06-6744-40a5-9351-b8d479a8d92a")
+			(uuid "6e210ab4-bfbb-42b5-afef-d700fc9c5b6f")
 		)
 		(pin "15"
-			(uuid "797bd506-1edb-453c-9e05-b07bd4185d75")
+			(uuid "b7a3ee34-ed42-45ea-b98a-495ab3b78f46")
 		)
 		(pin "21"
-			(uuid "5152faef-8ddb-4e92-9d5f-b79f48e7d25c")
+			(uuid "8ca190bd-0900-40b7-b896-27e4306976ae")
 		)
 		(pin "12"
-			(uuid "c9304450-e069-4f97-bb5e-91c90337aa56")
+			(uuid "094f2c6e-148e-46a8-ba87-e5ad31e2093a")
 		)
 		(pin "19"
-			(uuid "522f45fa-5f99-49f4-a666-241dec256dc7")
+			(uuid "b527fc5f-dbcd-4e09-b11f-51eb0dd314d3")
 		)
 		(pin "28"
-			(uuid "f585c589-0bd8-423f-827b-f20ea229c5a7")
+			(uuid "a8a31699-c843-4cb3-a9de-aad01d5a0d11")
 		)
 		(pin "9"
-			(uuid "92961ffe-541f-486b-85e3-2af43ea04721")
+			(uuid "78d9fb93-c9ba-4fc6-a821-7a1ac8ecc88e")
 		)
 		(pin "23"
-			(uuid "edb00634-85b6-4ab9-be58-f4964b2a8e6c")
+			(uuid "05ca5528-6a37-4bf8-aa55-b75a94aba5e3")
 		)
 		(pin "17"
-			(uuid "12bfc71b-89db-4f9f-8302-12fa1d14c88b")
+			(uuid "854f9d8a-79ea-45d0-bc79-ce3c1addc58a")
 		)
 		(pin "6"
-			(uuid "56f3a2d5-2b13-437d-a405-58029138cacb")
+			(uuid "e23bb6b2-41eb-4126-937a-254086d16a9c")
 		)
 		(pin "30"
-			(uuid "ab620724-c30c-4d30-9cbf-061b063ab2af")
+			(uuid "bd4d0bf0-76f9-4cc4-bf3d-d1c02b464075")
 		)
 		(pin "20"
-			(uuid "767e9798-9eec-46d2-b215-5d4672501aa5")
+			(uuid "29a21b30-8fd3-472e-8dcc-33956cca5f94")
 		)
 		(pin "25"
-			(uuid "7881943d-5095-4f04-a81a-4dbda6345817")
+			(uuid "d05659ec-3614-4bbb-9971-5e13e3180094")
 		)
 		(pin "14"
-			(uuid "7d5e3dd5-d7fc-40a2-97a0-aeec5b194f30")
+			(uuid "3352c74a-cf79-4a0c-bf06-a0d4aa1a8d9d")
 		)
 		(pin "11"
-			(uuid "166c46b8-9783-4c76-9dcc-677b2d7ace28")
+			(uuid "6636d7cb-dbee-4a0f-844f-02d1b8f0c41a")
 		)
 		(pin "27"
-			(uuid "0333bf4e-5081-46bf-92a9-e533c2892636")
+			(uuid "7f9dd402-8384-4d27-afac-63eb4da14656")
 		)
 		(pin "7"
-			(uuid "4678ecfc-68e6-4b8f-9ee1-3aee860b2b5a")
+			(uuid "2564e4e4-f694-41ef-adae-ef4a4c4c9b0c")
 		)
 		(pin "10"
-			(uuid "7fffd1a2-d3a9-4f38-91cc-186d24a01991")
+			(uuid "fed99cbb-c53a-4836-a1d3-6066c077d4e7")
 		)
 		(pin "8"
-			(uuid "37773371-4d8e-4f72-9d76-c748f81c05c0")
+			(uuid "eff3282d-08e4-4a08-a675-953cba4ac552")
 		)
 		(pin "16"
-			(uuid "25f7ee20-4e20-481f-9596-c4dde8439c46")
+			(uuid "ecf2c127-4a21-4852-b147-0c8de2a281e0")
 		)
 		(pin "13"
-			(uuid "52abe657-e1f2-4302-8fb6-88fde92f5c16")
+			(uuid "3c19a5af-7384-447a-9ca7-6219233376ff")
 		)
 		(pin "18"
-			(uuid "c337ee3f-818e-4230-9933-b5b1d19b3685")
+			(uuid "66067e10-9a12-41ea-9095-942f28500701")
 		)
 		(pin "1"
-			(uuid "8ee0427d-7541-47c5-86d0-d6a6e9c82bad")
+			(uuid "73de091c-6842-4802-90ce-ac9775253aa9")
 		)
 		(pin "22"
-			(uuid "769d36b8-f1c0-4a39-b471-90d7aa66e88a")
+			(uuid "416bc891-04e1-444a-9268-ea754c81ca6d")
 		)
 		(pin "26"
-			(uuid "a045c4cd-b41a-4789-a526-6c3dc076de94")
+			(uuid "06cf930e-daf5-47a0-a757-7dc0ccd227b0")
 		)
 		(pin "24"
-			(uuid "cdd5fd25-5c47-420f-bf16-f0b29b730a6e")
+			(uuid "727cafee-1993-4bb7-8a24-bab783264061")
 		)
 		(pin "3"
-			(uuid "9c7bcedb-2ef4-4e81-a28e-5ce16fe110c0")
+			(uuid "ad1b9f5b-5526-4a0c-887a-7dc39bb8dfaa")
 		)
 		(pin "4"
-			(uuid "d3a6840a-0f6f-4b79-a11b-317119d3ff72")
+			(uuid "63b25ab7-d9e3-4e22-ad79-e040bd39dc86")
 		)
 		(pin "29"
-			(uuid "341cb012-3b0a-4b27-badd-403b8c7c1a26")
+			(uuid "db4185fc-5851-46e9-ae06-7677c785e915")
 		)
 		(instances
-			(project "reg4x16"
-				(path "/af77a583-757b-4cb3-a1ea-fa2a5568a329/1c38704f-fad9-48eb-80d8-771b91c8e7ce"
+			(project "Memory Controller"
+				(path "/a2e955d2-87ce-495b-9d0c-0c0d88eefe1c/193bfe38-df8c-4765-8a51-e2c3c367829f"
+					(reference "J5")
+					(unit 1)
+				)
+				(path "/a2e955d2-87ce-495b-9d0c-0c0d88eefe1c/74df1559-d61b-4062-8b61-a1c0475d8044"
 					(reference "J3")
-					(unit 1)
-				)
-			)
-			(project "ALU"
-				(path "/c0bb03ae-ed0c-4e9e-9f7c-15f29fb8b868/bdad24a6-397c-42d5-914a-4a0f0d69aaaa"
-					(reference "J3")
-					(unit 1)
-				)
-				(path "/c0bb03ae-ed0c-4e9e-9f7c-15f29fb8b868/d3ba4b5e-2047-4a5a-83f8-b81c9b14f142"
-					(reference "J2")
-					(unit 1)
-				)
-				(path "/c0bb03ae-ed0c-4e9e-9f7c-15f29fb8b868/de17c4ab-fa99-4cb9-b952-5c28477908f5"
-					(reference "J4")
 					(unit 1)
 				)
 			)
