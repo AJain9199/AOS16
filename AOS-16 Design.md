@@ -102,6 +102,7 @@ Clock: 13.5MHz
 
 ### VGA Timing
 Horizontal Timing
+
 | Scanline Part | Pixels | Pixel Counter    |
 |---------------|--------| ---------------- |
 | Visible Area  | 160    | 160 (0b10100000) |
@@ -111,9 +112,10 @@ Horizontal Timing
 | Whole Line    | 211    |                  |
 
  Vertical Timing (Every pixel is repeated 8 times in vertical direction to achieve 128 lines)
+
 | Frame part | Lines | Line Counter | 
 | ---------- | ----- | ------------ |
 | Visible Area | 1024 | 1024 (0b0100 0000 0000) |
 | Front porch | 1 | 1025 (0b0100 0000 0001) |
 | Sync Pulse | 3| 1028 (0b0100 0000 0100)|
-| Back Porch | 38 | 1066 (0b0100 0010 1010)
+| Back Porch | 38 | 1066 (0b0100 0010 1010) |

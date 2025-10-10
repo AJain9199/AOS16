@@ -7,5 +7,11 @@
             RSE = <REGS:0>, RGO, ABI;
             ALF = ALU_ADD, ALO, RSE = <REGS:0>, RGI;
         }
+
+        (REG:2)(<REGS:1>) {
+            RSE = <REGS:1>, RGO, AAI;
+            RSE = <REGS:0>, RGO, ABI;
+            ALF = ALU_ADD, ALO, RSE = <REGS:0>, RGI;
+        }
     }
 }

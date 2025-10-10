@@ -112,7 +112,8 @@ std::shared_ptr<Operand> Parser::parseSubOperand() {
     // register
     if (lexer == PUNCTUATION) {
         lexer.eat('%');
-        return make_shared<Operand>(REG, regtab[lexer.eat_id()]);
+        auto s = lexer.eat_id();
+        return make_shared<Operand>(REG, regtab[s]);
     }
 
     err("Unknown operand value");

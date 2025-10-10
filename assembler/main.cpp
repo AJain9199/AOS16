@@ -31,6 +31,8 @@ void init_opcodes() {
 int main() {
     init_opcodes();
     add_register("ax", 0x0);
+	add_register("bx", 0x1);
+	add_register("cx", 0x2);
 
     Parser parser_engine("test.S");
     parser_engine.parse();

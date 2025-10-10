@@ -40,9 +40,10 @@ std::unique_ptr<InstructionBytes> Instruction::emit(std::vector<std::shared_ptr<
         }
 
         instr->ins.type = to_ins(ops[1]->type);
+        std::cout << ops[1]->value;
         if (ops[1]->satisfies(REG | REG_PTR)) {
-            instr->ins.mod = ops[1]->value & (1 << 2);
-            instr->ins.relative = ops[1]->value & (1 << 1);
+            instr->ins.mod = (ops[1]->value >> 2) & 1;
+            instr->ins.relative = (ops[1]->value >> 1) & 1;
             instr->ins.reg2_hi = ops[1]->value & 1;
         } else {
             instr->value = ops[1]->value;

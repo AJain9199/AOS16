@@ -17,8 +17,7 @@ CTRL {
     HLT,
     ~MCR,
     SWP,
-    JNZ,
-    INT_CODE: 3
+    JNZ
 }
 
 MOV = 0x6;
