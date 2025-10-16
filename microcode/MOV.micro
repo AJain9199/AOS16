@@ -20,7 +20,7 @@
             MO, RSE = <REGS:0>, RGI;
         }
 
-        # mov reg, reg
+        # mov reg, regdigital
         (REG:2)(<REGS:1>) {
             RSE = <REGS:1>, RGO, AAI;
             ALF = 0xB, ALO, RSE = <REGS:0>, RGI;
