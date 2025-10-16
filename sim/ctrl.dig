@@ -1,0 +1,965 @@
+<?xml version="1.0" encoding="utf-8"?>
+<circuit>
+  <version>2</version>
+  <attributes>
+    <entry>
+      <string>romContent</string>
+      <romList>
+        <roms/>
+      </romList>
+    </entry>
+    <entry>
+      <string>Width</string>
+      <int>8</int>
+    </entry>
+  </attributes>
+  <visualElements>
+    <visualElement>
+      <elementName>reg16.dig</elementName>
+      <elementAttributes/>
+      <pos x="360" y="440"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>IRI</string>
+        </entry>
+      </elementAttributes>
+      <pos x="180" y="440"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>IRDI</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>16</int>
+        </entry>
+      </elementAttributes>
+      <pos x="180" y="500"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Const</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Value</string>
+          <long>0</long>
+        </entry>
+      </elementAttributes>
+      <pos x="260" y="520"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Splitter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Input Splitting</string>
+          <string>16*1</string>
+        </entry>
+        <entry>
+          <string>Output Splitting</string>
+          <string>14</string>
+        </entry>
+      </elementAttributes>
+      <pos x="520" y="480"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Splitter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Input Splitting</string>
+          <string>4,14</string>
+        </entry>
+        <entry>
+          <string>Output Splitting</string>
+          <string>18*1</string>
+        </entry>
+      </elementAttributes>
+      <pos x="660" y="580"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Splitter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Input Splitting</string>
+          <string>1*4</string>
+        </entry>
+        <entry>
+          <string>Output Splitting</string>
+          <string>4</string>
+        </entry>
+      </elementAttributes>
+      <pos x="540" y="660"/>
+    </visualElement>
+    <visualElement>
+      <elementName>74161.dig</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+      </elementAttributes>
+      <pos x="300" y="900"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Const</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="2"/>
+        </entry>
+      </elementAttributes>
+      <pos x="640" y="760"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Const</elementName>
+      <elementAttributes/>
+      <pos x="540" y="940"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Ground</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="2"/>
+        </entry>
+      </elementAttributes>
+      <pos x="580" y="940"/>
+    </visualElement>
+    <visualElement>
+      <elementName>VDD</elementName>
+      <elementAttributes/>
+      <pos x="300" y="740"/>
+    </visualElement>
+    <visualElement>
+      <elementName>NotConnected</elementName>
+      <elementAttributes/>
+      <pos x="440" y="980"/>
+    </visualElement>
+    <visualElement>
+      <elementName>In</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>CLK</string>
+        </entry>
+      </elementAttributes>
+      <pos x="160" y="980"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Not</elementName>
+      <elementAttributes>
+        <entry>
+          <string>rotation</string>
+          <rotation rotation="1"/>
+        </entry>
+      </elementAttributes>
+      <pos x="340" y="960"/>
+    </visualElement>
+    <visualElement>
+      <elementName>ROM</elementName>
+      <elementAttributes>
+        <entry>
+          <string>AddrBits</string>
+          <int>18</int>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>24</int>
+        </entry>
+        <entry>
+          <string>Data</string>
+          <data>250f13,2f0f0d,510*2d0f1b,250f13,2f0f0d,250f13,2f0b1d,2d051b,2c2e1b
+,d0f1b,313*2d0f1b,250f13,2f0f0d,250f13,2f071d,2d09d3,2cff1a,2c8edb
+,d0f1b,8*2d0f1b,250f13,2f0f0d,250f13,2f0f15,2d0719,2d09d3,2cff1a
+,2c8edb,d0f1b,39*2d0f1b,250f13,2f0f0d,2d091b,2d051b,2c2e1b,d0f1b
+,10*2d0f1b,250f13,2f0f0d,2d093b,2d051b,2c2e1b,d0f1b,10*2d0f1b
+,250f13,2f0f0d,2d095b,2d051b,2c2e1b,d0f1b,10*2d0f1b,250f13,2f0f0d
+,2d097b,2d051b,2c2e1b,d0f1b,10*2d0f1b,250f13,2f0f0d,2d099b,2d051b
+,2c2e1b,d0f1b,10*2d0f1b,250f13,2f0f0d,2d09bb,2d051b,2c2e1b,d0f1b
+,10*2d0f1b,250f13,2f0f0d,2d09db,2d051b,2c2e1b,d0f1b,10*2d0f1b
+,250f13,2f0f0d,2d09fb,2d051b,2c2e1b,d0f1b,522*2d0f1b,250f13,2f0f0d
+,250f13,2f0b1d,2d053b,2c2e3b,d0f1b,377*2d0f1b,250f13,2f0f0d,2d091b
+,2d053b,2c2e3b,d0f1b,10*2d0f1b,250f13,2f0f0d,2d093b,2d053b,2c2e3b
+,d0f1b,10*2d0f1b,250f13,2f0f0d,2d095b,2d053b,2c2e3b,d0f1b,10*2d0f1b
+,250f13,2f0f0d,2d097b,2d053b,2c2e3b,d0f1b,10*2d0f1b,250f13,2f0f0d
+,2d099b,2d053b,2c2e3b,d0f1b,10*2d0f1b,250f13,2f0f0d,2d09bb,2d053b
+,2c2e3b,d0f1b,10*2d0f1b,250f13,2f0f0d,2d09db,2d053b,2c2e3b,d0f1b
+,10*2d0f1b,250f13,2f0f0d,2d09fb,2d053b,2c2e3b,d0f1b,522*2d0f1b
+,250f13,2f0f0d,250f13,2f0b1d,2d055b,2c2e5b,d0f1b,377*2d0f1b,250f13
+,2f0f0d,2d091b,2d055b,2c2e5b,d0f1b,10*2d0f1b,250f13,2f0f0d,2d093b
+,2d055b,2c2e5b,d0f1b,10*2d0f1b,250f13,2f0f0d,2d095b,2d055b,2c2e5b
+,d0f1b,10*2d0f1b,250f13,2f0f0d,2d097b,2d055b,2c2e5b,d0f1b,10*2d0f1b
+,250f13,2f0f0d,2d099b,2d055b,2c2e5b,d0f1b,10*2d0f1b,250f13,2f0f0d
+,2d09bb,2d055b,2c2e5b,d0f1b,10*2d0f1b,250f13,2f0f0d,2d09db,2d055b
+,2c2e5b,d0f1b,10*2d0f1b,250f13,2f0f0d,2d09fb,2d055b,2c2e5b,d0f1b
+,522*2d0f1b,250f13,2f0f0d,250f13,2f0b1d,2d057b,2c2e7b,d0f1b,377*2d0f1b
+,250f13,2f0f0d,2d091b,2d057b,2c2e7b,d0f1b,10*2d0f1b,250f13,2f0f0d
+,2d093b,2d057b,2c2e7b,d0f1b,10*2d0f1b,250f13,2f0f0d,2d095b,2d057b
+,2c2e7b,d0f1b,10*2d0f1b,250f13,2f0f0d,2d097b,2d057b,2c2e7b,d0f1b
+,10*2d0f1b,250f13,2f0f0d,2d099b,2d057b,2c2e7b,d0f1b,10*2d0f1b
+,250f13,2f0f0d,2d09bb,2d057b,2c2e7b,d0f1b,10*2d0f1b,250f13,2f0f0d
+,2d09db,2d057b,2c2e7b,d0f1b,10*2d0f1b,250f13,2f0f0d,2d09fb,2d057b
+,2c2e7b,d0f1b,522*2d0f1b,250f13,2f0f0d,250f13,2f0b1d,2d059b,2c2e9b
+,d0f1b,377*2d0f1b,250f13,2f0f0d,2d091b,2d059b,2c2e9b,d0f1b,10*2d0f1b
+,250f13,2f0f0d,2d093b,2d059b,2c2e9b,d0f1b,10*2d0f1b,250f13,2f0f0d
+,2d095b,2d059b,2c2e9b,d0f1b,10*2d0f1b,250f13,2f0f0d,2d097b,2d059b
+,2c2e9b,d0f1b,10*2d0f1b,250f13,2f0f0d,2d099b,2d059b,2c2e9b,d0f1b
+,10*2d0f1b,250f13,2f0f0d,2d09bb,2d059b,2c2e9b,d0f1b,10*2d0f1b
+,250f13,2f0f0d,2d09db,2d059b,2c2e9b,d0f1b,10*2d0f1b,250f13,2f0f0d
+,2d09fb,2d059b,2c2e9b,d0f1b,522*2d0f1b,250f13,2f0f0d,250f13,2f0b1d
+,2d05bb,2c2ebb,d0f1b,377*2d0f1b,250f13,2f0f0d,2d091b,2d05bb,2c2ebb
+,d0f1b,10*2d0f1b,250f13,2f0f0d,2d093b,2d05bb,2c2ebb,d0f1b,10*2d0f1b
+,250f13,2f0f0d,2d095b,2d05bb,2c2ebb,d0f1b,10*2d0f1b,250f13,2f0f0d
+,2d097b,2d05bb,2c2ebb,d0f1b,10*2d0f1b,250f13,2f0f0d,2d099b,2d05bb
+,2c2ebb,d0f1b,10*2d0f1b,250f13,2f0f0d,2d09bb,2d05bb,2c2ebb,d0f1b
+,10*2d0f1b,250f13,2f0f0d,2d09db,2d05bb,2c2ebb,d0f1b,10*2d0f1b
+,250f13,2f0f0d,2d09fb,2d05bb,2c2ebb,d0f1b,522*2d0f1b,250f13,2f0f0d
+,250f13,2f0b1d,2d05db,2c2edb,d0f1b,249*2d0f1b,250f13,2f0f0d,2d0d13
+,2d0719,2d09d3,2cff1a,2c8edb,d0f1b,8*2d0f1b,250f13,2f0f0d,2d0d33
+,2d0719,2d09d3,2cff1a,2c8edb,d0f1b,8*2d0f1b,250f13,2f0f0d,2d0d53
+,2d0719,2d09d3,2cff1a,2c8edb,d0f1b,8*2d0f1b,250f13,2f0f0d,2d0d73
+,2d0719,2d09d3,2cff1a,2c8edb,d0f1b,8*2d0f1b,250f13,2f0f0d,2d0d93
+,2d0719,2d09d3,2cff1a,2c8edb,d0f1b,8*2d0f1b,250f13,2f0f0d,2d0db3
+,2d0719,2d09d3,2cff1a,2c8edb,d0f1b,8*2d0f1b,250f13,2f0f0d,2d0dd3
+,2d0719,2d09d3,2cff1a,2c8edb,d0f1b,8*2d0f1b,250f13,2f0f0d,2d0df3
+,2d0719,2d09d3,2cff1a,2c8edb,d0f1b,8*2d0f1b,250f13,2f0f0d,2d091b
+,2d05db,2c2edb,d0f1b,10*2d0f1b,250f13,2f0f0d,2d093b,2d05db,2c2edb
+,d0f1b,10*2d0f1b,250f13,2f0f0d,2d095b,2d05db,2c2edb,d0f1b,10*2d0f1b
+,250f13,2f0f0d,2d097b,2d05db,2c2edb,d0f1b,10*2d0f1b,250f13,2f0f0d
+,2d099b,2d05db,2c2edb,d0f1b,10*2d0f1b,250f13,2f0f0d,2d09bb,2d05db
+,2c2edb,d0f1b,10*2d0f1b,250f13,2f0f0d,2d09db,2d05db,2c2edb,d0f1b
+,10*2d0f1b,250f13,2f0f0d,2d09fb,2d05db,2c2edb,d0f1b,266*2d0f1b
+,250f13,2f0f0d,2d09d3,2d0719,2d0d13,2dff1a,d0f1b,9*2d0f1b,250f13
+,2f0f0d,2d09d3,2d0719,2d0d33,2dff1a,d0f1b,9*2d0f1b,250f13,2f0f0d
+,2d09d3,2d0719,2d0d53,2dff1a,d0f1b,9*2d0f1b,250f13,2f0f0d,2d09d3
+,2d0719,2d0d73,2dff1a,d0f1b,9*2d0f1b,250f13,2f0f0d,2d09d3,2d0719
+,2d0d93,2dff1a,d0f1b,9*2d0f1b,250f13,2f0f0d,2d09d3,2d0719,2d0db3
+,2dff1a,d0f1b,9*2d0f1b,250f13,2f0f0d,2d09d3,2d0719,2d0dd3,2dff1a
+,d0f1b,9*2d0f1b,250f13,2f0f0d,2d09d3,2d0719,2d0df3,2dff1a,d0f1b
+,9*2d0f1b,250f13,2f0f0d,2d09d3,2d0e19,2c9edb,d0f1b,10*2d0f1b,250f13
+,2f0f0d,2d09d3,2d0e39,2c9edb,d0f1b,10*2d0f1b,250f13,2f0f0d,2d09d3
+,2d0e59,2c9edb,d0f1b,10*2d0f1b,250f13,2f0f0d,2d09d3,2d0e79,2c9edb
+,d0f1b,10*2d0f1b,250f13,2f0f0d,2d09d3,2d0e99,2c9edb,d0f1b,10*2d0f1b
+,250f13,2f0f0d,2d09d3,2d0eb9,2c9edb,d0f1b,10*2d0f1b,250f13,2f0f0d
+,2d09d3,2d0ed9,2c9edb,d0f1b,10*2d0f1b,250f13,2f0f0d,2d09d3,2d0ef9
+,2c9edb,d0f1b,10*2d0f1b,250f13,2f0f0d,250f13,2f0b1d,2d05fb,2c2efb
+,d0f1b,377*2d0f1b,250f13,2f0f0d,2d091b,2d05fb,2c2efb,d0f1b,10*2d0f1b
+,250f13,2f0f0d,2d093b,2d05fb,2c2efb,d0f1b,10*2d0f1b,250f13,2f0f0d
+,2d095b,2d05fb,2c2efb,d0f1b,10*2d0f1b,250f13,2f0f0d,2d097b,2d05fb
+,2c2efb,d0f1b,10*2d0f1b,250f13,2f0f0d,2d099b,2d05fb,2c2efb,d0f1b
+,10*2d0f1b,250f13,2f0f0d,2d09bb,2d05fb,2c2efb,d0f1b,10*2d0f1b
+,250f13,2f0f0d,2d09db,2d05fb,2c2efb,d0f1b,10*2d0f1b,250f13,2f0f0d
+,2d09fb,2d05fb,2c2efb,d0f1b,41098*2d0f1b,250f13,2f0f0d,250f13
+,2f0f15,2d0d1a,d0f1b,122*2d0f1b,250f13,2f0f0d,2d0d13,2d0d1a,d0f1b
+,11*2d0f1b,250f13,2f0f0d,2d0d33,2d0d1a,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d0d53,2d0d1a,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0d73,2d0d1a
+,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0d93,2d0d1a,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d0db3,2d0d1a,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0dd3,2d0d1a
+,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0df3,2d0d1a,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d091b,2cbe1b,d0f1b,11*2d0f1b,250f13,2f0f0d,2d091b,2cbe1b
+,d0f1b,11*2d0f1b,250f13,2f0f0d,2d091b,2cbe1b,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d091b,2cbe1b,d0f1b,11*2d0f1b,250f13,2f0f0d,2d091b,2cbe1b
+,d0f1b,11*2d0f1b,250f13,2f0f0d,2d091b,2cbe1b,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d091b,2cbe1b,d0f1b,11*2d0f1b,250f13,2f0f0d,2d091b,2cbe1b
+,d0f1b,11*2d0f1b,250f13,2f0f0d,250f13,2f0e1d,d0f1b,123*2d0f1b
+,250f13,2f0f0d,250f13,2f0f15,2d0e19,d0f1b,122*2d0f1b,250f13,2f0f0d
+,2d0d13,2d0e19,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0d33,2d0e19,d0f1b
+,11*2d0f1b,250f13,2f0f0d,2d0d53,2d0e19,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d0d73,2d0e19,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0d93,2d0e19
+,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0db3,2d0e19,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d0dd3,2d0e19,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0df3,2d0e19
+,d0f1b,11*2d0f1b,250f13,2f0f0d,2d091b,2cbe1b,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d093b,2cbe1b,d0f1b,11*2d0f1b,250f13,2f0f0d,2d095b,2cbe1b
+,d0f1b,11*2d0f1b,250f13,2f0f0d,2d097b,2cbe1b,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d099b,2cbe1b,d0f1b,11*2d0f1b,250f13,2f0f0d,2d09bb,2cbe1b
+,d0f1b,11*2d0f1b,250f13,2f0f0d,2d09db,2cbe1b,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d09fb,2cbe1b,d0f1b,139*2d0f1b,250f13,2f0f0d,250f13,2f0f15
+,2d0d3a,d0f1b,122*2d0f1b,250f13,2f0f0d,2d0d13,2d0d3a,d0f1b,11*2d0f1b
+,250f13,2f0f0d,2d0d33,2d0d3a,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0d53
+,2d0d3a,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0d73,2d0d3a,d0f1b,11*2d0f1b
+,250f13,2f0f0d,2d0d93,2d0d3a,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0db3
+,2d0d3a,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0dd3,2d0d3a,d0f1b,11*2d0f1b
+,250f13,2f0f0d,2d0df3,2d0d3a,d0f1b,11*2d0f1b,250f13,2f0f0d,2d093b
+,2cbe3b,d0f1b,11*2d0f1b,250f13,2f0f0d,2d093b,2cbe3b,d0f1b,11*2d0f1b
+,250f13,2f0f0d,2d093b,2cbe3b,d0f1b,11*2d0f1b,250f13,2f0f0d,2d093b
+,2cbe3b,d0f1b,11*2d0f1b,250f13,2f0f0d,2d093b,2cbe3b,d0f1b,11*2d0f1b
+,250f13,2f0f0d,2d093b,2cbe3b,d0f1b,11*2d0f1b,250f13,2f0f0d,2d093b
+,2cbe3b,d0f1b,11*2d0f1b,250f13,2f0f0d,2d093b,2cbe3b,d0f1b,11*2d0f1b
+,250f13,2f0f0d,250f13,2f0e3d,d0f1b,123*2d0f1b,250f13,2f0f0d,250f13
+,2f0f15,2d0e39,d0f1b,122*2d0f1b,250f13,2f0f0d,2d0d13,2d0e39,d0f1b
+,11*2d0f1b,250f13,2f0f0d,2d0d33,2d0e39,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d0d53,2d0e39,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0d73,2d0e39
+,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0d93,2d0e39,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d0db3,2d0e39,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0dd3,2d0e39
+,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0df3,2d0e39,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d091b,2cbe3b,d0f1b,11*2d0f1b,250f13,2f0f0d,2d093b,2cbe3b
+,d0f1b,11*2d0f1b,250f13,2f0f0d,2d095b,2cbe3b,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d097b,2cbe3b,d0f1b,11*2d0f1b,250f13,2f0f0d,2d099b,2cbe3b
+,d0f1b,11*2d0f1b,250f13,2f0f0d,2d09bb,2cbe3b,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d09db,2cbe3b,d0f1b,11*2d0f1b,250f13,2f0f0d,2d09fb,2cbe3b
+,d0f1b,139*2d0f1b,250f13,2f0f0d,250f13,2f0f15,2d0d5a,d0f1b,122*2d0f1b
+,250f13,2f0f0d,2d0d13,2d0d5a,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0d33
+,2d0d5a,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0d53,2d0d5a,d0f1b,11*2d0f1b
+,250f13,2f0f0d,2d0d73,2d0d5a,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0d93
+,2d0d5a,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0db3,2d0d5a,d0f1b,11*2d0f1b
+,250f13,2f0f0d,2d0dd3,2d0d5a,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0df3
+,2d0d5a,d0f1b,11*2d0f1b,250f13,2f0f0d,2d095b,2cbe5b,d0f1b,11*2d0f1b
+,250f13,2f0f0d,2d095b,2cbe5b,d0f1b,11*2d0f1b,250f13,2f0f0d,2d095b
+,2cbe5b,d0f1b,11*2d0f1b,250f13,2f0f0d,2d095b,2cbe5b,d0f1b,11*2d0f1b
+,250f13,2f0f0d,2d095b,2cbe5b,d0f1b,11*2d0f1b,250f13,2f0f0d,2d095b
+,2cbe5b,d0f1b,11*2d0f1b,250f13,2f0f0d,2d095b,2cbe5b,d0f1b,11*2d0f1b
+,250f13,2f0f0d,2d095b,2cbe5b,d0f1b,11*2d0f1b,250f13,2f0f0d,250f13
+,2f0e5d,d0f1b,123*2d0f1b,250f13,2f0f0d,250f13,2f0f15,2d0e59,d0f1b
+,122*2d0f1b,250f13,2f0f0d,2d0d13,2d0e59,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d0d33,2d0e59,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0d53,2d0e59
+,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0d73,2d0e59,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d0d93,2d0e59,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0db3,2d0e59
+,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0dd3,2d0e59,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d0df3,2d0e59,d0f1b,11*2d0f1b,250f13,2f0f0d,2d091b,2cbe5b
+,d0f1b,11*2d0f1b,250f13,2f0f0d,2d093b,2cbe5b,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d095b,2cbe5b,d0f1b,11*2d0f1b,250f13,2f0f0d,2d097b,2cbe5b
+,d0f1b,11*2d0f1b,250f13,2f0f0d,2d099b,2cbe5b,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d09bb,2cbe5b,d0f1b,11*2d0f1b,250f13,2f0f0d,2d09db,2cbe5b
+,d0f1b,11*2d0f1b,250f13,2f0f0d,2d09fb,2cbe5b,d0f1b,139*2d0f1b
+,250f13,2f0f0d,250f13,2f0f15,2d0d7a,d0f1b,122*2d0f1b,250f13,2f0f0d
+,2d0d13,2d0d7a,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0d33,2d0d7a,d0f1b
+,11*2d0f1b,250f13,2f0f0d,2d0d53,2d0d7a,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d0d73,2d0d7a,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0d93,2d0d7a
+,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0db3,2d0d7a,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d0dd3,2d0d7a,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0df3,2d0d7a
+,d0f1b,11*2d0f1b,250f13,2f0f0d,2d097b,2cbe7b,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d097b,2cbe7b,d0f1b,11*2d0f1b,250f13,2f0f0d,2d097b,2cbe7b
+,d0f1b,11*2d0f1b,250f13,2f0f0d,2d097b,2cbe7b,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d097b,2cbe7b,d0f1b,11*2d0f1b,250f13,2f0f0d,2d097b,2cbe7b
+,d0f1b,11*2d0f1b,250f13,2f0f0d,2d097b,2cbe7b,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d097b,2cbe7b,d0f1b,11*2d0f1b,250f13,2f0f0d,250f13,2f0e7d
+,d0f1b,123*2d0f1b,250f13,2f0f0d,250f13,2f0f15,2d0e79,d0f1b,122*2d0f1b
+,250f13,2f0f0d,2d0d13,2d0e79,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0d33
+,2d0e79,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0d53,2d0e79,d0f1b,11*2d0f1b
+,250f13,2f0f0d,2d0d73,2d0e79,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0d93
+,2d0e79,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0db3,2d0e79,d0f1b,11*2d0f1b
+,250f13,2f0f0d,2d0dd3,2d0e79,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0df3
+,2d0e79,d0f1b,11*2d0f1b,250f13,2f0f0d,2d091b,2cbe7b,d0f1b,11*2d0f1b
+,250f13,2f0f0d,2d093b,2cbe7b,d0f1b,11*2d0f1b,250f13,2f0f0d,2d095b
+,2cbe7b,d0f1b,11*2d0f1b,250f13,2f0f0d,2d097b,2cbe7b,d0f1b,11*2d0f1b
+,250f13,2f0f0d,2d099b,2cbe7b,d0f1b,11*2d0f1b,250f13,2f0f0d,2d09bb
+,2cbe7b,d0f1b,11*2d0f1b,250f13,2f0f0d,2d09db,2cbe7b,d0f1b,11*2d0f1b
+,250f13,2f0f0d,2d09fb,2cbe7b,d0f1b,139*2d0f1b,250f13,2f0f0d,250f13
+,2f0f15,2d0d9a,d0f1b,122*2d0f1b,250f13,2f0f0d,2d0d13,2d0d9a,d0f1b
+,11*2d0f1b,250f13,2f0f0d,2d0d33,2d0d9a,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d0d53,2d0d9a,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0d73,2d0d9a
+,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0d93,2d0d9a,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d0db3,2d0d9a,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0dd3,2d0d9a
+,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0df3,2d0d9a,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d099b,2cbe9b,d0f1b,11*2d0f1b,250f13,2f0f0d,2d099b,2cbe9b
+,d0f1b,11*2d0f1b,250f13,2f0f0d,2d099b,2cbe9b,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d099b,2cbe9b,d0f1b,11*2d0f1b,250f13,2f0f0d,2d099b,2cbe9b
+,d0f1b,11*2d0f1b,250f13,2f0f0d,2d099b,2cbe9b,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d099b,2cbe9b,d0f1b,11*2d0f1b,250f13,2f0f0d,2d099b,2cbe9b
+,d0f1b,11*2d0f1b,250f13,2f0f0d,250f13,2f0e9d,d0f1b,123*2d0f1b
+,250f13,2f0f0d,250f13,2f0f15,2d0e99,d0f1b,122*2d0f1b,250f13,2f0f0d
+,2d0d13,2d0e99,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0d33,2d0e99,d0f1b
+,11*2d0f1b,250f13,2f0f0d,2d0d53,2d0e99,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d0d73,2d0e99,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0d93,2d0e99
+,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0db3,2d0e99,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d0dd3,2d0e99,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0df3,2d0e99
+,d0f1b,11*2d0f1b,250f13,2f0f0d,2d091b,2cbe9b,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d093b,2cbe9b,d0f1b,11*2d0f1b,250f13,2f0f0d,2d095b,2cbe9b
+,d0f1b,11*2d0f1b,250f13,2f0f0d,2d097b,2cbe9b,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d099b,2cbe9b,d0f1b,11*2d0f1b,250f13,2f0f0d,2d09bb,2cbe9b
+,d0f1b,11*2d0f1b,250f13,2f0f0d,2d09db,2cbe9b,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d09fb,2cbe9b,d0f1b,139*2d0f1b,250f13,2f0f0d,250f13,2f0f15
+,2d0dba,d0f1b,122*2d0f1b,250f13,2f0f0d,2d0d13,2d0dba,d0f1b,11*2d0f1b
+,250f13,2f0f0d,2d0d33,2d0dba,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0d53
+,2d0dba,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0d73,2d0dba,d0f1b,11*2d0f1b
+,250f13,2f0f0d,2d0d93,2d0dba,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0db3
+,2d0dba,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0dd3,2d0dba,d0f1b,11*2d0f1b
+,250f13,2f0f0d,2d0df3,2d0dba,d0f1b,11*2d0f1b,250f13,2f0f0d,2d09bb
+,2cbebb,d0f1b,11*2d0f1b,250f13,2f0f0d,2d09bb,2cbebb,d0f1b,11*2d0f1b
+,250f13,2f0f0d,2d09bb,2cbebb,d0f1b,11*2d0f1b,250f13,2f0f0d,2d09bb
+,2cbebb,d0f1b,11*2d0f1b,250f13,2f0f0d,2d09bb,2cbebb,d0f1b,11*2d0f1b
+,250f13,2f0f0d,2d09bb,2cbebb,d0f1b,11*2d0f1b,250f13,2f0f0d,2d09bb
+,2cbebb,d0f1b,11*2d0f1b,250f13,2f0f0d,2d09bb,2cbebb,d0f1b,11*2d0f1b
+,250f13,2f0f0d,250f13,2f0ebd,d0f1b,123*2d0f1b,250f13,2f0f0d,250f13
+,2f0f15,2d0eb9,d0f1b,122*2d0f1b,250f13,2f0f0d,2d0d13,2d0eb9,d0f1b
+,11*2d0f1b,250f13,2f0f0d,2d0d33,2d0eb9,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d0d53,2d0eb9,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0d73,2d0eb9
+,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0d93,2d0eb9,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d0db3,2d0eb9,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0dd3,2d0eb9
+,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0df3,2d0eb9,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d091b,2cbebb,d0f1b,11*2d0f1b,250f13,2f0f0d,2d093b,2cbebb
+,d0f1b,11*2d0f1b,250f13,2f0f0d,2d095b,2cbebb,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d097b,2cbebb,d0f1b,11*2d0f1b,250f13,2f0f0d,2d099b,2cbebb
+,d0f1b,11*2d0f1b,250f13,2f0f0d,2d09bb,2cbebb,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d09db,2cbebb,d0f1b,11*2d0f1b,250f13,2f0f0d,2d09fb,2cbebb
+,d0f1b,139*2d0f1b,250f13,2f0f0d,250f13,2f0f15,2d0dda,d0f1b,122*2d0f1b
+,250f13,2f0f0d,2d0d13,2d0dda,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0d33
+,2d0dda,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0d53,2d0dda,d0f1b,11*2d0f1b
+,250f13,2f0f0d,2d0d73,2d0dda,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0d93
+,2d0dda,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0db3,2d0dda,d0f1b,11*2d0f1b
+,250f13,2f0f0d,2d0dd3,2d0dda,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0df3
+,2d0dda,d0f1b,11*2d0f1b,250f13,2f0f0d,2d09db,2cbedb,d0f1b,11*2d0f1b
+,250f13,2f0f0d,2d09db,2cbedb,d0f1b,11*2d0f1b,250f13,2f0f0d,2d09db
+,2cbedb,d0f1b,11*2d0f1b,250f13,2f0f0d,2d09db,2cbedb,d0f1b,11*2d0f1b
+,250f13,2f0f0d,2d09db,2cbedb,d0f1b,11*2d0f1b,250f13,2f0f0d,2d09db
+,2cbedb,d0f1b,11*2d0f1b,250f13,2f0f0d,2d09db,2cbedb,d0f1b,11*2d0f1b
+,250f13,2f0f0d,2d09db,2cbedb,d0f1b,11*2d0f1b,250f13,2f0f0d,250f13
+,2f0edd,d0f1b,123*2d0f1b,250f13,2f0f0d,250f13,2f0f15,2d0ed9,d0f1b
+,122*2d0f1b,250f13,2f0f0d,2d0d13,2d0ed9,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d0d33,2d0ed9,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0d53,2d0ed9
+,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0d73,2d0ed9,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d0d93,2d0ed9,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0db3,2d0ed9
+,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0dd3,2d0ed9,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d0df3,2d0ed9,d0f1b,11*2d0f1b,250f13,2f0f0d,2d091b,2cbedb
+,d0f1b,11*2d0f1b,250f13,2f0f0d,2d093b,2cbedb,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d095b,2cbedb,d0f1b,11*2d0f1b,250f13,2f0f0d,2d097b,2cbedb
+,d0f1b,11*2d0f1b,250f13,2f0f0d,2d099b,2cbedb,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d09bb,2cbedb,d0f1b,11*2d0f1b,250f13,2f0f0d,2d09db,2cbedb
+,d0f1b,11*2d0f1b,250f13,2f0f0d,2d09fb,2cbedb,d0f1b,139*2d0f1b
+,250f13,2f0f0d,250f13,2f0f15,2d0dfa,d0f1b,122*2d0f1b,250f13,2f0f0d
+,2d0d13,2d0dfa,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0d33,2d0dfa,d0f1b
+,11*2d0f1b,250f13,2f0f0d,2d0d53,2d0dfa,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d0d73,2d0dfa,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0d93,2d0dfa
+,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0db3,2d0dfa,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d0dd3,2d0dfa,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0df3,2d0dfa
+,d0f1b,11*2d0f1b,250f13,2f0f0d,2d09fb,2cbefb,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d09fb,2cbefb,d0f1b,11*2d0f1b,250f13,2f0f0d,2d09fb,2cbefb
+,d0f1b,11*2d0f1b,250f13,2f0f0d,2d09fb,2cbefb,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d09fb,2cbefb,d0f1b,11*2d0f1b,250f13,2f0f0d,2d09fb,2cbefb
+,d0f1b,11*2d0f1b,250f13,2f0f0d,2d09fb,2cbefb,d0f1b,11*2d0f1b,250f13
+,2f0f0d,2d09fb,2cbefb,d0f1b,11*2d0f1b,250f13,2f0f0d,250f13,2f0efd
+,d0f1b,123*2d0f1b,250f13,2f0f0d,250f13,2f0f15,2d0ef9,d0f1b,122*2d0f1b
+,250f13,2f0f0d,2d0d13,2d0ef9,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0d33
+,2d0ef9,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0d53,2d0ef9,d0f1b,11*2d0f1b
+,250f13,2f0f0d,2d0d73,2d0ef9,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0d93
+,2d0ef9,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0db3,2d0ef9,d0f1b,11*2d0f1b
+,250f13,2f0f0d,2d0dd3,2d0ef9,d0f1b,11*2d0f1b,250f13,2f0f0d,2d0df3
+,2d0ef9,d0f1b,11*2d0f1b,250f13,2f0f0d,2d091b,2cbefb,d0f1b,11*2d0f1b
+,250f13,2f0f0d,2d093b,2cbefb,d0f1b,11*2d0f1b,250f13,2f0f0d,2d095b
+,2cbefb,d0f1b,11*2d0f1b,250f13,2f0f0d,2d097b,2cbefb,d0f1b,11*2d0f1b
+,250f13,2f0f0d,2d099b,2cbefb,d0f1b,11*2d0f1b,250f13,2f0f0d,2d09bb
+,2cbefb,d0f1b,11*2d0f1b,250f13,2f0f0d,2d09db,2cbefb,d0f1b,11*2d0f1b
+,250f13,2f0f0d,2d09fb,2cbefb,d0f1b,65547*2d0f1b,250f13,2f0f0d
+,6d0f1b,d0f1b,8188*2d0f1b,250f13,2f0f0d,250f13,290f1d,d0f1b,379*2d0f1b
+,250f13,2f0f0d,290d1b,d0f1b,12*2d0f1b,250f13,2f0f0d,290d3b,d0f1b
+,12*2d0f1b,250f13,2f0f0d,290d5b,d0f1b,12*2d0f1b,250f13,2f0f0d
+,290d7b,d0f1b,12*2d0f1b,250f13,2f0f0d,290d9b,d0f1b,12*2d0f1b,250f13
+,2f0f0d,290dbb,d0f1b,12*2d0f1b,250f13,2f0f0d,290ddb,d0f1b,12*2d0f1b
+,250f13,2f0f0d,290dfb,d0f1b,7692*2d0f1b,250f13,2f0f0d,250f13,a90f1d
+,d0f1b,379*2d0f1b,250f13,2f0f0d,a90d1b,d0f1b,12*2d0f1b,250f13
+,2f0f0d,a90d3b,d0f1b,12*2d0f1b,250f13,2f0f0d,a90d5b,d0f1b,12*2d0f1b
+,250f13,2f0f0d,a90d7b,d0f1b,12*2d0f1b,250f13,2f0f0d,a90d9b,d0f1b
+,12*2d0f1b,250f13,2f0f0d,a90dbb,d0f1b,12*2d0f1b,250f13,2f0f0d
+,a90ddb,d0f1b,12*2d0f1b,250f13,2f0f0d,a90dfb,d0f1b,11*2d0f1b</data>
+        </entry>
+      </elementAttributes>
+      <pos x="760" y="580"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Const</elementName>
+      <elementAttributes/>
+      <pos x="740" y="620"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Splitter</elementName>
+      <elementAttributes>
+        <entry>
+          <string>splitterSpreading</string>
+          <int>2</int>
+        </entry>
+        <entry>
+          <string>Input Splitting</string>
+          <string>24*1</string>
+        </entry>
+        <entry>
+          <string>Output Splitting</string>
+          <string>1*5, 3, 1*4, 4, 1*8</string>
+        </entry>
+      </elementAttributes>
+      <pos x="860" y="600"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>~MW</string>
+        </entry>
+      </elementAttributes>
+      <pos x="960" y="600"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>~MR</string>
+        </entry>
+      </elementAttributes>
+      <pos x="960" y="640"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>MSL</string>
+        </entry>
+      </elementAttributes>
+      <pos x="960" y="680"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>~MAL</string>
+        </entry>
+      </elementAttributes>
+      <pos x="960" y="720"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>IRIC</string>
+        </entry>
+      </elementAttributes>
+      <pos x="960" y="760"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>RSEL</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>3</int>
+        </entry>
+      </elementAttributes>
+      <pos x="960" y="800"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>~RGI</string>
+        </entry>
+      </elementAttributes>
+      <pos x="960" y="840"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>~RGO</string>
+        </entry>
+      </elementAttributes>
+      <pos x="960" y="880"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>~{IN_ALA}</string>
+        </entry>
+      </elementAttributes>
+      <pos x="960" y="920"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>~{IN_ALB}</string>
+        </entry>
+      </elementAttributes>
+      <pos x="960" y="960"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>ALF</string>
+        </entry>
+        <entry>
+          <string>Bits</string>
+          <int>4</int>
+        </entry>
+      </elementAttributes>
+      <pos x="960" y="1000"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>~ALO</string>
+        </entry>
+      </elementAttributes>
+      <pos x="960" y="1040"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>PCE</string>
+        </entry>
+      </elementAttributes>
+      <pos x="960" y="1080"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>~PCL</string>
+        </entry>
+      </elementAttributes>
+      <pos x="960" y="1120"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>~PCO</string>
+        </entry>
+      </elementAttributes>
+      <pos x="960" y="1160"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>HLT</string>
+        </entry>
+      </elementAttributes>
+      <pos x="960" y="1200"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>~MCR</string>
+        </entry>
+      </elementAttributes>
+      <pos x="960" y="1240"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>SWP</string>
+        </entry>
+      </elementAttributes>
+      <pos x="960" y="1280"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Out</elementName>
+      <elementAttributes>
+        <entry>
+          <string>Label</string>
+          <string>JNZ</string>
+        </entry>
+      </elementAttributes>
+      <pos x="960" y="1320"/>
+    </visualElement>
+    <visualElement>
+      <elementName>Probe</elementName>
+      <elementAttributes/>
+      <pos x="720" y="480"/>
+    </visualElement>
+  </visualElements>
+  <wires>
+    <wire>
+      <p1 x="880" y="640"/>
+      <p2 x="960" y="640"/>
+    </wire>
+    <wire>
+      <p1 x="880" y="960"/>
+      <p2 x="960" y="960"/>
+    </wire>
+    <wire>
+      <p1 x="880" y="1280"/>
+      <p2 x="960" y="1280"/>
+    </wire>
+    <wire>
+      <p1 x="680" y="580"/>
+      <p2 x="720" y="580"/>
+    </wire>
+    <wire>
+      <p1 x="600" y="580"/>
+      <p2 x="660" y="580"/>
+    </wire>
+    <wire>
+      <p1 x="720" y="580"/>
+      <p2 x="760" y="580"/>
+    </wire>
+    <wire>
+      <p1 x="260" y="520"/>
+      <p2 x="360" y="520"/>
+    </wire>
+    <wire>
+      <p1 x="880" y="840"/>
+      <p2 x="960" y="840"/>
+    </wire>
+    <wire>
+      <p1 x="880" y="1160"/>
+      <p2 x="960" y="1160"/>
+    </wire>
+    <wire>
+      <p1 x="220" y="460"/>
+      <p2 x="360" y="460"/>
+    </wire>
+    <wire>
+      <p1 x="500" y="720"/>
+      <p2 x="540" y="720"/>
+    </wire>
+    <wire>
+      <p1 x="880" y="720"/>
+      <p2 x="960" y="720"/>
+    </wire>
+    <wire>
+      <p1 x="880" y="1040"/>
+      <p2 x="960" y="1040"/>
+    </wire>
+    <wire>
+      <p1 x="560" y="660"/>
+      <p2 x="600" y="660"/>
+    </wire>
+    <wire>
+      <p1 x="380" y="660"/>
+      <p2 x="540" y="660"/>
+    </wire>
+    <wire>
+      <p1 x="160" y="980"/>
+      <p2 x="220" y="980"/>
+    </wire>
+    <wire>
+      <p1 x="220" y="980"/>
+      <p2 x="340" y="980"/>
+    </wire>
+    <wire>
+      <p1 x="820" y="600"/>
+      <p2 x="860" y="600"/>
+    </wire>
+    <wire>
+      <p1 x="880" y="600"/>
+      <p2 x="960" y="600"/>
+    </wire>
+    <wire>
+      <p1 x="620" y="600"/>
+      <p2 x="660" y="600"/>
+    </wire>
+    <wire>
+      <p1 x="880" y="920"/>
+      <p2 x="960" y="920"/>
+    </wire>
+    <wire>
+      <p1 x="880" y="1240"/>
+      <p2 x="920" y="1240"/>
+    </wire>
+    <wire>
+      <p1 x="920" y="1240"/>
+      <p2 x="960" y="1240"/>
+    </wire>
+    <wire>
+      <p1 x="480" y="480"/>
+      <p2 x="520" y="480"/>
+    </wire>
+    <wire>
+      <p1 x="540" y="480"/>
+      <p2 x="620" y="480"/>
+    </wire>
+    <wire>
+      <p1 x="880" y="800"/>
+      <p2 x="960" y="800"/>
+    </wire>
+    <wire>
+      <p1 x="880" y="1120"/>
+      <p2 x="960" y="1120"/>
+    </wire>
+    <wire>
+      <p1 x="300" y="1380"/>
+      <p2 x="920" y="1380"/>
+    </wire>
+    <wire>
+      <p1 x="420" y="680"/>
+      <p2 x="540" y="680"/>
+    </wire>
+    <wire>
+      <p1 x="880" y="680"/>
+      <p2 x="960" y="680"/>
+    </wire>
+    <wire>
+      <p1 x="880" y="1000"/>
+      <p2 x="960" y="1000"/>
+    </wire>
+    <wire>
+      <p1 x="880" y="1320"/>
+      <p2 x="960" y="1320"/>
+    </wire>
+    <wire>
+      <p1 x="380" y="940"/>
+      <p2 x="420" y="940"/>
+    </wire>
+    <wire>
+      <p1 x="420" y="940"/>
+      <p2 x="440" y="940"/>
+    </wire>
+    <wire>
+      <p1 x="460" y="940"/>
+      <p2 x="500" y="940"/>
+    </wire>
+    <wire>
+      <p1 x="440" y="940"/>
+      <p2 x="460" y="940"/>
+    </wire>
+    <wire>
+      <p1 x="740" y="620"/>
+      <p2 x="760" y="620"/>
+    </wire>
+    <wire>
+      <p1 x="880" y="880"/>
+      <p2 x="960" y="880"/>
+    </wire>
+    <wire>
+      <p1 x="880" y="1200"/>
+      <p2 x="960" y="1200"/>
+    </wire>
+    <wire>
+      <p1 x="180" y="500"/>
+      <p2 x="360" y="500"/>
+    </wire>
+    <wire>
+      <p1 x="180" y="440"/>
+      <p2 x="360" y="440"/>
+    </wire>
+    <wire>
+      <p1 x="540" y="760"/>
+      <p2 x="580" y="760"/>
+    </wire>
+    <wire>
+      <p1 x="880" y="760"/>
+      <p2 x="960" y="760"/>
+    </wire>
+    <wire>
+      <p1 x="580" y="760"/>
+      <p2 x="640" y="760"/>
+    </wire>
+    <wire>
+      <p1 x="880" y="1080"/>
+      <p2 x="960" y="1080"/>
+    </wire>
+    <wire>
+      <p1 x="460" y="700"/>
+      <p2 x="540" y="700"/>
+    </wire>
+    <wire>
+      <p1 x="580" y="900"/>
+      <p2 x="580" y="940"/>
+    </wire>
+    <wire>
+      <p1 x="580" y="760"/>
+      <p2 x="580" y="780"/>
+    </wire>
+    <wire>
+      <p1 x="420" y="900"/>
+      <p2 x="420" y="940"/>
+    </wire>
+    <wire>
+      <p1 x="420" y="680"/>
+      <p2 x="420" y="780"/>
+    </wire>
+    <wire>
+      <p1 x="300" y="740"/>
+      <p2 x="300" y="780"/>
+    </wire>
+    <wire>
+      <p1 x="300" y="900"/>
+      <p2 x="300" y="1380"/>
+    </wire>
+    <wire>
+      <p1 x="460" y="900"/>
+      <p2 x="460" y="940"/>
+    </wire>
+    <wire>
+      <p1 x="460" y="700"/>
+      <p2 x="460" y="780"/>
+    </wire>
+    <wire>
+      <p1 x="620" y="480"/>
+      <p2 x="620" y="600"/>
+    </wire>
+    <wire>
+      <p1 x="720" y="480"/>
+      <p2 x="720" y="580"/>
+    </wire>
+    <wire>
+      <p1 x="500" y="900"/>
+      <p2 x="500" y="940"/>
+    </wire>
+    <wire>
+      <p1 x="500" y="720"/>
+      <p2 x="500" y="780"/>
+    </wire>
+    <wire>
+      <p1 x="340" y="960"/>
+      <p2 x="340" y="980"/>
+    </wire>
+    <wire>
+      <p1 x="340" y="900"/>
+      <p2 x="340" y="920"/>
+    </wire>
+    <wire>
+      <p1 x="440" y="940"/>
+      <p2 x="440" y="980"/>
+    </wire>
+    <wire>
+      <p1 x="920" y="1240"/>
+      <p2 x="920" y="1380"/>
+    </wire>
+    <wire>
+      <p1 x="600" y="580"/>
+      <p2 x="600" y="660"/>
+    </wire>
+    <wire>
+      <p1 x="540" y="760"/>
+      <p2 x="540" y="780"/>
+    </wire>
+    <wire>
+      <p1 x="540" y="900"/>
+      <p2 x="540" y="940"/>
+    </wire>
+    <wire>
+      <p1 x="380" y="900"/>
+      <p2 x="380" y="940"/>
+    </wire>
+    <wire>
+      <p1 x="380" y="660"/>
+      <p2 x="380" y="780"/>
+    </wire>
+    <wire>
+      <p1 x="220" y="460"/>
+      <p2 x="220" y="980"/>
+    </wire>
+  </wires>
+  <measurementOrdering/>
+</circuit>
