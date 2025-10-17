@@ -18,18 +18,22 @@
       <elementName>RAMAsync</elementName>
       <elementAttributes>
         <entry>
-          <string>inverterConfig</string>
-          <inverterConfig>
-            <string>we</string>
-          </inverterConfig>
-        </entry>
-        <entry>
           <string>AddrBits</string>
           <int>15</int>
         </entry>
         <entry>
+          <string>Label</string>
+          <string>*</string>
+        </entry>
+        <entry>
           <string>Bits</string>
           <int>16</int>
+        </entry>
+        <entry>
+          <string>inverterConfig</string>
+          <inverterConfig>
+            <string>we</string>
+          </inverterConfig>
         </entry>
       </elementAttributes>
       <pos x="720" y="920"/>

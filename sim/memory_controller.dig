@@ -75,12 +75,16 @@
           <int>16</int>
         </entry>
         <entry>
+          <string>Label</string>
+          <string>*PROGRAM</string>
+        </entry>
+        <entry>
           <string>Bits</string>
           <int>16</int>
         </entry>
         <entry>
           <string>Data</string>
-          <data>c20,fff,c08,8001,c08,8002,c08,8003,c08,8004,c08,8005,1e00,2000,d</data>
+          <data>c20,8000,c60,f00,ca0,a0,c50,60,1,20,1,a0,ffff,2200,6,1e00,2000,10</data>
         </entry>
       </elementAttributes>
       <pos x="740" y="320"/>
@@ -361,7 +365,7 @@
         </entry>
         <entry>
           <string>Bits</string>
-          <int>16</int>
+          <int>15</int>
         </entry>
       </elementAttributes>
       <pos x="860" y="640"/>
