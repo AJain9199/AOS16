@@ -1,17 +1,82 @@
-(ADD:5)(<REGS:0>) {
+# add, sub, and, nand, or, nor, xor
+(0:2)(<AR_COMMANDS:0>)(<REGS:0>) {
     (RL:1) {
-        # add reg, imm16
+        # xxx reg, imm16
         (IMM:2)(0:3) {
             PCO, MAI;
             MO, MSL, AAI, PCE;
             RSE = <REGS:0>, RGO, ABI;
-            ALF = ALU_ADD, ALO, RSE = <REGS:0>, RGI;
+            ALF = <AR_COMMANDS:0>, ALO, RSE = <REGS:0>, RGI;
         }
 
+        # xxx reg, reg
         (REG:2)(<REGS:1>) {
             RSE = <REGS:1>, RGO, AAI;
             RSE = <REGS:0>, RGO, ABI;
-            ALF = ALU_ADD, ALO, RSE = <REGS:0>, RGI;
+            ALF = <AR_COMMANDS:0>, ALO, RSE = <REGS:0>, RGI;
+        }
+
+        # xxx reg, *reg
+        (REG_PTR:2)(<REGS:1>) {
+            RSE = <REGS:1>, RGO, MAI;
+            MO, AAI;
+            RSE = <REGS:0>, RGO, ABI;
+            ALF = <AR_COMMANDS:0>, ALO, RSE = <REGS:0>, RGI;
+        }
+
+        # xxx reg, *imm16
+        (IMM_PTR:2)(0:3) {
+            PCO, MAI;
+            MO, MSL, MAI, PCE;
+            MO, AAI;
+            RSE = <REGS:0>, RGO, ABI;
+            ALF = <AR_COMMANDS:0>, ALO, RSE = <REGS:0>, RGI;
+        }
+    }
+
+    (LR:1) {
+        # xxx *reg, reg
+        (REG:2)(<REGS:1>) {
+            RSE = <REGS:0>, RGO, MAI;
+            MO, AAI;
+            RSE = <REGS:1>, RGO, ABI;
+            ALF = <AR_COMMANDS:0>, ALO, MI;
+        }
+
+        # xxx *imm16, reg
+        (IMM:2)(0:3) {
+            PCO, MAI;
+            MO, MSL, MAI, PCE;
+            MO, AAI;
+            RSE = <REGS:0>, RGO, ABI;
+            ALF = <AR_COMMANDS:0>, ALO, MI;
         }
     }
 }
+
+# not, shl, inc, dec
+(0:1)(<AR_COMMANDS_SOP:0>)(<REGS:0>) {
+    (0:1) {
+        # shl reg
+        (REG:2)(0:3) {
+            RSE = <REGS:0>, RGO, AAI;
+            ALF = <AR_COMMANDS_SOP:0>, ALO, RSE = <REGS:0>, RGI;
+        }
+
+        # shl *reg
+        (REG_PTR:2)(0:3) {
+            RSE = <REGS:0>, RGO, MAI;
+            MO, AAI;
+            ALF = <AR_COMMANDS_SOP:0>, ALO, MI;
+        }
+
+        # shl *imm16
+        (IMM_PTR:2)(0:3) {
+            PCO, MAI;
+            MO, MSL, MAI, PCE;
+            MO, AAI;
+            ALF = <AR_COMMANDS_SOP:0>, ALO, MI;
+        }
+    }
+}
+

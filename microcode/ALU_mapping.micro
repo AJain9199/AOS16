@@ -4,30 +4,22 @@ CTRL {
     ~CARRY
 }
 
-ZERO = 0x0;
-NOT = 0x1;
-ADD = 0x2;
-MINUS1 = 0x3;
-XOR = 0x4;
-OR = 0x5;
-NOR = 0x6;
-NAND = 0x7;
-INC = 0x8;
-DEC = 0x9;
-RSH = 0xA;
-A = 0xB;
-SUB = 0xC;
-ONE = 0xD;
-AND = 0xE;
+ADD = 0x0;
+SUB = 0x1;
+AND = 0x2;
+NAND = 0x3;
+OR = 0x4;
+NOR = 0x5;
+XOR = 0x6;
+MINUS1 = 0x7;
+NOT = 0x8;
+SHL = 0x9;
+INC = 0xA;
+DEC = 0xB;
+A = 0xC;
+ZERO = 0xD;
+ONE = 0xE;
 B = 0xF;
-
-(ZERO) {
-    MODE, FUNC = 0x3;
-}
-
-(NOT) {
-    MODE, FUNC = 0x0;
-}
 
 (ADD) {
     FUNC = 0x9;
@@ -35,22 +27,6 @@ B = 0xF;
 
 (SUB) {
     FUNC = 0x6, CARRY;
-}
-
-(MINUS1) {
-    FUNC = 0x3;
-}
-
-(XOR) {
-    MODE, FUNC = 0x6;
-}
-
-(NOR) {
-    MODE, FUNC = 0x1;
-}
-
-(OR) {
-    MODE, FUNC = 0xE;
 }
 
 (AND) {
@@ -61,8 +37,29 @@ B = 0xF;
     MODE, FUNC = 0x4;
 }
 
-(ONE) {
-    MODE, FUNC = 0xC;
+
+(OR) {
+    MODE, FUNC = 0xE;
+}
+
+(NOR) {
+    MODE, FUNC = 0x1;
+}
+
+(XOR) {
+    MODE, FUNC = 0x6;
+}
+
+(MINUS1) {
+    FUNC = 0x3;
+}
+
+(NOT) {
+    MODE, FUNC = 0x0;
+}
+
+(SHL) {
+    FUNC = 0xC;
 }
 
 (INC) {
@@ -73,12 +70,16 @@ B = 0xF;
     FUNC = 0xF;
 }
 
-(RSH) {
-    FUNC = 0xC;
-}
-
 (A) {
     FUNC = 0x0;
+}
+
+(ZERO) {
+    MODE, FUNC = 0x3;
+}
+
+(ONE) {
+    MODE, FUNC = 0xC;
 }
 
 (B) {

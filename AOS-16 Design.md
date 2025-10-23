@@ -18,33 +18,35 @@
 ### Instruction Set
 
 -   00000: ADD reg/m, m/imm16/reg
--   00001: AND reg/m, m/imm16/reg
--   00010: OR reg/m, m/imm16/reg
--   00011: NOR reg/m, m/imm16/reg
--   00100: XOR reg/m, m/imm16/reg
--   00101: NEG reg/m, m/imm16/reg
--   00110: NOT reg/m, m/imm16/reg
--   00111: RSH reg/m
--   01001: INC reg/m
--   01010: DEC reg/m
--   01011: CMP reg/m, m/imm16/reg
--   01100: MOV reg/m, m/imm16/reg
--   01101: PUSH m/imm16/reg
--   01110: POP m/reg
--   01111: SWP
--   10000: JMP imm16/reg
--   10001: JNZ imm16/reg
--   10010: JEQ imm16/reg
--   10011: JLT imm16/reg
--   10100: JLE imm16/reg
--   10101: JGT imm16/reg
--   10110: JGE imm16/reg
--   10111: HLT
--   11000: CALL imm16/reg/m
--   11001: RET
--   11010: INT imm4
--   11011: IRET
--   11100 - 11110: UNALLOCATED
+-   00001: SUB reg/m, m/imm16/reg
+-   00010: AND reg/m, m/imm16/reg
+-   00011: NAND reg/m, m/imm16/reg
+-   00100: OR reg/m, m/imm16/reg
+-   00101: NOR reg/m, m/imm16/reg
+-   00110: XOR reg/m, m/imm16/reg
+-   00111: NEG reg/m, m/imm16/reg
+-   01000: NOT reg/m, m/imm16/reg
+-   01001: SHL reg/m
+-   01010: INC reg/m
+-   01011: DEC reg/m
+-   01100: CMP reg/m, m/imm16/reg
+-   01101: MOV reg/m, m/imm16/reg
+-   01110: PUSH m/imm16/reg
+-   01111: POP m/reg
+-   10000: SWP
+-   10001: JMP imm16/reg
+-   10010: JNZ imm16/reg
+-   10011: JEQ imm16/reg
+-   10100: JLT imm16/reg
+-   10101: JLE imm16/reg
+-   10110: JGT imm16/reg
+-   10111: JGE imm16/reg
+-   11000: HLT
+-   11001: CALL imm16/reg/m
+-   11010: RET
+-   11011: INT imm4
+-   11100: IRET
+-   11101 - 11110: UNALLOCATED
 -   11111: NOP (Data is all high in EEPROM upon erase)
 
 ## Registers
