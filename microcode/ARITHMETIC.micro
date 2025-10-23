@@ -80,12 +80,12 @@
     }
 }
 
-(NEG:5)(<REG:0>) {
+(NEG:5)(<REGS:0>) {
     (0:1) {
-        (REG:2)(0:3) {
+        (REG:1)(0:3) {
             ALF = ALU_ZERO, ALO, AAI;
             RSE = <REGS:0>, RGO, ABI;
-            ALF = ALU_SUB, ALO, RSE = <REG:0>, RGI;
+            ALF = ALU_SUB, ALO, RSE = <REGS:0>, RGI;
         }
 
         (REG_PTR:2)(0:3) {
