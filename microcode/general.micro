@@ -20,6 +20,8 @@ CTRL {
     JNZ
 }
 
+ANY1 = [0, 1];
+
 MOV = 0x6;
 PUSH = 0xD;
 POP = 0xE;
@@ -38,8 +40,8 @@ INTS = [0, 1, 2, 3, 4, 5, 6, 7];
 REG_STATUS = 0x7;
 REG_SP = 0x6;
 
-AR_COMMANDS = [0, 1, 2, 3, 4, 5, 6]
-AR_COMMANDS_SOP = [8, 9, 10, 11]
+AR_COMMANDS = [0, 1, 2, 3, 4, 5, 6];
+AR_COMMANDS_SOP = [8, 9, 10, 11];
 ALU_INC = 0xA;
 ALU_DEC = 0xB;
 ALU_A = 0xC;
@@ -47,9 +49,14 @@ ALU_ADD = 0x0;
 ALU_B = 0xF;
 ALU_ZERO = 0xD;
 ALU_SHL = 0x9;
+ALU_SUB = 0x1;
+
+
 
 ADD = 0x0;
+NEG = 0x7;
 SHL = 0x9;
+CMP = 0xC;
 SWP_CMD = 0xf;
 JMP = 0x10;
 JNZ_CMD = 0x11;

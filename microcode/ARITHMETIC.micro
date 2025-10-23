@@ -80,3 +80,83 @@
     }
 }
 
+(NEG:5)(<REG:0>) {
+    (0:1) {
+        (REG:2)(0:3) {
+            ALF = ALU_ZERO, ALO, AAI;
+            RSE = <REGS:0>, RGO, ABI;
+            ALF = ALU_SUB, ALO, RSE = <REG:0>, RGI;
+        }
+
+        (REG_PTR:2)(0:3) {
+            RSE = <REGS:0>, RGO, MAI;
+            MO, ABI;
+            ALF = ALU_ZERO, ALO, AAI;
+            ALF = ALU_SUB, ALO, MI;
+        }
+
+        (IMM_PTR:2)(0:3) {
+            PCO, MAI;
+            MO, MSL, MAI, PCE;
+            MO, ABI;
+            ALF = ALU_ZERO, ALO, AAI;
+            ALF = ALU_SUB, ALO, MI;
+        }
+    }
+}
+
+# same as a sub, result is not stored anywhere
+(CMP:5)(<REGS:0>) {
+    (RL:1) {
+        # xxx reg, imm16
+        (IMM:2)(0:3) {
+            PCO, MAI;
+            MO, MSL, AAI, PCE;
+            RSE = <REGS:0>, RGO, ABI;
+            ALF = ALU_SUB, ALO;
+        }
+
+        # xxx reg, reg
+        (REG:2)(<REGS:1>) {
+            RSE = <REGS:1>, RGO, AAI;
+            RSE = <REGS:0>, RGO, ABI;
+            ALF = ALU_SUB, ALO;
+        }
+
+        # xxx reg, *reg
+        (REG_PTR:2)(<REGS:1>) {
+            RSE = <REGS:1>, RGO, MAI;
+            MO, AAI;
+            RSE = <REGS:0>, RGO, ABI;
+            ALF = ALU_SUB, ALO;
+        }
+
+        # xxx reg, *imm16
+        (IMM_PTR:2)(0:3) {
+            PCO, MAI;
+            MO, MSL, MAI, PCE;
+            MO, AAI;
+            RSE = <REGS:0>, RGO, ABI;
+            ALF = ALU_SUB, ALO;
+        }
+    }
+
+    (LR:1) {
+        # xxx *reg, reg
+        (REG:2)(<REGS:1>) {
+            RSE = <REGS:0>, RGO, MAI;
+            MO, AAI;
+            RSE = <REGS:1>, RGO, ABI;
+            ALF = ALU_SUB, ALO;
+        }
+
+        # xxx *imm16, reg
+        (IMM:2)(0:3) {
+            PCO, MAI;
+            MO, MSL, MAI, PCE;
+            MO, AAI;
+            RSE = <REGS:0>, RGO, ABI;
+            ALF = ALU_SUB, ALO;
+        }
+    }
+}
