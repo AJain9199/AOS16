@@ -8,3 +8,9 @@
         MO, MSL, PCL;
     }
 }
+
+(RET:5)(0:9) {
+    RSE = REG_SP, RGO, AAI;
+    ALF = ALU_DEC, ALO, RSE = REG_SP, RGI, MAI;
+    MO, PCL;
+}
