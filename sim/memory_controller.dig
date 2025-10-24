@@ -84,7 +84,7 @@
         </entry>
         <entry>
           <string>Data</string>
-          <data>c20,8000,c60,f00,ca0,a0,c50,60,1,20,1,a0,ffff,2200,6,1e00,2000,10</data>
+          <data>1c00,64,1e18,2200,3</data>
         </entry>
       </elementAttributes>
       <pos x="740" y="320"/>

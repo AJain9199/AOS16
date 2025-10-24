@@ -15,7 +15,7 @@ void init_opcodes() {
     add_opcode("or", 0x4, MOV_LIKE);
     add_opcode("nor", 0x5, MOV_LIKE);
     add_opcode("xor", 0x6, MOV_LIKE);
-    // add_opcode("neg", 0x6, SINGLE_ARG);
+    add_opcode("neg", 0x7, SINGLE_ARG);
     add_opcode("not", 0x8, SINGLE_ARG);
     add_opcode("shl", 0x9, SINGLE_ARG);
     add_opcode("inc", 0xa, SINGLE_ARG);

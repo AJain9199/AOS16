@@ -47,9 +47,8 @@ std::unique_ptr<InstructionBytes> Instruction::emit(std::vector<std::shared_ptr<
             instr->ins.reg2_hi = ops[1]->value & 1;
         } else {
             instr->value = ops[1]->value;
+            instr->ins.mod = ops[1]->is_rom?1:0;
         }
-
-        instr->ins.mod = ops[1]->is_rom?1:0;
     }
 
     return instr;
