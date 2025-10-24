@@ -97,6 +97,11 @@ The bits in the status register, from LSB to MSB:
 -   21: MCR: Microcode Reset
 -   22: SWAP: Swap the double buffer selection
 
+## Application Binary Interface (ABI)
+Functions are called using the `call` instruction. The current instruction pointer is pushed to the stack. Arguments to the function are pushed onto the stack in order. Results are placed in the 'dx' register.
+
+`ret` restores the instruction pointer to the last word on the stack.
+
 ## GPU
 VGA Timing Mode: VESA 1280x1024 @60Hz\
 Resolution: 160x128 (5:4 aspect ratio)\

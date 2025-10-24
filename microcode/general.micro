@@ -51,6 +51,9 @@ ALU_ZERO = 0xD;
 ALU_SHL = 0x9;
 ALU_SUB = 0x1;
 
+CALL = 0x19;
+RET = 0x1A;
+
 
 
 ADD = 0x0;
@@ -71,6 +74,7 @@ JNZ_CMD = 0x12;
     MO, IRI, PCE, MSL;
 
     include "MOV.micro"
+    include "FUNC.micro"
     include "ARITHMETIC.micro"
     include "JMP.micro"
 

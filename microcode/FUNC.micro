@@ -1,0 +1,10 @@
+(CALL:5)(0:4) {
+    (IMM:2)(0:3) {
+        RSE = REG_SP, RGO, MAI, AAI;
+        PCO, ABI;
+        ALF = ALU_INC, ALO, RSE = REG_SP, RGI, PCE;
+        PCO, MI;
+        ALF=ALU_B, ALO, MAI;
+        MO, MSL, PCL;
+    }
+}
