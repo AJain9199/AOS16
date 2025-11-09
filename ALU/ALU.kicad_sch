@@ -3851,7 +3851,7 @@
 				(hide yes)
 			)
 		)
-		(pin "5V" input
+		(pin "5V" output
 			(at 31.369 30.48 0)
 			(uuid "ffdd34a9-724b-494d-88f1-9359ec6fbae9")
 			(effects
@@ -3861,7 +3861,7 @@
 				(justify right)
 			)
 		)
-		(pin "GND" input
+		(pin "GND" output
 			(at 31.369 32.385 0)
 			(uuid "67d17fbd-277a-4ed6-8f35-afc413fceb39")
 			(effects

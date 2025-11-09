@@ -2084,7 +2084,7 @@
 		)
 		(uuid "f635556b-39a0-43ed-816c-4e92552b7384")
 	)
-	(label "ADDR1"
+	(label "ADDR13"
 		(at 90.805 33.02 180)
 		(effects
 			(font
@@ -2094,7 +2094,7 @@
 		)
 		(uuid "01c32da4-111a-4e99-9ded-0dd426dd9f58")
 	)
-	(label "ADDR13"
+	(label "ADDR6"
 		(at 90.805 63.5 180)
 		(effects
 			(font
@@ -2104,7 +2104,7 @@
 		)
 		(uuid "026a7d28-f9df-4134-ac50-1973c2d8d4ad")
 	)
-	(label "DATA5"
+	(label "DATA2"
 		(at 121.285 43.18 0)
 		(effects
 			(font
@@ -2114,7 +2114,7 @@
 		)
 		(uuid "074f3885-ceee-4d5b-bf88-7922df04d685")
 	)
-	(label "DATA3"
+	(label "DATA0"
 		(at 121.285 38.1 0)
 		(effects
 			(font
@@ -2123,6 +2123,36 @@
 			(justify left bottom)
 		)
 		(uuid "113efac5-239a-47a9-a005-058e792713f8")
+	)
+	(label "DATA11"
+		(at 133.35 71.12 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "1516e994-c9e2-4901-9ad9-b9c9423d0e52")
+	)
+	(label "DATA15"
+		(at 133.35 60.96 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "16cfcaa7-3a0f-4923-8bc0-1415fb9c345f")
+	)
+	(label "ADDR13"
+		(at 154.305 33.02 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "185182d7-3493-42a7-bfa4-21b40c0d2cb9")
 	)
 	(label "ADDR7"
 		(at 33.655 36.83 0)
@@ -2134,7 +2164,7 @@
 		)
 		(uuid "1895c833-0df7-4f5d-ae17-c4cfe28e6afd")
 	)
-	(label "ADDR11"
+	(label "ADDR12"
 		(at 90.805 58.42 180)
 		(effects
 			(font
@@ -2144,17 +2174,17 @@
 		)
 		(uuid "199d935e-ea4f-4f06-853c-297e0371ef60")
 	)
-	(label "ADDR5"
-		(at 154.305 43.18 180)
+	(label "DATA1"
+		(at 133.35 83.82 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
-		(uuid "1b4fe984-e7a1-478d-b471-199bb28dc5d0")
+		(uuid "1c8943e9-d09c-4fe6-8ccc-1d3ebb0bcbb1")
 	)
-	(label "DATA7"
+	(label "DATA4"
 		(at 121.285 48.26 0)
 		(effects
 			(font
@@ -2164,7 +2194,7 @@
 		)
 		(uuid "1dc2c5da-c86f-4fda-88de-65e987b087e4")
 	)
-	(label "ADDR9"
+	(label "ADDR8"
 		(at 90.805 53.34 180)
 		(effects
 			(font
@@ -2184,7 +2214,27 @@
 		)
 		(uuid "1e5653ef-22a2-446e-bce0-9602e98eab26")
 	)
-	(label "ADDR14"
+	(label "ADDR11"
+		(at 154.305 35.56 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "1e81eaee-f8c1-49d2-a4f6-79f303f22a9b")
+	)
+	(label "ADDR9"
+		(at 154.305 40.64 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "1f1de6ae-eaca-4206-b3f7-678c1999f4e2")
+	)
+	(label "ADDR5"
 		(at 90.805 66.04 180)
 		(effects
 			(font
@@ -2203,6 +2253,16 @@
 			(justify left bottom)
 		)
 		(uuid "2793c9e0-b0cd-4089-b3fc-90aaa9fdb24d")
+	)
+	(label "DATA13"
+		(at 133.35 66.04 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "2959773e-f52e-41a3-ac11-654bf6ca5ff1")
 	)
 	(label "DATA8"
 		(at 255.27 38.735 0)
@@ -2224,7 +2284,7 @@
 		)
 		(uuid "316cf680-b983-4525-a0df-8975dd979db2")
 	)
-	(label "ADDR8"
+	(label "ADDR7"
 		(at 90.805 50.8 180)
 		(effects
 			(font
@@ -2254,16 +2314,6 @@
 		)
 		(uuid "371fafae-3459-4781-ba41-a9049eb6a175")
 	)
-	(label "ADDR9"
-		(at 154.305 53.34 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "3740e799-b82f-428f-9f1d-c561b2754d30")
-	)
 	(label "~{OE}"
 		(at 29.845 60.96 0)
 		(effects
@@ -2284,7 +2334,17 @@
 		)
 		(uuid "39c7b321-592c-461e-8914-a0efe416241e")
 	)
-	(label "DATA15"
+	(label "DATA9"
+		(at 133.35 76.2 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "3c941706-afff-4f54-94ce-bae816ae03cb")
+	)
+	(label "DATA12"
 		(at 184.785 48.26 0)
 		(effects
 			(font
@@ -2304,6 +2364,36 @@
 		)
 		(uuid "3e9ae8ae-0d50-47f9-abdf-344cace415f3")
 	)
+	(label "DATA0"
+		(at 133.35 81.28 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "44cf5d7a-9247-473c-9c1d-5f3430d91ecb")
+	)
+	(label "ADDR3"
+		(at 154.305 45.72 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "4b42fdb7-6281-47f5-8d85-9bd65703e18f")
+	)
+	(label "ADDR14"
+		(at 154.305 30.48 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "4f31d9b1-7d98-47df-ab03-c6b8385e670f")
+	)
 	(label "DATA12"
 		(at 255.27 48.895 0)
 		(effects
@@ -2314,17 +2404,27 @@
 		)
 		(uuid "57d57424-4f79-4869-a85d-1fae3f27106b")
 	)
-	(label "ADDR6"
-		(at 154.305 45.72 180)
+	(label "ADDR2"
+		(at 154.305 48.26 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right bottom)
 		)
-		(uuid "5aa9fd6f-8ee2-4f7f-953b-bb09ecdd05b0")
+		(uuid "59469244-aef6-49e8-ab88-e4bd1390f9c6")
 	)
-	(label "ADDR0"
+	(label "ADDR12"
+		(at 154.305 58.42 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "5cb951d3-e6c2-471d-a30d-ea7f113393f9")
+	)
+	(label "ADDR14"
 		(at 90.805 30.48 180)
 		(effects
 			(font
@@ -2344,17 +2444,17 @@
 		)
 		(uuid "6049ed0a-126e-4222-a3f8-430c32cdf088")
 	)
-	(label "ADDR15"
-		(at 154.305 68.58 180)
+	(label "ADDR5"
+		(at 154.305 66.04 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right bottom)
 		)
-		(uuid "60bcbc2f-e713-4838-82ff-400934bbb6d1")
+		(uuid "607a2d02-ec16-4128-9225-35634bfa6e55")
 	)
-	(label "ADDR15"
+	(label "ADDR0"
 		(at 90.805 68.58 180)
 		(effects
 			(font
@@ -2363,6 +2463,16 @@
 			(justify right bottom)
 		)
 		(uuid "64b22f5e-e5a6-4199-84d9-2b8337dcbd08")
+	)
+	(label "ADDR0"
+		(at 154.305 68.58 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "65630237-d405-4f03-aa93-4efef1c1ba51")
 	)
 	(label "ADDR10"
 		(at 33.655 44.45 0)
@@ -2404,7 +2514,7 @@
 		)
 		(uuid "6a1c1995-7a0b-437f-86c9-cd64602d9d93")
 	)
-	(label "ADDR3"
+	(label "ADDR10"
 		(at 90.805 38.1 180)
 		(effects
 			(font
@@ -2414,7 +2524,7 @@
 		)
 		(uuid "6a823695-dcb6-46fb-a060-7cb7f57a52d7")
 	)
-	(label "ADDR10"
+	(label "ADDR15"
 		(at 90.805 55.88 180)
 		(effects
 			(font
@@ -2424,7 +2534,17 @@
 		)
 		(uuid "72d9ae9d-c3e7-46ee-a33c-4c3b289ce782")
 	)
-	(label "DATA8"
+	(label "ADDR6"
+		(at 154.305 63.5 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "742ec744-c387-43ed-b90c-65eabb48cebb")
+	)
+	(label "DATA13"
 		(at 184.785 30.48 0)
 		(effects
 			(font
@@ -2434,7 +2554,7 @@
 		)
 		(uuid "744f6ea4-288e-490e-b505-7c035b4874e4")
 	)
-	(label "DATA11"
+	(label "DATA8"
 		(at 184.785 38.1 0)
 		(effects
 			(font
@@ -2444,7 +2564,17 @@
 		)
 		(uuid "790313a5-0e8a-441f-b9a6-4bc62665a680")
 	)
-	(label "ADDR4"
+	(label "DATA14"
+		(at 133.35 63.5 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "800e7bfa-6ce6-4d6e-b18d-265da48940e7")
+	)
+	(label "ADDR9"
 		(at 90.805 40.64 180)
 		(effects
 			(font
@@ -2454,7 +2584,7 @@
 		)
 		(uuid "85603337-5b62-49de-be12-2706ff72fa94")
 	)
-	(label "ADDR6"
+	(label "ADDR3"
 		(at 90.805 45.72 180)
 		(effects
 			(font
@@ -2464,7 +2594,7 @@
 		)
 		(uuid "887b61f8-146d-4f62-8899-149c1a2c1851")
 	)
-	(label "DATA0"
+	(label "DATA5"
 		(at 121.285 30.48 0)
 		(effects
 			(font
@@ -2484,7 +2614,7 @@
 		)
 		(uuid "8a4562c2-ebeb-4e3c-a3e3-56172a93e090")
 	)
-	(label "DATA9"
+	(label "DATA14"
 		(at 184.785 33.02 0)
 		(effects
 			(font
@@ -2494,7 +2624,17 @@
 		)
 		(uuid "8bc1d78f-014a-4b18-9330-7bf4fd51de5d")
 	)
-	(label "DATA1"
+	(label "ADDR10"
+		(at 154.305 38.1 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "8bf06ac0-db51-4b9c-aa4a-cd0a510f0ff1")
+	)
+	(label "DATA6"
 		(at 121.285 33.02 0)
 		(effects
 			(font
@@ -2504,7 +2644,7 @@
 		)
 		(uuid "8f5a7d2d-16ca-45da-bf0d-f90b36e631b6")
 	)
-	(label "DATA6"
+	(label "DATA3"
 		(at 121.285 45.72 0)
 		(effects
 			(font
@@ -2534,7 +2674,17 @@
 		)
 		(uuid "94614014-73f9-421d-a1fd-d13fd6328c52")
 	)
-	(label "DATA12"
+	(label "ADDR4"
+		(at 154.305 43.18 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "9637a4a9-510c-40c5-b9fd-c2315bda19ba")
+	)
+	(label "DATA9"
 		(at 184.785 40.64 0)
 		(effects
 			(font
@@ -2543,16 +2693,6 @@
 			(justify left bottom)
 		)
 		(uuid "98b885dd-012c-4039-b63a-1e8784225746")
-	)
-	(label "ADDR0"
-		(at 154.305 30.48 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "9ac60919-882a-43bd-8f15-4e04018419ad")
 	)
 	(label "ADDR8"
 		(at 33.655 39.37 0)
@@ -2574,17 +2714,7 @@
 		)
 		(uuid "9ee49417-81ed-4e96-b990-40bea76d7ef6")
 	)
-	(label "ADDR13"
-		(at 154.305 63.5 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "9f95c8c6-dff5-430c-88ab-bfc9c41268d7")
-	)
-	(label "DATA2"
+	(label "DATA7"
 		(at 121.285 35.56 0)
 		(effects
 			(font
@@ -2594,7 +2724,7 @@
 		)
 		(uuid "a19b45d0-ddbf-4ea1-aa35-c63614cffae7")
 	)
-	(label "DATA14"
+	(label "DATA11"
 		(at 184.785 45.72 0)
 		(effects
 			(font
@@ -2603,6 +2733,16 @@
 			(justify left bottom)
 		)
 		(uuid "a32bc3f9-cc7b-4366-84bf-a61bd127c715")
+	)
+	(label "DATA2"
+		(at 133.35 86.36 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a88eb8cb-38e4-48d7-a1f7-566319e69acc")
 	)
 	(label "ADDR12"
 		(at 33.655 49.53 0)
@@ -2614,15 +2754,15 @@
 		)
 		(uuid "ac251fc6-6cda-46f8-8086-4b35c55a8de1")
 	)
-	(label "ADDR1"
-		(at 154.305 33.02 180)
+	(label "DATA4"
+		(at 133.35 91.44 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
-		(uuid "acd9ef85-82da-49c4-8220-e770ea2f0476")
+		(uuid "aebc7ced-a27d-44ca-a7d3-1574ad028c71")
 	)
 	(label "ADDR3"
 		(at 33.655 26.67 0)
@@ -2644,7 +2784,7 @@
 		)
 		(uuid "b0d41d4c-baab-4071-829e-9cacc98d2ff4")
 	)
-	(label "DATA10"
+	(label "DATA15"
 		(at 184.785 35.56 0)
 		(effects
 			(font
@@ -2654,27 +2794,7 @@
 		)
 		(uuid "b3f82a79-15f2-45b7-88f8-49cf56f5862e")
 	)
-	(label "ADDR11"
-		(at 154.305 58.42 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "b5095651-1bfd-4607-a631-b5de8588033f")
-	)
 	(label "ADDR2"
-		(at 154.305 35.56 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "b62ce43d-e7ef-43e7-9bdf-bf86ed37850d")
-	)
-	(label "ADDR7"
 		(at 90.805 48.26 180)
 		(effects
 			(font
@@ -2683,6 +2803,26 @@
 			(justify right bottom)
 		)
 		(uuid "b80126a7-c89f-4c23-b52b-9178dbb2146a")
+	)
+	(label "DATA12"
+		(at 133.35 68.58 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "ba1c8c27-68b1-49c9-b7f3-41e01b19885e")
+	)
+	(label "DATA6"
+		(at 133.35 96.52 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "baff04e5-8689-4a9c-a1ad-99cb20a46564")
 	)
 	(label "DATA11"
 		(at 255.27 46.355 0)
@@ -2694,16 +2834,6 @@
 		)
 		(uuid "bbc3f372-6ead-43dd-981c-0d498f0df8a6")
 	)
-	(label "ADDR8"
-		(at 154.305 50.8 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "c4de9263-fb83-4a57-9f22-ee837f534e5c")
-	)
 	(label "ADDR15"
 		(at 33.655 57.15 0)
 		(effects
@@ -2714,7 +2844,7 @@
 		)
 		(uuid "c5b3d91a-599d-42a7-aae7-9d014a3d1cbb")
 	)
-	(label "ADDR10"
+	(label "ADDR15"
 		(at 154.305 55.88 180)
 		(effects
 			(font
@@ -2722,9 +2852,9 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "c72dbfad-bbaa-48fb-85bf-aa2d12ee4d4a")
+		(uuid "c842525c-d7e0-4af5-8b4f-fb28eedd116e")
 	)
-	(label "ADDR12"
+	(label "ADDR1"
 		(at 90.805 60.96 180)
 		(effects
 			(font
@@ -2744,27 +2874,27 @@
 		)
 		(uuid "cc24f412-1307-4cd7-aaaa-3c8043fbe796")
 	)
+	(label "DATA3"
+		(at 133.35 88.9 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "cf44f5f4-dfdc-4694-bc57-a26d274998d1")
+	)
 	(label "ADDR7"
-		(at 154.305 48.26 180)
+		(at 154.305 50.8 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right bottom)
 		)
-		(uuid "cc977880-b1f0-4d36-ae69-37ec55bca63d")
+		(uuid "d1c2ffa3-5c82-49c4-a0f3-74fca8e8de48")
 	)
-	(label "ADDR14"
-		(at 154.305 66.04 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "cf0c67fe-3778-455f-9390-135f3b3a2512")
-	)
-	(label "ADDR5"
+	(label "ADDR4"
 		(at 90.805 43.18 180)
 		(effects
 			(font
@@ -2774,7 +2904,7 @@
 		)
 		(uuid "d8fc7370-c638-410b-9087-3159752dfe03")
 	)
-	(label "DATA4"
+	(label "DATA1"
 		(at 121.285 40.64 0)
 		(effects
 			(font
@@ -2783,26 +2913,6 @@
 			(justify left bottom)
 		)
 		(uuid "d90a7554-43f3-44ec-9d87-4a5226b9f9ff")
-	)
-	(label "ADDR3"
-		(at 154.305 38.1 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "dc3ea65d-952a-4fe7-8880-94d467ad64e6")
-	)
-	(label "ADDR12"
-		(at 154.305 60.96 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "ddd221de-8718-484f-a4e8-b89151b7ee47")
 	)
 	(label "ADDR1"
 		(at 33.655 21.59 0)
@@ -2824,7 +2934,17 @@
 		)
 		(uuid "e1fa2c53-bf6e-4268-8543-80facc6332cd")
 	)
-	(label "ADDR2"
+	(label "ADDR1"
+		(at 154.305 60.96 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "e3209c8e-ddcd-42f7-957c-6b91822a9dfc")
+	)
+	(label "ADDR11"
 		(at 90.805 35.56 180)
 		(effects
 			(font
@@ -2833,6 +2953,16 @@
 			(justify right bottom)
 		)
 		(uuid "e3cfda45-ee43-412b-9d9e-3e72da6f9967")
+	)
+	(label "ADDR8"
+		(at 154.305 53.34 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "e5ff8fab-35b9-4063-9537-0061643221a2")
 	)
 	(label "ADDR6"
 		(at 33.655 34.29 0)
@@ -2874,7 +3004,7 @@
 		)
 		(uuid "f0f1c82c-af19-4da1-b067-208a6d2b23ba")
 	)
-	(label "DATA13"
+	(label "DATA10"
 		(at 184.785 43.18 0)
 		(effects
 			(font
@@ -2894,15 +3024,25 @@
 		)
 		(uuid "f3db423b-1afe-4f68-bfd2-6e6f853aaa42")
 	)
-	(label "ADDR4"
-		(at 154.305 40.64 180)
+	(label "DATA7"
+		(at 133.35 99.06 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right bottom)
+			(justify left bottom)
 		)
-		(uuid "f89b6945-feda-4dfe-83c6-d61e2a0ca4a2")
+		(uuid "fbc3da38-d774-4f66-8b11-110b7023069f")
+	)
+	(label "DATA8"
+		(at 133.35 78.74 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "fc3699e8-f516-421f-aa8e-197f07935413")
 	)
 	(label "DATA4"
 		(at 255.27 28.575 0)

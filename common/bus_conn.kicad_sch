@@ -2148,6 +2148,20 @@
 					(unit 1)
 				)
 			)
+			(project "ALU"
+				(path "/c0bb03ae-ed0c-4e9e-9f7c-15f29fb8b868/bdad24a6-397c-42d5-914a-4a0f0d69aaaa"
+					(reference "J3")
+					(unit 1)
+				)
+				(path "/c0bb03ae-ed0c-4e9e-9f7c-15f29fb8b868/d3ba4b5e-2047-4a5a-83f8-b81c9b14f142"
+					(reference "J2")
+					(unit 1)
+				)
+				(path "/c0bb03ae-ed0c-4e9e-9f7c-15f29fb8b868/de17c4ab-fa99-4cb9-b952-5c28477908f5"
+					(reference "J4")
+					(unit 1)
+				)
+			)
 		)
 	)
 )
