@@ -640,6 +640,18 @@
     [
       "773ad3a7-d8e0-48ae-a65e-d6d6970c906f",
       "bus_conn"
+    ],
+    [
+      "7ff91962-7335-4b83-b844-8b8ab2201f13",
+      "register interface"
+    ],
+    [
+      "31e97606-27e4-4e43-a299-0139a3e74e70",
+      "ALU interface"
+    ],
+    [
+      "3ec827a3-d1b4-4575-85cc-bb427dc4a1f4",
+      "jump logic"
     ]
   ],
   "text_variables": {}

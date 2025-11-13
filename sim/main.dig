@@ -1105,6 +1105,11 @@
       <pos x="-120" y="880"/>
     </visualElement>
     <visualElement>
+      <elementName>Probe</elementName>
+      <elementAttributes/>
+      <pos x="-520" y="260"/>
+    </visualElement>
+    <visualElement>
       <elementName>Clock</elementName>
       <elementAttributes>
         <entry>
@@ -1117,11 +1122,6 @@
         </entry>
       </elementAttributes>
       <pos x="-600" y="-180"/>
-    </visualElement>
-    <visualElement>
-      <elementName>Probe</elementName>
-      <elementAttributes/>
-      <pos x="-520" y="260"/>
     </visualElement>
   </visualElements>
   <wires>

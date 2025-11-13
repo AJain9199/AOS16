@@ -4033,7 +4033,7 @@
 		)
 		(uuid "5a647568-c35b-4d1b-a32c-6d9fa887cb9d")
 	)
-	(label "~{RAM_WE}"
+	(label "~{RAM_RE}"
 		(at 99.695 137.795 0)
 		(effects
 			(font
@@ -4273,7 +4273,7 @@
 		)
 		(uuid "bd22e210-ae70-4839-9a17-8642f396ebf2")
 	)
-	(label "~{RAM_RE}"
+	(label "~{RAM_WE}"
 		(at 100.33 102.235 0)
 		(effects
 			(font
@@ -4683,7 +4683,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "234d522a-6670-463c-a9ec-5fb0a55d3f9b")
+			(uuid "234d522a-6670-463c-a9ec-5fb0a55d3f9c")
 		)
 		(instances
 			(project ""
@@ -5514,7 +5514,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "234d522a-6670-463c-a9ec-5fb0a55d3f9b")
+			(uuid "234d522a-6670-463c-a9ec-5fb0a55d3f9d")
 		)
 		(instances
 			(project ""
@@ -6008,7 +6008,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "234d522a-6670-463c-a9ec-5fb0a55d3f9b")
+			(uuid "234d522a-6670-463c-a9ec-5fb0a55d3f9e")
 		)
 		(instances
 			(project ""
@@ -6432,7 +6432,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "234d522a-6670-463c-a9ec-5fb0a55d3f9b")
+			(uuid "234d522a-6670-463c-a9ec-5fb0a55d3f9f")
 		)
 		(instances
 			(project ""
@@ -6839,7 +6839,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "234d522a-6670-463c-a9ec-5fb0a55d3f9b")
+			(uuid "234d522a-6670-463c-a9ec-5fb0a55d3fa0")
 		)
 		(instances
 			(project ""
@@ -7105,7 +7105,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "234d522a-6670-463c-a9ec-5fb0a55d3f9b")
+			(uuid "234d522a-6670-463c-a9ec-5fb0a55d3fa1")
 		)
 		(instances
 			(project ""
@@ -7461,7 +7461,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "234d522a-6670-463c-a9ec-5fb0a55d3f9b")
+			(uuid "234d522a-6670-463c-a9ec-5fb0a55d3fa2")
 		)
 		(instances
 			(project ""
@@ -7733,7 +7733,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "234d522a-6670-463c-a9ec-5fb0a55d3f9b")
+			(uuid "234d522a-6670-463c-a9ec-5fb0a55d3fa3")
 		)
 		(instances
 			(project ""
@@ -7801,7 +7801,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "234d522a-6670-463c-a9ec-5fb0a55d3f9b")
+			(uuid "234d522a-6670-463c-a9ec-5fb0a55d3fa4")
 		)
 		(instances
 			(project ""
@@ -8278,7 +8278,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "234d522a-6670-463c-a9ec-5fb0a55d3f9b")
+			(uuid "234d522a-6670-463c-a9ec-5fb0a55d3fa5")
 		)
 		(instances
 			(project ""
@@ -8346,7 +8346,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "234d522a-6670-463c-a9ec-5fb0a55d3f9b")
+			(uuid "234d522a-6670-463c-a9ec-5fb0a55d3fa6")
 		)
 		(instances
 			(project ""
@@ -8694,7 +8694,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "234d522a-6670-463c-a9ec-5fb0a55d3f9b")
+			(uuid "234d522a-6670-463c-a9ec-5fb0a55d3fa7")
 		)
 		(instances
 			(project ""
@@ -9160,7 +9160,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "234d522a-6670-463c-a9ec-5fb0a55d3f9b")
+			(uuid "234d522a-6670-463c-a9ec-5fb0a55d3fa8")
 		)
 		(instances
 			(project ""
