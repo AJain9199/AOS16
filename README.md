@@ -54,6 +54,15 @@ AOS16 is a self-made 16-bit Reduced Instruction Set Computer (RISC) on PCBs, com
 
 The project is divided into smaller subsytems on PCBs, designed to interconnect via a central bus.
 
+### Features
+- 16-bit address and data buses
+- Hardware double buffering with parallel CPU and GPU operation
+- 10 MHz clock
+- 6 general-purpose registers, a stack pointer and a flags register
+- 65 Kb of general purpose RAM
+- 131 Kb of framebuffer (double buffered, so 65Kb usable)
+- 131 Kb of program memory
+
 ### Why?
 
 This project was a learning effort for me. I started this project wanting to learn more about computer architectures and gain hands-on experience with electrical engineering. Also, building a computer, from scratch, is the coolest project I've seen around. Some inspiration from amazing engineers including Ben Eater and jdh were more than enough to convince me to try my hand at this project.
