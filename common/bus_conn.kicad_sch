@@ -2138,6 +2138,12 @@
 			(uuid "db4185fc-5851-46e9-ae06-7677c785e915")
 		)
 		(instances
+			(project "Control"
+				(path "/0a4a6030-43dc-471b-9d34-a62eb343ab9f/773ad3a7-d8e0-48ae-a65e-d6d6970c906f"
+					(reference "J3")
+					(unit 1)
+				)
+			)
 			(project "Memory Controller"
 				(path "/a2e955d2-87ce-495b-9d0c-0c0d88eefe1c/193bfe38-df8c-4765-8a51-e2c3c367829f"
 					(reference "J5")

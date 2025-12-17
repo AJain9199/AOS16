@@ -3303,7 +3303,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0a6af484-98d9-4bfd-84a3-eb71ea3041c4")
-		(property "Reference" "#PWR0103"
+		(property "Reference" "#PWR0105"
 			(at 141.605 95.885 0)
 			(effects
 				(font
@@ -3351,6 +3351,12 @@
 			(uuid "52252c34-bd2e-44e4-b4ac-a0d608b202f3")
 		)
 		(instances
+			(project "Control"
+				(path "/0a4a6030-43dc-471b-9d34-a62eb343ab9f/e990d385-57d0-437e-97d9-9478b04714cc"
+					(reference "#PWR0105")
+					(unit 1)
+				)
+			)
 			(project "Memory Controller"
 				(path "/a2e955d2-87ce-495b-9d0c-0c0d88eefe1c/7032f906-79dd-4ab6-9425-af002e61fd88"
 					(reference "#PWR0103")
@@ -3379,7 +3385,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0c42715e-cd6e-4f62-9eee-d5cd3210ace3")
-		(property "Reference" "#PWR023"
+		(property "Reference" "#PWR020"
 			(at 107.315 116.84 0)
 			(effects
 				(font
@@ -3466,7 +3472,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "279cbe88-1260-4813-a9cb-eed20dd627d7")
-		(property "Reference" "C12"
+		(property "Reference" "C10"
 			(at 161.671 82.296 0)
 			(effects
 				(font
@@ -3518,6 +3524,12 @@
 			(uuid "2e718b57-ed3c-4bf2-b055-a8143a116c00")
 		)
 		(instances
+			(project "Control"
+				(path "/0a4a6030-43dc-471b-9d34-a62eb343ab9f/e990d385-57d0-437e-97d9-9478b04714cc"
+					(reference "C10")
+					(unit 1)
+				)
+			)
 			(project "Memory Controller"
 				(path "/a2e955d2-87ce-495b-9d0c-0c0d88eefe1c/7032f906-79dd-4ab6-9425-af002e61fd88"
 					(reference "C12")
@@ -3545,7 +3557,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "337c6a0a-e0d5-4ac1-beb3-09dff28395e0")
-		(property "Reference" "C10"
+		(property "Reference" "C8"
 			(at 142.621 82.296 0)
 			(effects
 				(font
@@ -3597,6 +3609,12 @@
 			(uuid "bbcb1d2a-a5d9-4db8-bd4d-b60bb3fa1c00")
 		)
 		(instances
+			(project "Control"
+				(path "/0a4a6030-43dc-471b-9d34-a62eb343ab9f/e990d385-57d0-437e-97d9-9478b04714cc"
+					(reference "C8")
+					(unit 1)
+				)
+			)
 			(project "Memory Controller"
 				(path "/a2e955d2-87ce-495b-9d0c-0c0d88eefe1c/7032f906-79dd-4ab6-9425-af002e61fd88"
 					(reference "C10")
@@ -3625,7 +3643,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "48b6b1ce-932d-49de-9af4-764d242c70bd")
-		(property "Reference" "U10"
+		(property "Reference" "U8"
 			(at 109.4583 48.26 0)
 			(effects
 				(font
@@ -3907,7 +3925,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "4941d622-152a-419b-b6aa-8a0685ad1b92")
-		(property "Reference" "C14"
+		(property "Reference" "C12"
 			(at 162.814 57.15 0)
 			(effects
 				(font
@@ -3959,6 +3977,12 @@
 			(uuid "2d8daf3c-392f-4a01-b60f-a01f4b08a19f")
 		)
 		(instances
+			(project "Control"
+				(path "/0a4a6030-43dc-471b-9d34-a62eb343ab9f/e990d385-57d0-437e-97d9-9478b04714cc"
+					(reference "C12")
+					(unit 1)
+				)
+			)
 			(project "Memory Controller"
 				(path "/a2e955d2-87ce-495b-9d0c-0c0d88eefe1c/7032f906-79dd-4ab6-9425-af002e61fd88"
 					(reference "C14")
@@ -3986,7 +4010,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "6362ad96-fc1b-465c-9540-c0680663fca5")
-		(property "Reference" "C13"
+		(property "Reference" "C11"
 			(at 171.196 82.296 0)
 			(effects
 				(font
@@ -4038,6 +4062,12 @@
 			(uuid "47dc5481-cfac-46d1-b0ae-57e23d1d5636")
 		)
 		(instances
+			(project "Control"
+				(path "/0a4a6030-43dc-471b-9d34-a62eb343ab9f/e990d385-57d0-437e-97d9-9478b04714cc"
+					(reference "C11")
+					(unit 1)
+				)
+			)
 			(project "Memory Controller"
 				(path "/a2e955d2-87ce-495b-9d0c-0c0d88eefe1c/7032f906-79dd-4ab6-9425-af002e61fd88"
 					(reference "C13")
@@ -4116,6 +4146,12 @@
 			(uuid "6725abe1-7d69-4cd0-9dd4-04e556cea7a5")
 		)
 		(instances
+			(project "Control"
+				(path "/0a4a6030-43dc-471b-9d34-a62eb343ab9f/e990d385-57d0-437e-97d9-9478b04714cc"
+					(reference "TP1")
+					(unit 1)
+				)
+			)
 			(project "Memory Controller"
 				(path "/a2e955d2-87ce-495b-9d0c-0c0d88eefe1c/7032f906-79dd-4ab6-9425-af002e61fd88"
 					(reference "TP1")
@@ -4144,7 +4180,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "7aec9524-db86-48ab-b6d3-4fd2b8c467fa")
-		(property "Reference" "#PWR0102"
+		(property "Reference" "#PWR0104"
 			(at 107.315 50.165 0)
 			(effects
 				(font
@@ -4192,6 +4228,12 @@
 			(uuid "488860a2-ee5c-4122-afca-ab729cf11687")
 		)
 		(instances
+			(project "Control"
+				(path "/0a4a6030-43dc-471b-9d34-a62eb343ab9f/e990d385-57d0-437e-97d9-9478b04714cc"
+					(reference "#PWR0104")
+					(unit 1)
+				)
+			)
 			(project "Memory Controller"
 				(path "/a2e955d2-87ce-495b-9d0c-0c0d88eefe1c/7032f906-79dd-4ab6-9425-af002e61fd88"
 					(reference "#PWR0102")
@@ -4219,7 +4261,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "a13c4f1b-4330-4367-aace-e470079e79dd")
-		(property "Reference" "C11"
+		(property "Reference" "C9"
 			(at 152.146 82.296 0)
 			(effects
 				(font
@@ -4271,6 +4313,12 @@
 			(uuid "85d09cca-c04e-4ec4-8d43-9aa9b0694c75")
 		)
 		(instances
+			(project "Control"
+				(path "/0a4a6030-43dc-471b-9d34-a62eb343ab9f/e990d385-57d0-437e-97d9-9478b04714cc"
+					(reference "C9")
+					(unit 1)
+				)
+			)
 			(project "Memory Controller"
 				(path "/a2e955d2-87ce-495b-9d0c-0c0d88eefe1c/7032f906-79dd-4ab6-9425-af002e61fd88"
 					(reference "C11")
@@ -4300,7 +4348,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "bfb00072-efce-4626-bbc7-8ad0dca1ddb0")
-		(property "Reference" "#PWR0104"
+		(property "Reference" "#PWR0106"
 			(at 177.8 44.45 0)
 			(effects
 				(font
@@ -4348,6 +4396,12 @@
 			(uuid "674f2440-62b6-4897-9ad4-1cba2fcb0af5")
 		)
 		(instances
+			(project "Control"
+				(path "/0a4a6030-43dc-471b-9d34-a62eb343ab9f/e990d385-57d0-437e-97d9-9478b04714cc"
+					(reference "#PWR0106")
+					(unit 1)
+				)
+			)
 			(project "Memory Controller"
 				(path "/a2e955d2-87ce-495b-9d0c-0c0d88eefe1c/7032f906-79dd-4ab6-9425-af002e61fd88"
 					(reference "#PWR0104")
@@ -4377,7 +4431,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c23f8747-669c-4983-a8ab-1b8b60f90dfa")
-		(property "Reference" "#PWR0105"
+		(property "Reference" "#PWR0107"
 			(at 177.8 70.485 0)
 			(effects
 				(font
@@ -4425,6 +4479,12 @@
 			(uuid "1f457498-b3dc-4fdf-b38e-b7c25b2a4385")
 		)
 		(instances
+			(project "Control"
+				(path "/0a4a6030-43dc-471b-9d34-a62eb343ab9f/e990d385-57d0-437e-97d9-9478b04714cc"
+					(reference "#PWR0107")
+					(unit 1)
+				)
+			)
 			(project "Memory Controller"
 				(path "/a2e955d2-87ce-495b-9d0c-0c0d88eefe1c/7032f906-79dd-4ab6-9425-af002e61fd88"
 					(reference "#PWR0105")
@@ -4454,7 +4514,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "da730c89-24f9-4d77-a1de-8f0d643022df")
-		(property "Reference" "U11"
+		(property "Reference" "U9"
 			(at 180.9181 41.91 0)
 			(effects
 				(font
@@ -4515,6 +4575,12 @@
 			(uuid "bbf9a476-d9d9-47a6-8e46-1b7dfea537c2")
 		)
 		(instances
+			(project "Control"
+				(path "/0a4a6030-43dc-471b-9d34-a62eb343ab9f/e990d385-57d0-437e-97d9-9478b04714cc"
+					(reference "U9")
+					(unit 1)
+				)
+			)
 			(project "Memory Controller"
 				(path "/a2e955d2-87ce-495b-9d0c-0c0d88eefe1c/7032f906-79dd-4ab6-9425-af002e61fd88"
 					(reference "U11")
@@ -4543,7 +4609,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "ddc5837c-8c8d-49f9-8e68-7083fd7f8292")
-		(property "Reference" "#PWR0101"
+		(property "Reference" "#PWR0103"
 			(at 141.605 82.55 0)
 			(effects
 				(font
@@ -4591,6 +4657,12 @@
 			(uuid "dd0c6c74-5905-476f-b7dc-7d73dc1e674a")
 		)
 		(instances
+			(project "Control"
+				(path "/0a4a6030-43dc-471b-9d34-a62eb343ab9f/e990d385-57d0-437e-97d9-9478b04714cc"
+					(reference "#PWR0103")
+					(unit 1)
+				)
+			)
 			(project "Memory Controller"
 				(path "/a2e955d2-87ce-495b-9d0c-0c0d88eefe1c/7032f906-79dd-4ab6-9425-af002e61fd88"
 					(reference "#PWR0101")
