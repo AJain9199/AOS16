@@ -1688,6 +1688,14 @@
 		(color 0 0 0 0)
 		(uuid "d9b86218-7393-4472-a03f-1798eeae41fd")
 	)
+	(no_connect
+		(at 106.68 55.245)
+		(uuid "2311eafd-a9d7-4c6d-ace1-544cc5ccb7bd")
+	)
+	(no_connect
+		(at 68.58 55.245)
+		(uuid "bb2f351c-9825-466e-802c-be43989ced18")
+	)
 	(bus_entry
 		(at 29.845 48.895)
 		(size 2.54 2.54)
@@ -2782,7 +2790,7 @@
 		)
 		(uuid "ff63a361-a398-42a6-8524-b43a7c11aba9")
 	)
-	(label "BUS0"
+	(label "BUS4"
 		(at 60.96 34.925 90)
 		(effects
 			(font
@@ -2832,7 +2840,7 @@
 		)
 		(uuid "4972b757-89e8-4387-8c4a-d9d3215434c0")
 	)
-	(label "BUS13"
+	(label "BUS10"
 		(at 111.76 34.925 90)
 		(effects
 			(font
@@ -2842,7 +2850,7 @@
 		)
 		(uuid "49987cb4-0ee0-406e-840a-f7895f9db219")
 	)
-	(label "BUS4"
+	(label "BUS3"
 		(at 71.12 34.925 90)
 		(effects
 			(font
@@ -2872,7 +2880,7 @@
 		)
 		(uuid "4ffecf9d-eccd-4713-9a79-1e7cf4607cd4")
 	)
-	(label "BUS15"
+	(label "BUS8"
 		(at 116.84 34.925 90)
 		(effects
 			(font
@@ -2892,7 +2900,7 @@
 		)
 		(uuid "73431940-e987-44df-89b2-d370a84446e4")
 	)
-	(label "BUS8"
+	(label "BUS12"
 		(at 99.06 34.925 90)
 		(effects
 			(font
@@ -2932,7 +2940,7 @@
 		)
 		(uuid "9a14169c-6fa9-4c81-9b60-fd315b4451e2")
 	)
-	(label "BUS3"
+	(label "BUS7"
 		(at 68.58 34.925 90)
 		(effects
 			(font
@@ -2962,7 +2970,7 @@
 		)
 		(uuid "a216aeea-dad5-4bd7-93dd-763faf6250c4")
 	)
-	(label "BUS14"
+	(label "BUS9"
 		(at 114.3 34.925 90)
 		(effects
 			(font
@@ -2982,7 +2990,7 @@
 		)
 		(uuid "aad4d1fd-75e2-4c87-9756-64ce97eecdb6")
 	)
-	(label "BUS9"
+	(label "BUS13"
 		(at 101.6 34.925 90)
 		(effects
 			(font
@@ -2992,7 +3000,7 @@
 		)
 		(uuid "ba24a15c-9a4a-40e8-8bc8-bba81ccd7811")
 	)
-	(label "BUS12"
+	(label "BUS11"
 		(at 109.22 34.925 90)
 		(effects
 			(font
@@ -3012,7 +3020,7 @@
 		)
 		(uuid "c5775e48-612a-4c6e-ba4a-03e3d6d67cb1")
 	)
-	(label "BUS10"
+	(label "BUS14"
 		(at 104.14 34.925 90)
 		(effects
 			(font
@@ -3032,7 +3040,7 @@
 		)
 		(uuid "ca502a5c-8985-423c-9e78-b86e7247aab4")
 	)
-	(label "BUS6"
+	(label "BUS1"
 		(at 76.2 34.925 90)
 		(effects
 			(font
@@ -3052,7 +3060,7 @@
 		)
 		(uuid "d166dd16-3fc6-4882-9864-45b9beb4a0db")
 	)
-	(label "BUS1"
+	(label "BUS5"
 		(at 63.5 34.925 90)
 		(effects
 			(font
@@ -3082,7 +3090,7 @@
 		)
 		(uuid "e10206e2-b37a-4e7d-9fee-0e79d674a0fe")
 	)
-	(label "BUS7"
+	(label "BUS0"
 		(at 78.74 34.925 90)
 		(effects
 			(font
@@ -3092,7 +3100,7 @@
 		)
 		(uuid "e16af111-2686-4ec7-ba08-ecc2783f8c0b")
 	)
-	(label "BUS11"
+	(label "BUS15"
 		(at 106.68 34.925 90)
 		(effects
 			(font
@@ -3112,7 +3120,7 @@
 		)
 		(uuid "e8768785-ac0e-4a86-9f4d-6105e2cf1fa3")
 	)
-	(label "BUS5"
+	(label "BUS2"
 		(at 73.66 34.925 90)
 		(effects
 			(font
@@ -3122,7 +3130,7 @@
 		)
 		(uuid "e9431e6f-d0d8-4fad-9ee9-3860c488cab9")
 	)
-	(label "BUS2"
+	(label "BUS6"
 		(at 66.04 34.925 90)
 		(effects
 			(font

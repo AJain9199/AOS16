@@ -991,6 +991,30 @@
 		(color 0 0 0 0)
 		(uuid "99db0a03-1377-4263-8271-a62cba80a0c5")
 	)
+	(no_connect
+		(at 119.38 32.385)
+		(uuid "254e3af2-132f-424b-9d32-8165a258e949")
+	)
+	(no_connect
+		(at 93.98 42.545)
+		(uuid "3b6d5e11-47b5-4b37-ad38-2668084e6a4a")
+	)
+	(no_connect
+		(at 93.98 34.925)
+		(uuid "64b81ae3-cca6-45fd-b396-c0acbe70ddd2")
+	)
+	(no_connect
+		(at 93.98 32.385)
+		(uuid "b2b985ce-c22c-432b-abe8-1e08018aa714")
+	)
+	(no_connect
+		(at 119.38 40.005)
+		(uuid "b5e067ad-e6c4-4eab-bd7d-fb840c7fc31c")
+	)
+	(no_connect
+		(at 93.98 40.005)
+		(uuid "f26be4ce-9fd3-4e67-9886-37cd4b7ce195")
+	)
 	(wire
 		(pts
 			(xy 67.31 69.85) (xy 76.835 69.85)
@@ -1223,6 +1247,16 @@
 	)
 	(wire
 		(pts
+			(xy 119.38 47.625) (xy 123.825 47.625)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "609185c6-7efd-4d73-bfa4-e6abc5347355")
+	)
+	(wire
+		(pts
 			(xy 53.975 59.69) (xy 53.975 51.435)
 		)
 		(stroke
@@ -1283,16 +1317,6 @@
 	)
 	(wire
 		(pts
-			(xy 123.825 40.005) (xy 119.38 40.005)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "80c9ce08-14bd-40f1-932c-c7949244d59f")
-	)
-	(wire
-		(pts
 			(xy 92.71 40.64) (xy 92.71 47.625)
 		)
 		(stroke
@@ -1310,6 +1334,16 @@
 			(type default)
 		)
 		(uuid "85f12220-5541-41f9-bf5d-296086bdfe10")
+	)
+	(wire
+		(pts
+			(xy 123.825 55.245) (xy 119.38 55.245)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "931fcf59-72c1-42de-95e3-788466535ad3")
 	)
 	(wire
 		(pts
@@ -1493,16 +1527,6 @@
 	)
 	(wire
 		(pts
-			(xy 119.38 32.385) (xy 123.825 32.385)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "dd165eea-1fc3-4a5e-b2b2-c497ad25a786")
-	)
-	(wire
-		(pts
 			(xy 82.55 34.925) (xy 82.55 42.545)
 		)
 		(stroke
@@ -1593,17 +1617,6 @@
 		)
 		(uuid "4f710c32-8fc0-4c70-85a0-1026d4a0530d")
 	)
-	(hierarchical_label "PCE"
-		(shape output)
-		(at 123.825 40.005 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "68d58303-bc32-4012-a1bd-f4a21c9203b4")
-	)
 	(hierarchical_label "~{PCL}i"
 		(shape input)
 		(at 87.63 32.385 180)
@@ -1615,17 +1628,6 @@
 		)
 		(uuid "93e1aa36-d7f0-4441-80ae-6a9b1cc0f8eb")
 	)
-	(hierarchical_label "~{PCL}"
-		(shape output)
-		(at 123.825 32.385 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "b7b401fa-d711-45bf-a3a8-169c6e1a3bde")
-	)
 	(hierarchical_label "FLAG_ZERO"
 		(shape input)
 		(at 26.035 37.465 180)
@@ -1636,6 +1638,28 @@
 			(justify right)
 		)
 		(uuid "c0d3460b-2525-4ec8-95d9-db72228cf6c3")
+	)
+	(hierarchical_label "PCE"
+		(shape output)
+		(at 123.825 55.245 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "dc6fde5a-7b30-4e1d-ba42-8e3f27822bd1")
+	)
+	(hierarchical_label "~{PCL}"
+		(shape output)
+		(at 123.825 47.625 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "f2fd9097-d44a-4168-a3b0-44cdcf39994c")
 	)
 	(symbol
 		(lib_id "power:+5V")
@@ -2041,7 +2065,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "C"
+		(property "Value" "0.1uF"
 			(at 140.97 50.7999 0)
 			(effects
 				(font
@@ -2172,7 +2196,7 @@
 		(dnp no)
 		(uuid "cb7ab5a6-bf2e-42ea-a534-fd63fd2c6e16")
 		(property "Reference" "U21"
-			(at 84.582 46.482 0)
+			(at 82.804 60.198 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2180,7 +2204,7 @@
 			)
 		)
 		(property "Value" "74AHC1G08"
-			(at 84.582 49.022 0)
+			(at 82.804 62.738 0)
 			(effects
 				(font
 					(size 1.27 1.27)
