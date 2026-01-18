@@ -75,6 +75,8 @@ Most homebrew computers on the internet are 8-bit computers built on breadboards
 
 ## Pictures
 
+<!-- The animated GIFs will not be visible in the PDF! Please visit the repository on [Github](https://github.com/AJain9199/AOS16). -->
+
 ![Simulation of Color Palette on Screen](pictures/Color%20Palette%20Simulation.gif)
 
 <h2 align="center">
@@ -162,7 +164,7 @@ Main Phases of the project:
 | Memory Controller   | ✅               | ✅         | In-progress                 |
 | ALU                 | ✅               | ✅         | ✅                          |
 | Registers           | ✅               | ✅         | ✅                          |
-| Control Unit        | ✅               | ☐          | ☐                           |
+| Control Unit        | ✅               | ✅          | ☐                           |
 | Program Counter     | ✅               | ✅         | ☐                           |
 | GPU                 | ✅               | ☐          | ☐                           |
 | Main Data Bus       | ✅               | ☐          | ☐                           |
