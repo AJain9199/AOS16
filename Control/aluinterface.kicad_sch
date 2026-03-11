@@ -1693,8 +1693,16 @@
 		(uuid "2311eafd-a9d7-4c6d-ace1-544cc5ccb7bd")
 	)
 	(no_connect
+		(at 201.93 41.275)
+		(uuid "93a6ba4e-d2a3-4de7-a005-0d33f5104e1e")
+	)
+	(no_connect
 		(at 68.58 55.245)
 		(uuid "bb2f351c-9825-466e-802c-be43989ced18")
+	)
+	(no_connect
+		(at 227.33 41.275)
+		(uuid "e0fba463-6d8c-45df-b8b1-77b3e29fd995")
 	)
 	(bus_entry
 		(at 29.845 48.895)

@@ -506,7 +506,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "../build/control/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "",
