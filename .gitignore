@@ -441,3 +441,4 @@ fp-info-cache
 
 build/
 */plots/
+.pio
