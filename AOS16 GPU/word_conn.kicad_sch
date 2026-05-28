@@ -1269,7 +1269,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e8df251b-208d-4438-b3df-51a7d1c36d19")
-		(property "Reference" "J5"
+		(property "Reference" "J4"
 			(at 70.485 53.34 0)
 			(effects
 				(font
@@ -1362,16 +1362,12 @@
 		)
 		(instances
 			(project "AOS16 GPU"
-				(path "/30867551-fb5e-4d50-9b6f-10252ea432a0/4f0cb423-5531-41a6-b585-748e68254428"
-					(reference "J7")
-					(unit 1)
-				)
 				(path "/30867551-fb5e-4d50-9b6f-10252ea432a0/66da1a66-ec4a-4320-afe7-b525d6b9c571"
-					(reference "J6")
+					(reference "J5")
 					(unit 1)
 				)
 				(path "/30867551-fb5e-4d50-9b6f-10252ea432a0/a0b27391-34e6-4924-9480-90aba22944d9"
-					(reference "J5")
+					(reference "J4")
 					(unit 1)
 				)
 			)
