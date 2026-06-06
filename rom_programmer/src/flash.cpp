@@ -2,7 +2,7 @@
 #include "pins.h"
 
 // Data bus — ordered DQ0..DQ7.  Kept static; nothing else needs it.
-static constexpr int DATA_PINS[8] = {A0, A1, A2, 5, 6, 7, 9, 10};
+static constexpr int DATA_PINS[8] = {A0, A1, A2, 2, 3, 4, 5, 6};
 
 // ---------------------------------------------------------------------------
 // Low-level helpers
@@ -24,9 +24,8 @@ static void write_address(uint32_t address) {
     digitalWrite(ADDR18, (address >> 18) & 1);   // flash A18 — 040 only
     digitalWrite(ADDR17, (address >> 17) & 1);   // flash A17 — 020A / 040
     digitalWrite(ADDR16, (address >> 16) & 1);   // flash A16
-    digitalWrite(ADDR15, (address >> 15) & 1);   // flash A15
 
-    // Lower 15 bits through two cascaded 74HC595s.
+    // Lower 16 bits through two cascaded 74HC595s.
     // First byte clocks into the downstream register (drives A8–A14).
     // Second byte clocks into the upstream register  (drives A0–A7).
     // NOTE: the low byte requires MSBFIRST here due to the physical wiring
@@ -113,7 +112,6 @@ void flash_init() {
     pinMode(CLK_PIN,   OUTPUT);
     pinMode(LATCH_PIN, OUTPUT);
     pinMode(DATA_PIN,  OUTPUT);
-    pinMode(ADDR15,    OUTPUT);
     pinMode(ADDR16,    OUTPUT);
     pinMode(ADDR17,    OUTPUT);
     pinMode(ADDR18,    OUTPUT);   // flash A18 — NC on 010A/020A, safe to drive

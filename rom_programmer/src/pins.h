@@ -28,16 +28,15 @@
 // WARNING: A6 and A7 are analog-input-only on Uno/Nano.
 //          Do NOT reassign ADDR18/ADDR19 to those pins.
 // ---------------------------------------------------------------------------
-#define ADDR15  A3   // flash A15  — 010A / 020A / 040
-#define ADDR16  4    // flash A16  — 010A (AMS) / 020A / 040
-#define ADDR17  A5   // flash A17  — 020A (AMS) / 040   (NC on 010A)
-#define ADDR18  13   // flash A18  — 040  (AMS)          (NC on 010A/020A)
+#define ADDR16  A3    // flash A16  — 010A (AMS) / 020A / 040
+#define ADDR17  A4   // flash A17  — 020A (AMS) / 040   (NC on 010A)
+#define ADDR18  A5   // flash A18  — 040  (AMS)          (NC on 010A/020A)
 
 // ---------------------------------------------------------------------------
 // Flash control lines
 // ---------------------------------------------------------------------------
-#define nCE  A4      // Chip Enable   (active low)
-#define nOE  2       // Output Enable (active low)
-#define nWE  3       // Write Enable  (active low)
+#define nCE  7      // Chip Enable   (active low)
+#define nOE  9       // Output Enable (active low)
+#define nWE  10       // Write Enable  (active low)
 
 #endif //PINS_H
