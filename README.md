@@ -160,15 +160,15 @@ Main Phases of the project:
 
 | Component / Phase   | Logic Simulation | PCB Design | Fabrication and Integration |
 | ------------------- | ---------------- | ---------- | --------------------------- |
-| Double Buffer       | ✅               | ✅         | In-progress                 |
+| Double Buffer       | ✅               | ✅         | ✅                 |
 | Memory Controller   | ✅               | ✅         | ✅                 |
 | ALU                 | ✅               | ✅         | ✅                          |
 | Registers           | ✅               | ✅         | ✅                          |
-| Control Unit        | ✅               | ✅          | ☐                           |
-| Program Counter     | ✅               | ✅         | ☐                           |
-| GPU                 | ✅               | ☐          | ☐                           |
-| Main Data Bus       | ✅               | ☐          | ☐                           |
-| **Phase Completed** | ✅               | ☐          | ☐                           |
+| Control Unit        | ✅               | ✅          |  ✅                          |
+| Program Counter     | ✅               | ✅         |  ☐                           |
+| GPU                 | ✅               | ✅          | ☐                           |
+| Main Data Bus       | ✅               | ✅          | ☐                           |
+| **Phase Completed** | ✅               | ✅          | ☐                           |
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
