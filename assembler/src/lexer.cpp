@@ -11,12 +11,56 @@ TokenType Lexer::getToken() {
     }
 
     // comments
-    if (currentChar == ';') {
+    if (currentChar == ';' || currentChar == '#') {
         while (currentChar != '\n' && !atEOF) {
             advance();
         }
-
         return getToken();
+    }
+
+    if (currentChar == '/') {
+        advance();
+        if (currentChar == '/') {
+            while (currentChar != '\n' && !atEOF) advance();
+            return getToken();
+        }
+        if (currentChar == '*') {
+            advance();
+            while (!atEOF) {
+                if (currentChar == '*') {
+                    advance();
+                    if (currentChar == '/') { advance(); break; }
+                } else {
+                    advance();
+                }
+            }
+            return getToken();
+        }
+        err("Unexpected character '/'");
+    }
+
+    // string literal
+    if (currentChar == '"') {
+        strValue.clear();
+        advance();
+        while (currentChar != '"' && !atEOF) {
+            if (currentChar == '\\') {
+                advance();
+                switch (currentChar) {
+                    case 'n':  strValue += '\n'; break;
+                    case 't':  strValue += '\t'; break;
+                    case '\\': strValue += '\\'; break;
+                    case '"':  strValue += '"';  break;
+                    default:   strValue += currentChar; break;
+                }
+            } else {
+                strValue += currentChar;
+            }
+            advance();
+        }
+        if (atEOF) err("Unterminated string literal");
+        advance(); // consume closing '"'
+        return currentToken = STRING;
     }
 
     // numeric literal

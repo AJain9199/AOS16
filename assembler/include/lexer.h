@@ -9,6 +9,7 @@ enum TokenType {
     ID,
     NUM,
     PUNCTUATION,
+    STRING,
     EOF_TOKEN
 };
 
@@ -23,6 +24,7 @@ class Lexer {
 
     int16_t number = 0;
     std::string id;
+    std::string strValue;
 
     // Internal methods
     void advance();
@@ -53,6 +55,10 @@ public:
 
     [[nodiscard]] std::string getIdentifier() const {
         return id;
+    }
+
+    [[nodiscard]] std::string getString() const {
+        return strValue;
     }
 
     [[nodiscard]] char getPunc() const {
@@ -87,7 +93,22 @@ public:
         return ret;
     }
 
-    std::set<char> punctuation = {'.', '[', ']', '%', '(', ')', ',', ':'};
+    std::set<char> punctuation = {'.', '[', ']', '%', '(', ')', ',', ':', '<'};
+
+    // Reads a raw file path between the already-consumed '<' and the closing '>',
+    // then advances to the next token. Called when currentToken == PUNCTUATION '<'.
+    std::string read_angle_path() {
+        // After '<' was lexed as PUNCTUATION, currentChar is already the first char of the path.
+        std::string path;
+        while (currentChar != '>' && !atEOF) {
+            path += currentChar;
+            advance();
+        }
+        if (atEOF) err("Unterminated file path in dd");
+        advance(); // consume '>'
+        getToken(); // load next token
+        return path;
+    }
 
     loc getLocation() {
         return std::make_pair(filename, lineNumber);

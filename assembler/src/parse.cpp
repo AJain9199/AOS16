@@ -1,6 +1,8 @@
 #include <iomanip>
 #include <parse.h>
 #include <algorithm>
+#include <fstream>
+#include <filesystem>
 
 using namespace std;
 
@@ -83,10 +85,35 @@ void Parser::parseDirective() {
 
 /*
  * Handles the dd pseudo-instruction.
+ *   dd <file>       — appends raw binary file contents as 16-bit words (odd files zero-padded)
  *   dd val          — emits val as one 16-bit word
  *   dd N, v1...vN  — emits v1..vN as N 16-bit words
  */
 void Parser::parseDd() {
+    if (lexer == STRING) {
+        const string s = lexer.getString();
+        lexer.getToken();
+        for (const char c : s) {
+            add_machine_code(static_cast<uint16_t>(static_cast<uint8_t>(c)));
+        }
+        return;
+    }
+
+    if (lexer == '<') {
+        const string path = lexer.read_angle_path();
+        const auto resolved = (std::filesystem::path(lexer.getLocation().first).parent_path() / path).string();
+        ifstream bin(resolved, ios::binary);
+        if (!bin.is_open()) err("dd: cannot open file '" + path + "'");
+        int hi;
+        while ((hi = bin.get()) != EOF) {
+            const int lo = bin.get();
+            add_machine_code(static_cast<uint16_t>(
+                (static_cast<uint8_t>(hi) << 8) | (lo == EOF ? 0 : static_cast<uint8_t>(lo))
+            ));
+        }
+        return;
+    }
+
     const vector<shared_ptr<Operand>> operands = parseOperands();
     if (operands.size() == 1) {
         add_machine_code(static_cast<uint16_t>(operands[0]->value));
