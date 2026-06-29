@@ -1,19 +1,38 @@
-(JMP:5) {
-    (0:4)(IMM:2)(0:3) {
+(JMP:5)(0:4) {
+    (IMM:2)(0:3) {
         PCO, MAI;
         MO, MSL, PCL;
     }
-    (0:4)(REG:2)(<REGS:0>) {
+    (REG:2)(<REGS:0>) {
         RSE = <REGS:0>, RGO, PCL;
     }
 }
 
-(JNZ_CMD:5) {
-    (0:4)(IMM:2)(0:3) {
+(JNZ_CMD:5)(0:4) {
+    (IMM:2)(0:3) {
         PCO, MAI;
         MO, MSL, PCL, JNZ;
     }
-    (0:4)(REG:2)(<REGS:0>) {
+    (REG:2)(<REGS:0>) {
         RSE = <REGS:0>, RGO, PCL, JNZ;
     }
+}
+
+(CALL:5)(0:4) {
+    # push pco + 1, jmp addr
+    (IMM:2)(0:3) {
+        PCO, MAI;
+        MO, MSL, ABI, PCE;
+        RSE = REG_SP, RGO, MAI, AAI;
+        PCO, MI;
+        ALF = ALU_INC, ALO, RSE = REG_SP, RGI;
+        ALF = ALU_B, PCL;
+    }
+}
+
+(RET:5)(0:9) {
+    # pop addr, jmp addr
+    RSE = REG_SP, RGO, AAI;
+    ALF = ALU_DEC, ALO, RSE = REG_SP, RGI, MAI;
+    MO, PCL;
 }
