@@ -2,15 +2,51 @@
     bitmap:
     dd <font.bin>
 
+    string:
+    dd 6, 120, 207, 228, 228, 237, 3
+
 .text
-    mov %ax, 0x8000
-    mov %cx, 0xffff
-    mov %bx, bitmap
-    add %bx, 99
+mov %ex, string
+mov %sp, 0x300
+mov %cx, 0xffff
+mov %ax, 0x8101
+mov %dx, 0
+mov (0x5), %dx
+
+outloop1:
+    mov %bx, [%ex]
+    add %bx, bitmap
+
+    push %ax
+    push %bx
+    push %cx
+    push %dx
+    push %ex
+
+    call print_char
+
+    pop %ex
+    pop %dx
+    pop %cx
+    pop %bx
+    pop %ax
+
+    inc %ex
+    inc (0x5)
+
+    add %ax, 6
+    mov %dx, 6
+    cmp %dx, (0x5)
+    jnz outloop1
+
+swp
+forever:
+jmp forever
+
+
+print_char:
     mov %dx, 0
     mov (0x0), %dx
-
-    mov %bx, 3
 
     sub %ax, 1
 
@@ -52,10 +88,7 @@
         mov %dx, 3
         cmp %dx, (0x0)
         jnz forloop1
-
-    swp
-    forever:
-    jmp forever
+    ret
 
 
 write:
