@@ -13,6 +13,8 @@ static std::map<std::string, std::shared_ptr<Instruction>> opcodes;
 void add_opcode(const std::string &name, uint8_t opcode, const std::initializer_list<unsigned char> &operands);
 void add_register(const std::string& name, int val);
 
+enum class Section { NONE, DATA, TEXT };
+
 /*
  * Container class for parsing the assembly code
  */
@@ -39,10 +41,17 @@ private:
     };
 
     std::vector<MachineCodeInstance> machine_code;
+    std::vector<MachineCodeInstance> data_code;
+    std::vector<MachineCodeInstance> text_code;
+
     void add_machine_code(const std::shared_ptr<Instruction>& instr, const std::vector<std::shared_ptr<Operand>>& operands);
     void add_machine_code(uint16_t constant);
 
+    static uint16_t section_word_count(const std::vector<MachineCodeInstance>& code);
+    static void emit_section(std::fstream& out, const std::vector<MachineCodeInstance>& code);
 
+    Section current_section = Section::NONE;
+    bool has_sections = false;
 
     std::map<std::string, int> symtab;
     void define_label(const std::string &name, int val);
@@ -56,6 +65,7 @@ private:
     // parser methods
     void parseStatement();
     void parseDirective();
+    void parseDd();
     std::vector<std::shared_ptr<Operand>> parseOperands();
     std::shared_ptr<Operand> parseOperand();
     std::shared_ptr<Operand> parseSubOperand();

@@ -29,10 +29,11 @@ struct Operand {
         return constraints & type;
     }
 
-    void make_pointer() {
+    void make_pointer(const bool rom = false) {
         if (satisfies(IMMEDIATE | REG)) {
             type <<= 2;
         }
+        is_rom = rom;
     }
 
     [[nodiscard]] bool is_immediate() const {

@@ -1,6 +1,5 @@
 (MOV:5)(<REGS:0>) {
     (RL:1) {
-
         # mov reg, imm16
         (IMM:2)(0:3) {
             PCO, MAI;
@@ -46,6 +45,21 @@
             RSE = <REGS:0>, RGO, AAI;
             ALF = ALU_A, ALO, RSE = <REGS:0>, RGI;
         }
+    }
+}
+
+(MOVR:5)(<REGS:0>)(RL:1) {
+     # mov reg, *imm16
+    (IMM_PTR:2)(0:3) {
+        PCO, MAI;
+        MO, MSL, MAI, PCE;
+        MO, RSE = <REGS:0>, MSL, RGI;
+    }
+
+    # mov reg, *reg
+    (REG_PTR:2)(<REGS:1>) {
+        RSE = <REGS:1>, RGO, MAI;
+        MO, MSL, RSE = <REGS:0>, RGI;
     }
 }
 

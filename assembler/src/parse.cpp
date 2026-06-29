@@ -26,11 +26,16 @@ void Parser::parseStatement() {
         return;
     }
 
+    ranges::transform(id, id.begin(), [](const char c) { return tolower(c); });
+
+    if (id == "dd") {
+        parseDd();
+        return;
+    }
+
     if (!opcodes.contains(id)) {
         err("Unknown opcode");
     }
-
-    ranges::transform(id, id.begin(), [](const char c) { return tolower(c); });
 
     if (opcodes[id]->no_operands() == 0) {
         add_machine_code(opcodes[id], {});
@@ -42,14 +47,56 @@ void Parser::parseStatement() {
 /*
  * Parses directives. Supported directives:
  * 1. .uint8/uint16 value [,value ...]
+ * 2. .text / .data  — section declarations
  */
 void Parser::parseDirective() {
     const string directive = lexer.eat_id();
+
+    if (directive == "data") {
+        if (current_section == Section::TEXT) {
+            err(".data section must be declared before .text");
+        }
+        has_sections = true;
+        current_section = Section::DATA;
+        current_address = 2; // address 0-1 reserved for jmp header
+        return;
+    }
+
+    if (directive == "text") {
+        if (current_section == Section::TEXT) {
+            err("duplicate .text section");
+        }
+        has_sections = true;
+        current_section = Section::TEXT;
+        current_address = 2 + section_word_count(data_code);
+        return;
+    }
+
     const vector<shared_ptr<Operand> > operands = parseOperands();
 
     if (directive == "uint8" || directive == "uint16") {
         for (const shared_ptr<Operand> &op: operands) {
             add_machine_code(op->value);
+        }
+    }
+}
+
+/*
+ * Handles the dd pseudo-instruction.
+ *   dd val          — emits val as one 16-bit word
+ *   dd N, v1...vN  — emits v1..vN as N 16-bit words
+ */
+void Parser::parseDd() {
+    const vector<shared_ptr<Operand>> operands = parseOperands();
+    if (operands.size() == 1) {
+        add_machine_code(static_cast<uint16_t>(operands[0]->value));
+    } else {
+        const int n = operands[0]->value;
+        if (static_cast<int>(operands.size()) - 1 != n) {
+            err("dd: count does not match number of values");
+        }
+        for (int i = 1; i <= n; i++) {
+            add_machine_code(static_cast<uint16_t>(operands[i]->value));
         }
     }
 }
@@ -80,6 +127,15 @@ std::shared_ptr<Operand> Parser::parseOperand() {
         lexer.eat(')');
 
         op->make_pointer();
+        return op;
+    }
+
+    if (lexer == PUNCTUATION && lexer == '[') {
+        lexer.eat('[');
+        auto op = parseSubOperand();
+        lexer.eat(']');
+
+        op->make_pointer(true);
         return op;
     }
 
@@ -133,34 +189,66 @@ void Parser::define_label(const std::string &name, const int val) {
 
 void Parser::add_machine_code(const std::shared_ptr<Instruction> &instr,
                               const std::vector<std::shared_ptr<Operand> > &operands) {
-    machine_code.emplace_back(instr, operands);
+    auto& target = (current_section == Section::DATA) ? data_code
+                 : (current_section == Section::TEXT) ? text_code
+                 : machine_code;
+    target.emplace_back(instr, operands);
     current_address += instr->size(operands);
 }
 
 void Parser::add_machine_code(const uint16_t constant) {
-    machine_code.emplace_back(constant);
+    auto& target = (current_section == Section::DATA) ? data_code
+                 : (current_section == Section::TEXT) ? text_code
+                 : machine_code;
+    target.emplace_back(constant);
     current_address += 1;
+}
+
+uint16_t Parser::section_word_count(const std::vector<MachineCodeInstance>& code) {
+    uint16_t count = 0;
+    for (const auto& item : code) {
+        count += item.is_constant ? 1 : static_cast<uint16_t>(item.instruction->size(item.operands));
+    }
+    return count;
+}
+
+void Parser::emit_section(std::fstream& out, const std::vector<MachineCodeInstance>& code) {
+    for (const auto& i : code) {
+        if (i.is_constant) {
+            out.put(i.constant >> 8);
+            out.put(i.constant & 0xFF);
+        } else {
+            const std::unique_ptr<InstructionBytes> ins = i.instruction->emit(i.operands);
+            uint16_t ins_bin = ins->get_instruction();
+            out.put(ins_bin >> 8);
+            out.put(ins_bin & 0xFF);
+            if (ins->has_immediate() && !i.operands.empty()) {
+                ins_bin = ins->get_immediate();
+                out.put(ins_bin >> 8);
+                out.put(ins_bin & 0xFF);
+            }
+        }
+    }
 }
 
 void Parser::write_machine_code(const std::string &filename) const {
     fstream outfile;
     outfile.open(filename, ios_base::binary | ios_base::out);
 
-    for (const auto &i: machine_code) {
-        if (i.is_constant) {
-            outfile.put(i.constant >> 8);
-            outfile.put(i.constant & 0xFF);
-        } else {
-            const std::unique_ptr<InstructionBytes> ins = i.instruction->emit(i.operands);
-            uint16_t ins_bin = ins->get_instruction();
-            outfile.put(ins_bin >> 8);
-            outfile.put(ins_bin & 0xFF);
-            if (ins->has_immediate() && !i.operands.empty()) {
-                ins_bin = ins->get_immediate();
-                outfile.put(ins_bin >> 8);
-                outfile.put(ins_bin & 0xFF);
-            }
-        }
+    if (has_sections) {
+        const uint16_t text_start = 2 + section_word_count(data_code);
+
+        // jmp <text_start> — opcode 0x12, IMM type (INS_IMM=0), all other fields 0
+        const uint16_t jmp_instr = static_cast<uint16_t>(0x12) << 9;
+        outfile.put(jmp_instr >> 8);
+        outfile.put(jmp_instr & 0xFF);
+        outfile.put(text_start >> 8);
+        outfile.put(text_start & 0xFF);
+
+        emit_section(outfile, data_code);
+        emit_section(outfile, text_code);
+    } else {
+        emit_section(outfile, machine_code);
     }
 
     outfile.close();
