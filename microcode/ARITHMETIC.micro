@@ -4,23 +4,23 @@
         # xxx reg, imm16
         (IMM:2)(0:3) {
             PCO, MAI;
-            MO, MSL, AAI, PCE;
-            RSE = <REGS:0>, RGO, ABI;
+            MO, MSL, ABI, PCE;
+            RSE = <REGS:0>, RGO, AAI;
             ALF = <AR_COMMANDS:0>, ALO, RSE = <REGS:0>, RGI;
         }
 
         # xxx reg, reg
         (REG:2)(<REGS:1>) {
-            RSE = <REGS:1>, RGO, AAI;
-            RSE = <REGS:0>, RGO, ABI;
+            RSE = <REGS:0>, RGO, AAI;
+            RSE = <REGS:1>, RGO, ABI;
             ALF = <AR_COMMANDS:0>, ALO, RSE = <REGS:0>, RGI;
         }
 
         # xxx reg, *reg
         (REG_PTR:2)(<REGS:1>) {
             RSE = <REGS:1>, RGO, MAI;
-            MO, AAI;
-            RSE = <REGS:0>, RGO, ABI;
+            MO, ABI;
+            RSE = <REGS:0>, RGO, AAI;
             ALF = <AR_COMMANDS:0>, ALO, RSE = <REGS:0>, RGI;
         }
 
@@ -28,8 +28,8 @@
         (IMM_PTR:2)(0:3) {
             PCO, MAI;
             MO, MSL, MAI, PCE;
-            MO, AAI;
-            RSE = <REGS:0>, RGO, ABI;
+            MO, ABI;
+            RSE = <REGS:0>, RGO, AAI;
             ALF = <AR_COMMANDS:0>, ALO, RSE = <REGS:0>, RGI;
         }
     }
