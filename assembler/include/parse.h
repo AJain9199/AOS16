@@ -6,6 +6,7 @@
 #include <map>
 #include <memory>
 #include <lexer.h>
+#include <preprocessor.h>
 #include <string>
 
 static std::map<std::string, int> regtab;
@@ -20,7 +21,7 @@ enum class Section { NONE, DATA, TEXT };
  */
 class Parser {
 public:
-    explicit Parser(const std::string &filename) : lexer(filename) {
+    explicit Parser(const std::string &filename) : lexer(filename, preprocess(filename)) {
     }
 
     void parse();

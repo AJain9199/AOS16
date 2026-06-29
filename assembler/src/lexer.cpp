@@ -92,21 +92,13 @@ TokenType Lexer::getToken() {
     return currentToken = EOF_TOKEN;
 }
 
-Lexer::Lexer(const std::string &sourceFile) : filename(sourceFile) {
-    file.open(sourceFile);
-    if (!file.is_open()) {
-        err("Cannot open file");
-    }
-
+Lexer::Lexer(const std::string &sourceFile, const std::string &content)
+    : stream(content), filename(sourceFile) {
     advance();
 }
 
-Lexer::~Lexer() {
-    file.close();
-}
-
 void Lexer::advance() {
-    if (file.get(currentChar)) {
+    if (stream.get(currentChar)) {
         if (currentChar == '\n') {
             lineNumber++;
         }

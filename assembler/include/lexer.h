@@ -2,7 +2,7 @@
 #define LEXER_H
 
 #include <error.h>
-#include <fstream>
+#include <sstream>
 #include <set>
 
 enum TokenType {
@@ -14,7 +14,7 @@ enum TokenType {
 };
 
 class Lexer {
-    std::ifstream file;
+    std::istringstream stream;
     std::string filename;
     int lineNumber = 0;
     char currentChar = '\0';
@@ -32,7 +32,7 @@ class Lexer {
     void skipWhitespace();
 
 public:
-    explicit Lexer(const std::string& sourceFile);
+    explicit Lexer(const std::string& sourceFile, const std::string& content);
     ~Lexer();
 
 
