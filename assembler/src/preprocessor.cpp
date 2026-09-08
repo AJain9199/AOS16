@@ -1,3 +1,4 @@
+#include <cstdint>
 #include <preprocessor.h>
 #include <error.h>
 #include <cctype>

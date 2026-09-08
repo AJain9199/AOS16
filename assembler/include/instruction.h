@@ -29,8 +29,10 @@ static uint8_t to_ins(const operandOptions op) {
 /*
  * Instruction format for the architecture
  */
-struct __pragma( pack(push, 1) ) InstructionBytes {
-    struct __pragma( pack(push, 1) ) InstructionWord {
+#pragma pack(push, 1)
+struct InstructionBytes {
+#pragma pack(push, 1)
+    struct InstructionWord {
         uint8_t opcode :    5 = 0;
         uint8_t reg :       3 = 0;
         uint8_t dir :       1 = 0;
@@ -38,7 +40,8 @@ struct __pragma( pack(push, 1) ) InstructionBytes {
         uint8_t mod :       1 = 0; // controls if memory access is RAM or ROM
         uint8_t relative :  1 = 0; // controls if the address is relative to the current address
         uint8_t reg2_hi :   1 = 0;
-    } __pragma( pack(pop)) ins;
+    } ins;
+#pragma pack(pop)
     uint16_t value;
 
     [[nodiscard]] bool has_immediate() const {
@@ -52,7 +55,8 @@ struct __pragma( pack(push, 1) ) InstructionBytes {
     [[nodiscard]] uint16_t get_immediate() const {
         return value;
     }
-} __pragma( pack(pop) );
+};
+#pragma pack(pop)
 
 /*
  * Stores information about a specific instruction

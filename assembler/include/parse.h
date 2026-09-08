@@ -1,8 +1,8 @@
 #ifndef PARSE_H
 #define PARSE_H
 
-#include <Instruction.h>
-#include <Operand.h>
+#include <instruction.h>
+#include <operand.h>
 #include <map>
 #include <memory>
 #include <lexer.h>

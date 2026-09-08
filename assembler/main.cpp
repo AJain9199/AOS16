@@ -1,6 +1,6 @@
 #include <iostream>
 #include <filesystem>
-#include <Instruction.h>
+#include <instruction.h>
 #include <parse.h>
 
 #define MOV_LIKE {REG | REG_PTR | IMM_PTR, REG | REG_PTR | IMM_PTR | IMMEDIATE}

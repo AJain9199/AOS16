@@ -97,6 +97,8 @@ Lexer::Lexer(const std::string &sourceFile, const std::string &content)
     advance();
 }
 
+Lexer::~Lexer() = default;
+
 void Lexer::advance() {
     if (stream.get(currentChar)) {
         if (currentChar == '\n') {
