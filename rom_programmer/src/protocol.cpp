@@ -1,12 +1,12 @@
 #include "protocol.h"
-
-#include "protocol.h"
 #include "flash.h"
 #include <Arduino.h>
 
 // ---------------------------------------------------------------------------
 // Internal helpers — block until the requested bytes arrive
 // ---------------------------------------------------------------------------
+
+static uint8_t g_buf[256];   // shared write/read staging buffer
 
 static uint8_t recv_byte() {
     while (!Serial.available()) {}
@@ -20,6 +20,9 @@ static uint32_t recv_addr() {
     a |= recv_byte();
     return a;
 }
+
+// Read a 3-byte big-endian length
+static uint32_t recv_len24() { return recv_addr(); }
 
 // Read a 2-byte big-endian unsigned length
 static uint16_t recv_len16() {
@@ -92,12 +95,12 @@ void protocol_handle() {
             // len=0 encodes 256 so we fit in one byte while still allowing
             // a full 256-byte write in a single command.
             const uint16_t len = (raw_len == 0) ? 256 : raw_len;
-            bool ok = true;
-            for (uint16_t i = 0; i < len; i++) {
-                const uint8_t data = recv_byte();
-                if (ok) ok = flash_write_byte(addr + i, data);
-            }
-            Serial.write(ok ? RESP_OK : RESP_ERR);
+            // Drain the whole payload into RAM first, then program it in one
+            // tight burst.  Programming (~30 us/byte) is slower than the
+            // serial link, so the host may already be sending the next chunk
+            // into the RX ring buffer while this one is being programmed.
+            for (uint16_t i = 0; i < len; i++) g_buf[i] = recv_byte();
+            Serial.write(flash_write_block(addr, g_buf, len) ? RESP_OK : RESP_ERR);
             break;
         }
 
@@ -109,8 +112,28 @@ void protocol_handle() {
         case CMD_READ: {
             const uint32_t addr = recv_addr();
             const uint16_t len  = recv_len16();
-            for (uint16_t i = 0; i < len; i++)
-                Serial.write(flash_read(addr + i));
+            for (uint16_t done = 0; done < len; ) {
+                const uint16_t rem = len - done;
+                const uint16_t n   = rem < 64 ? rem : 64;
+                flash_read_block(addr + done, g_buf, n);
+                Serial.write(g_buf, n);
+                done += n;
+            }
+            Serial.write(RESP_OK);
+            break;
+        }
+
+        // ----------------------------------------------------------------
+        // C — CRC-16/XMODEM of a range, computed on the device
+        // Payload:  addr[2:0], len[2:0]  (3-byte big-endian each)
+        // Response: crc_hi, crc_lo, RESP_OK
+        // ----------------------------------------------------------------
+        case CMD_CRC: {
+            const uint32_t addr = recv_addr();
+            const uint32_t len  = recv_len24();
+            const uint16_t crc  = flash_crc16(addr, len);
+            Serial.write(static_cast<uint8_t>(crc >> 8));
+            Serial.write(static_cast<uint8_t>(crc));
             Serial.write(RESP_OK);
             break;
         }

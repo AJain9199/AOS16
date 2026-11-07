@@ -19,25 +19,24 @@ import math
 EXPECTED_HEADER = "v3.0 hex words addressed"
 
 
-def parse(filepath: str) -> dict[int, int]:
+def parse_words(filepath: str) -> tuple[dict[int, int], int]:
     """
-    Parse a Logisim v3.0 hex file.
+    Parse a Logisim v3.0 hex file without splitting words into bytes.
 
-    Returns a dict mapping byte_address → byte_value for every explicitly
-    listed byte.  Gaps (omitted addresses) are NOT included; callers that
-    need a flat array should use to_bytearray().
+    Returns (words, word_bytes) where *words* maps word_address → word_value
+    for every explicitly listed word and *word_bytes* is the number of bytes
+    per word.  Gaps (omitted addresses) are NOT included.
 
     Word width is detected from the length of the first data token:
-      2 hex chars → 8-bit  words (1 byte  each, byte_addr = word_addr)
-      4 hex chars → 16-bit words (2 bytes each, big-endian)
-      8 hex chars → 32-bit words (4 bytes each, big-endian)
+      2 hex chars → 8-bit  words (1 byte)
+      4 hex chars → 16-bit words (2 bytes)
+      8 hex chars → 32-bit words (4 bytes)
 
     Raises
     ------
-    ValueError  if the file header is not recognised or a token length is
-                inconsistent with the detected word width.
+    ValueError  if the file header is not recognised.
     """
-    data: dict[int, int] = {}
+    words: dict[int, int] = {}
     word_bytes: int | None = None   # bytes per word, detected from first token
 
     with open(filepath, "r") as fh:
@@ -59,17 +58,56 @@ def parse(filepath: str) -> dict[int, int]:
             for word_offset, token in enumerate(line[colon + 1:].split()):
                 # Detect word width from the very first token
                 if word_bytes is None:
-                    token_chars = len(token)
-                    word_bytes = math.ceil(token_chars / 2)
+                    word_bytes = math.ceil(len(token) / 2)
+                words[word_addr + word_offset] = int(token, 16)
 
-                value = int(token, 16)
+    return words, word_bytes or 1
 
-                # Unpack word into bytes, big-endian, at consecutive byte addresses
-                byte_base = (word_addr + word_offset) * word_bytes
-                for byte_offset in range(word_bytes):
-                    shift = (word_bytes - 1 - byte_offset) * 8
-                    data[byte_base + byte_offset] = (value >> shift) & 0xFF
 
+def to_lanes(words: dict[int, int], word_bytes: int,
+             depth: int | None = None) -> list[bytearray]:
+    """
+    Split word data into one byte image per byte lane (one per flash chip).
+
+    Lane 0 holds the most significant byte of every word, lane word_bytes-1
+    the least significant.  Every lane is indexed by word address, so each
+    chip is programmed at the same addresses the CPU will present to it.
+
+    Gaps are filled with 0xFF (erased state).  *depth* is the length of each
+    lane in bytes; it defaults to max_word_address + 1.  Words at or beyond
+    *depth* are dropped.
+    """
+    if depth is None:
+        depth = max(words) + 1 if words else 0
+
+    lanes = [bytearray(b"\xff") * depth for _ in range(word_bytes)]
+    for addr, value in words.items():
+        if addr >= depth:
+            continue
+        for lane in range(word_bytes):
+            shift = (word_bytes - 1 - lane) * 8
+            lanes[lane][addr] = (value >> shift) & 0xFF
+    return lanes
+
+
+def parse(filepath: str) -> dict[int, int]:
+    """
+    Parse a Logisim v3.0 hex file.
+
+    Returns a dict mapping byte_address → byte_value for every explicitly
+    listed byte.  Gaps (omitted addresses) are NOT included; callers that
+    need a flat array should use to_bytearray().
+
+    Words are unpacked big-endian at consecutive byte addresses; see
+    parse_words() for how word width is detected.
+    """
+    words, word_bytes = parse_words(filepath)
+    data: dict[int, int] = {}
+    for word_addr, value in words.items():
+        byte_base = word_addr * word_bytes
+        for byte_offset in range(word_bytes):
+            shift = (word_bytes - 1 - byte_offset) * 8
+            data[byte_base + byte_offset] = (value >> shift) & 0xFF
     return data
 
 

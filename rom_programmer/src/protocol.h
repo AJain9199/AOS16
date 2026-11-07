@@ -14,6 +14,12 @@
                                 //   len = 0 means 256 bytes
 #define CMD_READ          'R'   // Read N bytes starting at address
                                 //   payload: addr[2:0], len[1:0] (2 bytes BE)
+#define CMD_CRC           'C'   // CRC-16/XMODEM of a range, computed on-device
+                                //   payload: addr[2:0], len[2:0] (3 bytes BE each)
+                                //   response: crc_hi, crc_lo, RESP_OK
+
+// Serial link speed — must match BAUD_RATE in programmer.py
+#define SERIAL_BAUD       1000000UL
 
 // ---------------------------------------------------------------------------
 // Arduino → Host responses

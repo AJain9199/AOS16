@@ -10,6 +10,7 @@ Usage
     python programmer.py COM3 image.hex                  # write + verify
     python programmer.py /dev/ttyUSB0 image.hex --no-verify
     python programmer.py COM3 image.hex --sector-erase   # erase only used sectors
+    python programmer.py COM3 image.hex --reroute PRGM.csv   # remap data bits
     python programmer.py COM3 --identify                 # print chip IDs and exit
     python programmer.py COM3 --chip-erase               # blank the chip and exit
 
@@ -19,14 +20,17 @@ Dependencies
 """
 
 import argparse
+import binascii
+import csv
 import sys
 import time
 import struct
+from collections import deque
 from typing import Optional
 
 import serial
 
-from logisim_parser import load as load_hex
+from logisim_parser import parse_words, to_lanes
 
 # ---------------------------------------------------------------------------
 # Protocol constants — must match protocol.h in the firmware
@@ -37,23 +41,28 @@ CMD_CHIP_ERASE    = b'E'
 CMD_SECTOR_ERASE  = b'S'
 CMD_WRITE         = b'W'
 CMD_READ          = b'R'
+CMD_CRC           = b'C'
 
 RESP_OK    = ord('K')
 RESP_ERR   = ord('F')
 RESP_READY = ord('Z')
 
 SECTOR_SIZE  = 0x1000          # 4 KB per datasheet
-CHUNK_SIZE   = 64              # bytes per write/read command
-BAUD_RATE    = 230400
+CHUNK_SIZE   = 128             # bytes per write command (5 B header + 128 B must fit
+                               # the firmware's 256 B RX ring while the previous
+                               # chunk is still being programmed)
+READ_CHUNK   = 4096            # bytes per read command (fallback verify only)
+WRITE_WINDOW = 2               # write commands in flight before waiting for an ack
+BAUD_RATE    = 1_000_000       # must match SERIAL_BAUD in protocol.h
 BOOT_TIMEOUT = 5.0             # seconds to wait for RESP_READY after reset
 
 # ---------------------------------------------------------------------------
 # Known device IDs → (description, chip_size_in_bytes)
 # ---------------------------------------------------------------------------
 DEVICE_IDS: dict[tuple[int, int], tuple[str, int]] = {
-    (0xBF, 0xB5): ("SST39SF010A (1 Mbit, 128 KB)", 0x010000),
-    (0xBF, 0xB6): ("SST39SF020A (2 Mbit, 256 KB)", 0x020000),
-    (0xBF, 0xB7): ("SST39SF040  (4 Mbit, 512 KB)", 0x040000),
+    (0xBF, 0xB5): ("SST39SF010A (1 Mbit, 128 KB)", 0x020000),
+    (0xBF, 0xB6): ("SST39SF020A (2 Mbit, 256 KB)", 0x040000),
+    (0xBF, 0xB7): ("SST39SF040  (4 Mbit, 512 KB)", 0x080000),
 }
 
 
@@ -154,11 +163,24 @@ class Programmer:
 
     def write_chunk(self, address: int, data: bytes | bytearray):
         """Write up to 256 bytes.  The target area must already be erased."""
+        self.send_write(address, data)
+        self._expect_ok()
+
+    def send_write(self, address: int, data: bytes | bytearray):
+        """Send a write command without waiting for its ack (see _expect_ok)."""
         assert 1 <= len(data) <= 256, "Chunk must be 1–256 bytes"
         # len=0 on the wire encodes 256
         wire_len = len(data) & 0xFF
         self._ser.write(CMD_WRITE + self._addr_bytes(address) + bytes([wire_len]) + bytes(data))
+
+    def crc16(self, address: int, length: int) -> int:
+        """CRC-16/XMODEM of *length* bytes computed on the device."""
+        self._ser.timeout = 30
+        self._ser.write(CMD_CRC + self._addr_bytes(address) + self._addr_bytes(length))
+        hi, lo = self._recv(2)
         self._expect_ok()
+        self._ser.timeout = 10
+        return (hi << 8) | lo
 
     def read_chunk(self, address: int, length: int) -> bytes:
         """Read *length* bytes (1–65535) from the chip."""
@@ -174,11 +196,11 @@ class Programmer:
 
     def erase_sectors_for(self, image: bytearray):
         """Erase only the sectors that contain non-0xFF data."""
-        sectors = sorted({
-            addr // SECTOR_SIZE
-            for addr, byte in enumerate(image)
-            if byte != 0xFF
-        })
+        sectors = []
+        for sector in range((len(image) + SECTOR_SIZE - 1) // SECTOR_SIZE):
+            part = image[sector * SECTOR_SIZE:(sector + 1) * SECTOR_SIZE]
+            if part.count(0xFF) != len(part):
+                sectors.append(sector)
         if not sectors:
             print("Image is all 0xFF — nothing to erase.")
             return
@@ -190,30 +212,66 @@ class Programmer:
         print()
 
     def program(self, image: bytearray):
-        """Write *image* to the chip, skipping all-0xFF chunks."""
+        """Write *image* to the chip, skipping 0xFF runs (chip must be erased).
+
+        Up to WRITE_WINDOW write commands are kept in flight so the USB-serial
+        round-trip latency overlaps with programming.
+        """
         total   = len(image)
         written = 0
-        addr    = 0
+        pending = deque()          # sizes of unacknowledged chunks
+        done    = 0
+        t0      = time.monotonic()
 
         print(f"Programming {total:,} bytes...")
-        while addr < total:
-            chunk = image[addr: addr + CHUNK_SIZE]
-            if any(b != 0xFF for b in chunk):
-                self.write_chunk(addr, chunk)
-                written += len(chunk)
-            addr += len(chunk)
-            _progress(addr, total, prefix="  Write ")
-        print(f"\n  {written:,} bytes written ({total - written:,} skipped as 0xFF).")
+        for base in range(0, total, CHUNK_SIZE):
+            chunk = image[base: base + CHUNK_SIZE]
+            # Trim leading/trailing 0xFF — the chip is already blank there.
+            lo = len(chunk) - len(chunk.lstrip(b"\xff"))
+            hi = len(chunk.rstrip(b"\xff"))
+            if hi > lo:
+                self.send_write(base + lo, chunk[lo:hi])
+                pending.append(len(chunk))
+                written += hi - lo
+            else:
+                done += len(chunk)
+            while len(pending) >= WRITE_WINDOW:
+                self._expect_ok()
+                done += pending.popleft()
+            _progress(done, total, prefix="  Write ")
+        while pending:
+            self._expect_ok()
+            done += pending.popleft()
+        _progress(total, total, prefix="  Write ")
+        dt = time.monotonic() - t0
+        print(f"\n  {written:,} bytes written ({total - written:,} skipped as 0xFF) "
+              f"in {dt:.1f} s ({written / dt / 1024 if dt else 0:.1f} KB/s).")
 
     def verify(self, image: bytearray) -> bool:
-        """Read back and compare every byte.  Returns True if the chip matches."""
+        """Verify the chip against *image*.
+
+        Fast path: compare a CRC-16 computed on the device (no data crosses
+        the serial link).  On mismatch, read everything back to locate the
+        differing bytes.  Returns True if the chip matches.
+        """
+        total = len(image)
+        print(f"Verifying {total:,} bytes...")
+        t0 = time.monotonic()
+        expected_crc = binascii.crc_hqx(bytes(image), 0)
+        actual_crc = self.crc16(0, total)
+        if actual_crc == expected_crc:
+            print(f"  Verify OK (CRC-16 0x{actual_crc:04X}, {time.monotonic() - t0:.1f} s).")
+            return True
+        print(f"  CRC mismatch (expected 0x{expected_crc:04X}, got 0x{actual_crc:04X}) "
+              f"— reading back to locate errors...")
+        return self._verify_readback(image)
+
+    def _verify_readback(self, image: bytearray) -> bool:
         total  = len(image)
         errors = 0
         addr   = 0
-
-        print(f"Verifying {total:,} bytes...")
         while addr < total:
-            length   = min(CHUNK_SIZE, total - addr)
+            length   = min(READ_CHUNK, total - addr)
             actual   = self.read_chunk(addr, length)
             expected = image[addr: addr + length]
             for i, (e, a) in enumerate(zip(expected, actual)):
@@ -226,10 +284,9 @@ class Programmer:
                         return False
             addr += length
             _progress(addr, total, prefix="  Verify")
-
         print()
         if errors == 0:
-            print("  Verify OK.")
+            print("  Verify OK (CRC mismatch was spurious?) — readback matches.")
             return True
         print(f"  Verify FAILED — {errors} error(s).")
         return False
@@ -246,6 +303,56 @@ def _progress(done: int, total: int, prefix: str = ""):
 
 
 # ---------------------------------------------------------------------------
+# Bit re-routing
+# ---------------------------------------------------------------------------
+
+def load_reroute(path: str, width: int) -> list[tuple[int, int]]:
+    """
+    Load a re-routing scheme from a CSV with a "SRC, DEST" header.
+
+    Each row means: bit SRC of the word in the hex file is written as bit DEST.
+    Bits are numbered from 0 (LSB).  Raises ValueError on out-of-range or
+    duplicate destinations / sources.
+    """
+    pairs: list[tuple[int, int]] = []
+    with open(path, newline="") as fh:
+        for lineno, row in enumerate(csv.reader(fh), start=1):
+            row = [c.strip() for c in row]
+            if not row or not any(row):
+                continue
+            if lineno == 1 and not row[0].lstrip("-").isdigit():
+                continue                      # header
+            if len(row) < 2:
+                raise ValueError(f"{path}:{lineno}: expected 'SRC, DEST'")
+            src, dest = int(row[0], 0), int(row[1], 0)
+            for name, v in (("SRC", src), ("DEST", dest)):
+                if not 0 <= v < width:
+                    raise ValueError(
+                        f"{path}:{lineno}: {name} bit {v} out of range for "
+                        f"{width}-bit words")
+            pairs.append((src, dest))
+
+    for idx, label in ((0, "SRC"), (1, "DEST")):
+        seen = [p[idx] for p in pairs]
+        dups = sorted({b for b in seen if seen.count(b) > 1})
+        if dups:
+            raise ValueError(f"{path}: duplicate {label} bit(s): {dups}")
+    return pairs
+
+
+def apply_reroute(words: dict[int, int], pairs: list[tuple[int, int]]) -> dict[int, int]:
+    """Return a copy of *words* with each (src, dest) bit moved src -> dest.
+    Destination bits not named in *pairs* are 0."""
+    out: dict[int, int] = {}
+    for addr, value in words.items():
+        new = 0
+        for src, dest in pairs:
+            new |= ((value >> src) & 1) << dest
+        out[addr] = new
+    return out
+
+
+# ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
 
@@ -258,7 +365,10 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("file",      nargs="?", help="Logisim v3.0 hex image to program")
     p.add_argument("-b", "--baud",   type=int, default=BAUD_RATE, help=f"Baud rate (default {BAUD_RATE})")
     p.add_argument("--size",         type=lambda x: int(x, 0), default=None,
-                   help="Force image size in bytes, e.g. 0x20000 for 128 KB")
+                   help="Force the number of words (= bytes per chip) to program, e.g. 0x20000")
+    p.add_argument("--reroute", metavar="CSV",
+                   help="CSV of 'SRC, DEST' bit pairs: bit SRC of each word in the hex "
+                        "file is written as bit DEST (applied before splitting into chips)")
     p.add_argument("--identify",     action="store_true", help="Read chip IDs and exit")
     p.add_argument("--chip-erase",   action="store_true", help="Erase entire chip and exit")
     p.add_argument("--sector-erase", action="store_true",
@@ -306,32 +416,53 @@ def main():
         sys.exit(1)
 
     print(f"Loading {args.file} ...")
-    # Load without a size cap so multi-chip images are fully parsed.
-    # --size can still force a specific buffer length if needed.
-    image = load_hex(args.file, size=args.size)
-    print(f"  {len(image):,} bytes loaded.")
+    words, word_bytes = parse_words(args.file)
+    if not words:
+        print("ERROR: The hex file contains no data.")
+        prog.close()
+        sys.exit(1)
 
-    # -- Split image into per-chip slices -----------------------------------
-    # Each chip receives a slice of chip_size bytes at the same addresses
-    # (0x00000 … chip_size-1).  The user swaps the physical chip between
-    # slices so the programmer never needs to know which socket it is.
+    # Number of addresses each chip must hold.  Every chip stores one byte
+    # per word, so this is the same for all chips.
+    depth = args.size if args.size is not None else max(words) + 1
+    print(f"  {len(words):,} word(s) of {word_bytes * 8} bits, "
+          f"address span 0x0 – 0x{depth - 1:X} ({depth:,} addresses).")
+
+    # -- Check the address span fits on one chip -----------------------------
     if chip_size is None:
-        # Unknown chip — treat the whole image as a single slice and hope
-        # for the best; the user was already warned above.
-        slices = [image]
-    else:
-        slices = [
-            image[start: start + chip_size]
-            for start in range(0, len(image), chip_size)
-        ]
-        # Pad the last slice to a full chip_size with 0xFF so erase/verify
-        # comparisons are always against a complete chip image.
-        if len(slices[-1]) < chip_size:
-            slices[-1] = slices[-1] + bytearray(b"\xff" * (chip_size - len(slices[-1])))
+        print("WARNING: Unknown chip size — cannot check that the address span fits.")
+    elif depth > chip_size:
+        print(f"ERROR: The image needs {depth:,} addresses (0x0 – 0x{depth - 1:X}) "
+              f"but {desc} only holds {chip_size:,} bytes (0x0 – 0x{chip_size - 1:X}).")
+        print("       Nothing was programmed.")
+        prog.close()
+        sys.exit(1)
 
+    # -- Bit re-routing ------------------------------------------------------
+    if args.reroute:
+        width = word_bytes * 8
+        try:
+            pairs = load_reroute(args.reroute, width)
+        except (OSError, ValueError) as e:
+            print(f"ERROR: {e}")
+            prog.close()
+            sys.exit(1)
+        if len(pairs) != width:
+            print(f"WARNING: scheme maps {len(pairs)} of {width} bits; "
+                  f"unmapped destination bits will be 0.")
+        words = apply_reroute(words, pairs)
+        print(f"Applied bit re-routing from {args.reroute} ({len(pairs)} bit(s)).")
+
+    # -- Split image into per-chip byte lanes --------------------------------
+    # Each chip stores a single byte of every word, so a word_bytes-wide
+    # image needs word_bytes chips.  Chip 1 gets the most significant byte,
+    # the last chip the least significant; all are programmed at the same
+    # addresses.  The user swaps the physical chip between lanes so the
+    # programmer never needs to know which socket it is.
+    slices = to_lanes(words, word_bytes, depth)
     n_chips = len(slices)
     if n_chips > 1:
-        print(f"Image spans {n_chips} chip(s) of {chip_size:,} bytes each.")
+        print(f"Data is {word_bytes * 8} bits wide — needs {n_chips} chips (one byte each).")
 
     # -- Program each chip --------------------------------------------------
     for chip_index, chunk in enumerate(slices):
@@ -351,10 +482,10 @@ def main():
                 sys.exit(1)
             print(f"─" * 60)
 
+        hi_bit = (n_chips - chip_index) * 8 - 1
         print(f"\n[ Chip {chip_index + 1}/{n_chips} ]"
-              f"  bytes 0x{chip_index * (chip_size or 0):05X}"
-              f" – 0x{chip_index * (chip_size or 0) + len(chunk) - 1:05X}"
-              f" of image")
+              f"  data bits {hi_bit}–{hi_bit - 7},"
+              f" addresses 0x0 – 0x{len(chunk) - 1:X}")
 
         # Erase
         if args.sector_erase:

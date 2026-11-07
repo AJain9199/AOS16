@@ -34,6 +34,20 @@ uint8_t flash_read(uint32_t address);
 bool flash_write_byte(uint32_t address, uint8_t data);
 
 // ---------------------------------------------------------------------------
+// Program a block of bytes (0xFF bytes are skipped).  Much faster than
+// calling flash_write_byte() in a loop: the bus stays in output mode and the
+// next unlock address is preloaded during the program wait.
+// ---------------------------------------------------------------------------
+bool flash_write_block(uint32_t address, const uint8_t *buf, uint16_t len);
+
+// Read 'len' bytes starting at 'address' into 'buf'.
+void flash_read_block(uint32_t address, uint8_t *buf, uint16_t len);
+
+// CRC-16/XMODEM (poly 0x1021, init 0) of 'len' bytes starting at 'address'.
+// Matches Python's binascii.crc_hqx(data, 0).
+uint16_t flash_crc16(uint32_t address, uint32_t len);
+
+// ---------------------------------------------------------------------------
 // Erase the 4 KB sector that contains 'address'.
 // Returns true on success, false on timeout (>200 ms).
 // ---------------------------------------------------------------------------
