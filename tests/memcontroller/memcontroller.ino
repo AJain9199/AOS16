@@ -43,12 +43,10 @@ void loadAddr(uint16_t addr) {
   digitalWrite(MAL, 1);
 }
 
-void checkROM() {
-  Serial.print("Begun ROM test (using hash)");
-  digitalWrite(RSE, 1);
+void readCheck() {
   digitalWrite(CRE, 1);
   
-  for (uint16_t i = 0; i < 0xffff; i++) {
+  for (uint16_t i = 0; i < 0x7fff; i++) {
     loadAddr(i);
     if (i % 1000 == 0) {
       Serial.print(".");
@@ -73,7 +71,36 @@ void checkROM() {
     digitalWrite(CRE, 1);
   }
 
-  Serial.println("\nTests complete.");
+  Serial.println("\nTests complete."); 
+}
+
+void checkROM() {
+  Serial.print("Begun ROM test (using hash)...");
+  digitalWrite(RSE, 1);
+  readCheck();
+}
+
+void checkRAM() {
+  Serial.print("Begun RAM test (using hash)...\n");
+  digitalWrite(RSE, 0);
+
+  Serial.print("Writing...");
+  for (uint16_t i = 0; i < 0x7fff; i++) {
+    loadAddr(i);
+    writeData(mangler(i));
+    
+    if (i % 1000 == 0) {
+      Serial.print(".");
+    }
+
+    digitalWrite(CWE, 0);
+    delayMicroseconds(1);
+    digitalWrite(CWE, 1);
+  }
+  
+  Serial.print("\nReading...");
+
+  readCheck();
 }
 
 void setup() {
@@ -89,7 +116,7 @@ void setup() {
   digitalWrite(CRE, 1);
   digitalWrite(CWE, 1);
   digitalWrite(RSE, 1);
-  checkROM();
+  checkRAM();
 }
 
 void loop() {}
