@@ -13,9 +13,15 @@ uint16_t readData() {
   SETMODE(INPUT);
   uint16_t data = 0;
   for (int i = 2; i < 18; i++) {
-    data |= (digitalRead(i) << (i-2));
+    data |= ((uint16_t)digitalRead(i) << (i-2));
+
   }
   return data;
+}
+
+uint16_t mangler(uint16_t input) {
+  uint64_t tmp = (uint64_t) input;
+  return (uint16_t) ((tmp * 0x9E37 ^ (tmp >> 3)) & 0xffff);
 }
 
 #define MAL 19
@@ -25,35 +31,65 @@ uint16_t readData() {
 #define DBS 27
 #define CLK 29
 
+void loadAddr(uint16_t addr) {
+  digitalWrite(CLK, 0);
+  writeData(addr);
+  digitalWrite(MAL, 1);
+
+  digitalWrite(CLK, 1);
+
+
+  digitalWrite(CLK, 0);
+  digitalWrite(MAL, 1);
+}
+
+void checkROM() {
+  Serial.print("Begun ROM test (using hash)");
+  digitalWrite(RSE, 1);
+  digitalWrite(CRE, 1);
+  
+  for (uint16_t i = 0; i < 0xffff; i++) {
+    loadAddr(i);
+    if (i % 1000 == 0) {
+      Serial.print(".");
+    }
+
+    SETMODE(INPUT);
+    digitalWrite(CRE, 0);
+
+    uint16_t data = readData();
+
+    if (data != mangler(i)) {
+
+    Serial.print("At address ");
+    Serial.print(i);
+    Serial.print(" | Expected ");
+    Serial.print(mangler(i));
+    Serial.print(" got ");
+    Serial.print(data);
+     Serial.print(" xor ");  Serial.println(data ^
+  mangler(i), HEX);
+    }
+    digitalWrite(CRE, 1);
+  }
+
+  Serial.println("\nTests complete.");
+}
+
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   pinMode(MAL, OUTPUT);
   pinMode(CLK, OUTPUT);
 
   pinMode(CRE, OUTPUT);
   pinMode(CWE, OUTPUT);
+  pinMode(RSE, OUTPUT);
+  pinMode(DBS, OUTPUT);
 
   digitalWrite(CRE, 1);
   digitalWrite(CWE, 1);
   digitalWrite(RSE, 1);
-
-    digitalWrite(CLK, 0);
-  digitalWrite(MAL, 0);
-
-  writeData(0x1010);
-  digitalWrite(MAL, 1);
-  
-  digitalWrite(CLK, 1);
-
-  delay(1);
-
-  digitalWrite(CLK, 0);
-
-  SETMODE(INPUT);
-
-  digitalWrite(CRE, 0);
-
-  Serial.println(readData());
+  checkROM();
 }
 
 void loop() {}
