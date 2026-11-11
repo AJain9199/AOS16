@@ -1,5 +1,5 @@
 return {
-  board = "arduino:avr:uno",
-  port = "/dev/ttyUSB0",
+  board = "arduino:avr:mega",
+  port = "/dev/cu.usbserial-130",
   baudrate = "115200",
 }

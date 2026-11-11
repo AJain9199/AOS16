@@ -1,5 +1,14 @@
 # Double Buffer
-The double buffer is one of the most complicated PCBs in the project. It serves the important function of facilitating data transfer between the CPU and GPU.
+The double buffer is one of the most complicated PCBs in the project. It is a RAM module that serves the important function of facilitating data transfer between the CPU and GPU.
+
+The PCB has two access ports, each consisting of an address and I/O port and 2 control signals to interface with the single RAM chip. The SWP signal determines which port gets to access the memory. 
+
+In the final setup, 2 of these double buffer boards are stacked on top of each other such that they share all inputs and outputs except the SWP signal. The two boards get opposite SWP lines, allowing both ports to access their designated RAM chip. If the SWP line inverts, the physical chip the ports access is exchanged. Both ports can access data written by the other. 
+
+In deployment, one port connects to the AOS CPU while the other connects to the GPU. The CPU writes frame-buffer data and then flips the SWP using a special `swp` instruction, effectively acting as a hardware double-buffer for the video data.
+
+![](Screenshot%202026-09-30%20at%2012.17.58%20PM.png)
+
 
 ```mermaid
 flowchart LR
@@ -38,3 +47,5 @@ flowchart LR
     linkStyle 14 stroke:#aaaaaa,color:#888888
     %% mermaid-flow:pos ADDR0=292,326 IO0=295,462 buf1=482,329 buf2=482,462 sram=693,404 ADDR1=1056,323 IO1=1059,465 buf3=887,323 buf4=884,465 ctrl=689,899 nr0=302,1107 nw0=302,977 nr1=302,847 nw1=302,717 swp=302,587
 ```
+
+ 

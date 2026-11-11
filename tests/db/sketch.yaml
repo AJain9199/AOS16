@@ -1,2 +1,2 @@
-fqbn: arduino:avr:uno
-port: /dev/ttyUSB0
+default_fqbn: arduino:avr:uno
+default_port: /dev/ttyUSB0
