@@ -1380,7 +1380,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Device:C"
+		(symbol "Device:C_Polarized"
 			(pin_numbers
 				(hide yes)
 			)
@@ -1399,7 +1399,7 @@
 					(justify left)
 				)
 			)
-			(property "Value" "C"
+			(property "Value" "C_Polarized"
 				(at 0.635 -2.54 0)
 				(effects
 					(font
@@ -1426,7 +1426,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Unpolarized capacitor"
+			(property "Description" "Polarized capacitor"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1444,7 +1444,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_fp_filters" "C_*"
+			(property "ki_fp_filters" "CP_*"
 				(at 0 0 0)
 				(effects
 					(font
@@ -1453,13 +1453,12 @@
 					(hide yes)
 				)
 			)
-			(symbol "C_0_1"
-				(polyline
-					(pts
-						(xy -2.032 0.762) (xy 2.032 0.762)
-					)
+			(symbol "C_Polarized_0_1"
+				(rectangle
+					(start -2.286 0.508)
+					(end 2.286 1.016)
 					(stroke
-						(width 0.508)
+						(width 0)
 						(type default)
 					)
 					(fill
@@ -1468,18 +1467,41 @@
 				)
 				(polyline
 					(pts
-						(xy -2.032 -0.762) (xy 2.032 -0.762)
+						(xy -1.778 2.286) (xy -0.762 2.286)
 					)
 					(stroke
-						(width 0.508)
+						(width 0)
 						(type default)
 					)
 					(fill
 						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 2.794) (xy -1.27 1.778)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start 2.286 -0.508)
+					(end -2.286 -1.016)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
 					)
 				)
 			)
-			(symbol "C_1_1"
+			(symbol "C_Polarized_1_1"
 				(pin passive line
 					(at 0 3.81 270)
 					(length 2.794)
@@ -2115,6 +2137,12 @@
 		(uuid "7bdf5521-4d9a-432d-b7e0-c2ff550e822e")
 	)
 	(junction
+		(at 67.945 147.32)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7df04462-4e8e-4aa5-8c1d-ea91ecb34a08")
+	)
+	(junction
 		(at 120.65 127.635)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2139,6 +2167,18 @@
 		(uuid "a8fcf7d6-5be2-43dd-971a-f2c07fd59839")
 	)
 	(junction
+		(at 87.63 149.86)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c6439863-a58a-4e08-ab74-86126975b77b")
+	)
+	(junction
+		(at 101.6 147.32)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "cc513649-829b-43e0-8dce-c788c68343e8")
+	)
+	(junction
 		(at 99.695 88.265)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2155,6 +2195,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e83f3fa8-7833-4a13-a6e9-0c94022128fd")
+	)
+	(junction
+		(at 121.285 149.86)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ee05cb6d-8ddd-4324-93d3-1718ce9d0251")
 	)
 	(junction
 		(at 67.945 127.635)
@@ -2348,6 +2394,16 @@
 	)
 	(wire
 		(pts
+			(xy 118.745 149.86) (xy 121.285 149.86)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0a8e9246-d218-4aa1-90e3-ab8d05df0353")
+	)
+	(wire
+		(pts
 			(xy 76.835 57.785) (xy 81.28 57.785)
 		)
 		(stroke
@@ -2388,6 +2444,16 @@
 	)
 	(wire
 		(pts
+			(xy 67.945 140.335) (xy 67.945 147.32)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "18553607-9ada-4785-bfd9-bb508fdd2aa6")
+	)
+	(wire
+		(pts
 			(xy 67.945 120.65) (xy 86.995 120.65)
 		)
 		(stroke
@@ -2405,6 +2471,16 @@
 			(type default)
 		)
 		(uuid "1b8b15cc-4366-48ee-8bdd-478c21058915")
+	)
+	(wire
+		(pts
+			(xy 87.63 147.32) (xy 87.63 149.86)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1c54f80f-99f5-4e96-8a37-d06868d96f52")
 	)
 	(wire
 		(pts
@@ -2558,6 +2634,16 @@
 	)
 	(wire
 		(pts
+			(xy 101.6 140.335) (xy 101.6 147.32)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "45204222-1264-4f0f-97d7-26020a421cb7")
+	)
+	(wire
+		(pts
 			(xy 86.995 130.175) (xy 85.09 130.175)
 		)
 		(stroke
@@ -2595,6 +2681,16 @@
 			(type default)
 		)
 		(uuid "5596baf4-6029-48d4-bc2e-0fd8b8b97468")
+	)
+	(wire
+		(pts
+			(xy 87.63 149.86) (xy 87.63 154.94)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5773a9c7-89aa-43c4-bf67-f4332fb931f1")
 	)
 	(bus
 		(pts
@@ -2718,6 +2814,16 @@
 	)
 	(wire
 		(pts
+			(xy 85.09 149.86) (xy 87.63 149.86)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "716252e3-7a83-4c25-b813-26d03e99d45a")
+	)
+	(wire
+		(pts
 			(xy 99.06 71.755) (xy 99.06 74.295)
 		)
 		(stroke
@@ -2745,6 +2851,16 @@
 			(type default)
 		)
 		(uuid "7b19cafc-6fae-4d5e-bf17-c2aea6529d7b")
+	)
+	(wire
+		(pts
+			(xy 67.945 147.32) (xy 67.945 149.86)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7d638fda-842f-4726-a297-a72a71f02991")
 	)
 	(wire
 		(pts
@@ -2825,6 +2941,16 @@
 			(type default)
 		)
 		(uuid "a4e05485-a03a-4a19-b313-eb12b59e4938")
+	)
+	(wire
+		(pts
+			(xy 101.6 149.86) (xy 106.045 149.86)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a61bff75-ec27-497c-a212-e4bf7bfea809")
 	)
 	(wire
 		(pts
@@ -2918,6 +3044,16 @@
 	)
 	(wire
 		(pts
+			(xy 118.745 147.32) (xy 121.285 147.32)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c3db4238-85fb-4691-83d7-997c6f4c9c4e")
+	)
+	(wire
+		(pts
 			(xy 67.945 127.635) (xy 67.945 130.175)
 		)
 		(stroke
@@ -2956,6 +3092,16 @@
 		)
 		(uuid "c88b52d9-ea40-4deb-bdcc-68caac7fae2e")
 	)
+	(wire
+		(pts
+			(xy 101.6 147.32) (xy 101.6 149.86)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c895e958-d71b-4014-b610-2465c3afc39c")
+	)
 	(bus
 		(pts
 			(xy 97.155 36.83) (xy 97.155 24.765)
@@ -2965,6 +3111,16 @@
 			(type default)
 		)
 		(uuid "c8a09c29-e343-493f-a6c2-bc879b72d9ac")
+	)
+	(wire
+		(pts
+			(xy 121.285 149.86) (xy 121.285 154.94)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c8d34224-7781-4579-8675-0fd8f0c75269")
 	)
 	(wire
 		(pts
@@ -3026,6 +3182,16 @@
 		)
 		(uuid "d3da86f6-248c-4b50-977f-04370e6393e6")
 	)
+	(wire
+		(pts
+			(xy 101.6 147.32) (xy 106.045 147.32)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d8e19792-8cdb-4525-87dd-2c58b95218bf")
+	)
 	(bus
 		(pts
 			(xy 88.9 24.765) (xy 91.44 24.765)
@@ -3078,6 +3244,16 @@
 	)
 	(wire
 		(pts
+			(xy 67.945 147.32) (xy 72.39 147.32)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dfa39d3c-2453-4a62-8f78-7ad4b0b5eeec")
+	)
+	(wire
+		(pts
 			(xy 76.835 62.865) (xy 81.28 62.865)
 		)
 		(stroke
@@ -3095,6 +3271,16 @@
 			(type default)
 		)
 		(uuid "e975a2b9-4979-41aa-8e7b-5b326e53448c")
+	)
+	(wire
+		(pts
+			(xy 85.09 147.32) (xy 87.63 147.32)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ea50f822-cbc3-459c-8329-6927d5d7196b")
 	)
 	(wire
 		(pts
@@ -3126,6 +3312,16 @@
 		)
 		(uuid "ed75477f-7e75-4cf4-ac06-2dd7c02fd366")
 	)
+	(wire
+		(pts
+			(xy 67.945 149.86) (xy 72.39 149.86)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f13d4c4b-fddf-457b-9fef-d5e045f1c75d")
+	)
 	(bus
 		(pts
 			(xy 83.82 27.305) (xy 83.82 24.765)
@@ -3135,6 +3331,16 @@
 			(type default)
 		)
 		(uuid "f1bd739e-9a29-4891-a444-41c577b56c35")
+	)
+	(wire
+		(pts
+			(xy 121.285 147.32) (xy 121.285 149.86)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f27ec865-04c7-450b-96cf-23811cd17872")
 	)
 	(bus
 		(pts
@@ -4173,6 +4379,72 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 87.63 154.94 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "1f70528f-1dce-43e0-924e-4a913e16d27c")
+		(property "Reference" "#PWR08"
+			(at 87.63 161.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 87.63 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 87.63 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 87.63 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 87.63 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "bcea02d6-655a-4e77-a70f-afdec4404c32")
+		)
+		(instances
+			(project ""
+				(path "/97848b8b-aa21-4980-8e9f-e1a5754953c7"
+					(reference "#PWR08")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+5V")
 		(at 101.6 118.11 0)
 		(unit 1)
@@ -4305,16 +4577,16 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:C")
+		(lib_id "Device:C_Polarized")
 		(at 157.48 31.115 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "53bee732-fc20-482e-8f40-f208b7ad5145")
+		(uuid "3f721478-17f5-4a69-89d4-81c20174e3c1")
 		(property "Reference" "C1"
-			(at 158.496 28.956 0)
+			(at 160.528 28.956 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4323,7 +4595,7 @@
 			)
 		)
 		(property "Value" "100uF"
-			(at 158.496 33.782 0)
+			(at 160.528 31.496 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4349,7 +4621,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Unpolarized capacitor"
+		(property "Description" "Polarized capacitor"
 			(at 157.48 31.115 0)
 			(effects
 				(font
@@ -4359,15 +4631,81 @@
 			)
 		)
 		(pin "2"
-			(uuid "5b3cdbd0-fc46-49f6-88db-a79e4f2863d3")
+			(uuid "9a023a68-22ce-4a46-8153-9a7f69ced946")
 		)
 		(pin "1"
-			(uuid "73a410de-07de-4b1f-b907-7d97318cd302")
+			(uuid "770240f8-3fc4-4164-a0fa-95d8ad139154")
 		)
 		(instances
 			(project ""
 				(path "/97848b8b-aa21-4980-8e9f-e1a5754953c7"
 					(reference "C1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+5V")
+		(at 101.6 140.335 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "53f4693f-61c6-443f-80a6-fff6fc276be2")
+		(property "Reference" "#PWR09"
+			(at 101.6 144.145 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 101.6 135.255 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 101.6 140.335 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 101.6 140.335 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 101.6 140.335 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d1849c56-21a0-4c92-9e96-a1249586da8b")
+		)
+		(instances
+			(project "Bus Connector"
+				(path "/97848b8b-aa21-4980-8e9f-e1a5754953c7"
+					(reference "#PWR09")
 					(unit 1)
 				)
 			)
@@ -4872,6 +5210,80 @@
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_02x02_Counter_Clockwise")
+		(at 77.47 147.32 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "9349e181-e7e0-4e33-81eb-adb4880c2237")
+		(property "Reference" "J11"
+			(at 78.74 141.605 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Conn_02x02_Counter_Clockwise"
+			(at 78.74 144.145 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_2x02_P2.54mm_Vertical"
+			(at 77.47 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 77.47 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, double row, 02x02, counter clockwise pin numbering scheme (similar to DIP package numbering), script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 77.47 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "4"
+			(uuid "b296a675-ceab-469a-8ce6-ccf9e9db40a1")
+		)
+		(pin "1"
+			(uuid "c2a29f79-f6f1-4f5e-8464-99ea61d48d4a")
+		)
+		(pin "2"
+			(uuid "507df274-9111-4ccc-aa85-d7776faedd43")
+		)
+		(pin "3"
+			(uuid "b8982b9b-b6a4-43a6-9a22-17fc0d1771a5")
+		)
+		(instances
+			(project ""
+				(path "/97848b8b-aa21-4980-8e9f-e1a5754953c7"
+					(reference "J11")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_02x02_Counter_Clockwise")
 		(at 77.47 127.635 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -5018,6 +5430,72 @@
 			(project ""
 				(path "/97848b8b-aa21-4980-8e9f-e1a5754953c7"
 					(reference "D1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 121.285 154.94 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b2cc7c70-75e7-4608-bea1-41e6339f2534")
+		(property "Reference" "#PWR010"
+			(at 121.285 161.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 121.285 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 121.285 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 121.285 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 121.285 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5a59e1ae-7332-4718-887a-19fc6c4dcf67")
+		)
+		(instances
+			(project "Bus Connector"
+				(path "/97848b8b-aa21-4980-8e9f-e1a5754953c7"
+					(reference "#PWR010")
 					(unit 1)
 				)
 			)
@@ -5243,6 +5721,146 @@
 			(project "Bus Connector"
 				(path "/97848b8b-aa21-4980-8e9f-e1a5754953c7"
 					(reference "J10")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+5V")
+		(at 67.945 140.335 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "e7df3a2e-e548-4397-beae-f8a49b0ae44b")
+		(property "Reference" "#PWR07"
+			(at 67.945 144.145 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 67.945 135.255 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 67.945 140.335 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 67.945 140.335 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 67.945 140.335 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "63266bf7-6e42-43e3-ad97-d044662d60ed")
+		)
+		(instances
+			(project "Bus Connector"
+				(path "/97848b8b-aa21-4980-8e9f-e1a5754953c7"
+					(reference "#PWR07")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_02x02_Counter_Clockwise")
+		(at 111.125 147.32 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f3467809-2082-4572-9119-c0683285ccd4")
+		(property "Reference" "J12"
+			(at 112.395 141.605 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Conn_02x02_Counter_Clockwise"
+			(at 112.395 144.145 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_2x02_P2.54mm_Vertical"
+			(at 111.125 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 111.125 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, double row, 02x02, counter clockwise pin numbering scheme (similar to DIP package numbering), script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 111.125 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "4"
+			(uuid "f96c8463-603a-4360-9f98-b4e729fbda0e")
+		)
+		(pin "1"
+			(uuid "e307b8bb-db5c-4803-9d65-0e6bd9728e75")
+		)
+		(pin "2"
+			(uuid "08081aed-abf9-42ef-a8c8-7f22ba44a405")
+		)
+		(pin "3"
+			(uuid "5d09ea47-343b-4001-aff9-b228810a96cd")
+		)
+		(instances
+			(project "Bus Connector"
+				(path "/97848b8b-aa21-4980-8e9f-e1a5754953c7"
+					(reference "J12")
 					(unit 1)
 				)
 			)
