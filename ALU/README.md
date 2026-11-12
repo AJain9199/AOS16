@@ -52,7 +52,7 @@ flowchart LR
 
 ## Carry Generation
 
-Since each 74LS181 chip only handles 4 bits, 4 of these chips need to be used together. Instead of cascading them using the built-in carry outputs, I used full look-ahead carry generation which is more than 2x faster ([sn54s181](sn54s181.pdf)) (realistically both are fine at the speeds this works at, this is simply future/idiot proofing) But I couldn't find the carry generation chip, the 182, so I replicated the internal circuit using discrete (A)HCT gates ([sn54s182](sn54s182.pdf)).
+Since each 74LS181 chip only handles 4 bits, 4 of these chips need to be used together. Instead of cascading them using the built-in carry outputs, I used full look-ahead carry generation which is more than 2x faster ([sn54s181](../datasheets/sn54s181.pdf)) (realistically both are fine at the speeds this works at, this is simply future/idiot proofing) But I couldn't find the carry generation chip, the 182, so I replicated the internal circuit using discrete (A)HCT gates ([sn54s182](../datasheets/sn54s182.pdf)).
 
 ![Circuit diagram](../pictures/Pasted%20image%2020260929200735.png)
 
@@ -63,7 +63,7 @@ The 181s need both A and B inputs driven at the same time to function correctly.
 
 ![](../pictures/Pasted%20image%2020260929201826.png)
 
-Inputs are latched at the rising edge. The AHCT16374's ([sn74ahct16374](sn74ahct16374.pdf)) are asynchronous, so the latching input is and'ed with the clock to make them "synchronous."
+Inputs are latched at the rising edge. The AHCT16374's ([sn74ahct16374](../datasheets/sn74ahct16374.pdf)) are asynchronous, so the latching input is and'ed with the clock to make them "synchronous."
 
 ## Iterations
 - v1.0: The control signals on the 16374 were routed wrong due to a schematic symbol mismatch
