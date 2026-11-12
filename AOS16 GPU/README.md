@@ -96,3 +96,9 @@ The 7 lower bits of the counter are used as ADDR\[0..7].
 ```c
 uint16_t *pixel = 0x7FFF + y*pitch + x
 ```
+
+
+## Test Video
+
+https://github.com/user-attachments/assets/5f555ebd-57f7-4c56-b4e2-e7593a60e567
+
